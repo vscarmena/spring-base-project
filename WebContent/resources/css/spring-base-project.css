@@ -1,0 +1,23 @@
+.error {
+	color: #a94442;
+}
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+abbr[title] {
+    border-bottom: none;
+}
+.required {
+	color: #a94442;
+}
+.form-intro {
+	margin-bottom: 2em;
+	color: grey;
+	font-size: 0.9em;
+}
+i.fa {
+	margin-right: 0.5em;
+}
+.clickable-row {
+	cursor: pointer;
+}

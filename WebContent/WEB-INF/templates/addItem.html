@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <title th:text="#{title.page.items}"></title>
+</head>
+<body>
+  <header layout:fragment="header">
+  	<div class="container">
+		<div class="page-header">
+    		<h1 th:text="#{title.page.items}"></h1>
+    	</div>
+    </div>
+  </header>
+		<div class="container" layout:fragment="content">
+			<div class="row">
+				<form action="#" th:action="@{/items/add}" th:object="${item}" method="post" class="form-horizontal">
+					<div class="form-group" th:classappend=="${#fields.hasErrors('name')} ? has-error">
+						<label for="name" class="col-sm-3 control-label" >Name<abbr class="required" title="required"> * </abbr></label>
+						<div class="col-sm-4">
+							<input type="text" th:field="*{name}" class="form-control"/>
+						</div>
+						<div class="col-sm-5">
+							<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error">Name error</p>
+						</div>
+					</div>
+					<div class="form-group col-sm-7 text-right">
+						<button type="submit" class="btn btn-primary">
+							<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							Save
+						</button>
+					</div>
+				</form>
+		   	</div>
+		</div>
+</body>
+</html>

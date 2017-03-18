@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}">
+<head>
+    <title th:text="#{title.hello}"></title>
+    <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+
+    <h2 th:text="#{title.hello} + ' ' + ${name} + '!'"> </h2>
+
+</div>
+<!-- /container -->
+<script th:src="@{/resources/js/jquery.min.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+</body>
+</html>

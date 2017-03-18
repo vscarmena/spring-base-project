@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/spring-base-project.css}" rel="stylesheet"/>
+  	<title>Layout page</title>
+</head>
+<body>
+  	<nav th:replace="layouts/fragments/navbar :: navbar"> 
+  		Navbar
+	</nav>
+	<header layout:fragment="header">
+		<p>Header</p>
+  	</header>
+  	<div class="container" layout:fragment="content">
+    	<p>Content</p>
+  	</div> 
+</body>
+<script th:src="@{/resources/js/jquery.min.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<script th:src="@{/resources/js/spring-base-project.js}"></script>
+</html>
