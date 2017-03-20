@@ -8,4 +8,5 @@ import tech.tarragona.spring.model.Caravana;
 @Repository
 public interface CaravanaRepository extends JpaRepository <Caravana, String> {
 
+	Caravana findByPlate(String plate);
 }
