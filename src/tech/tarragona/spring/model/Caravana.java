@@ -1,7 +1,16 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 
 /**
@@ -20,14 +29,17 @@ public class Caravana implements Serializable {
 	private int adults;
 
 	private int babys;
-
+	//@NotEmpty
+	//@Size(min=5, max=50)
 	private String brand;
-
+	//@NotEmpty
+	//@Range(min=1900, max=2017)
 	@Column(name="construction_year")
 	private int constructionYear;
 
 	private int kids;
-
+	//@NotEmpty
+	//@Size(min=5, max=50)
 	private String model;
 
 	//bi-directional many-to-one association to Caracteristica
