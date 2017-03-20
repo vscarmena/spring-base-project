@@ -3,6 +3,8 @@ package tech.tarragona.spring.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 /**
  * The persistent class for the caravanas database table.
@@ -14,20 +16,20 @@ public class Caravana implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@NotEmpty
 	private String plate;
-
+	@NotEmpty
 	private int adults;
-
+	@NotEmpty
 	private int babys;
-
+	@NotEmpty
 	private String brand;
-
+	@NotEmpty
 	@Column(name="construction_year")
 	private int constructionYear;
-
+	@NotEmpty
 	private int kids;
-
+	@NotEmpty
 	private String model;
 
 	//bi-directional many-to-one association to Caracteristica

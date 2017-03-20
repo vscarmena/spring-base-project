@@ -1,22 +1,22 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-/**
- * The persistent class for the normas database table.
- * 
- */
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name="normas")
-@NamedQuery(name="Norma.findAll", query="SELECT n FROM Norma n")
 public class Norma implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	
+	@NotEmpty
 	private int id;
 
 	private byte kids;
