@@ -5,11 +5,6 @@ import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-
-/**
- * The persistent class for the caravanas database table.
- * 
- */
 @Entity
 @Table(name="caravanas")
 public class Caravana implements Serializable {
