@@ -56,18 +56,75 @@
 							th:errors="*{constructionYear}" class="error">Name error</p>
 					</div>
 				</div>
-				
+
 				<div class="form-group" th:classappend=="${#fields.hasErrors('plate')} ? has-error">
-					<label for="plate" class="col-sm-3 control-label">plate
-						<abbr class="required" title="required"> * </abbr>
+					<label for="plate" class="col-sm-3 control-label">plate <abbr
+						class="required" title="required"> * </abbr>
 					</label>
 					<div class="col-sm-4">
-						<input type="text" th:field="*{plate}"
-							class="form-control" />
+						<input type="text" th:field="*{plate}" class="form-control" />
 					</div>
 					<div class="col-sm-5">
-						<p th:if="${#fields.hasErrors('plate')}"
-							th:errors="*{plate}" class="error">Name error</p>
+						<p th:if="${#fields.hasErrors('plate')}" th:errors="*{plate}"
+							class="error">Name error</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="adults" class="col-sm-3 control-label">Adultos<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<select th:field="*{adults}" class="form-control">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="kids" class="col-sm-3 control-label">Niños<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<select th:field="*{kids}" class="form-control">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="babys" class="col-sm-3 control-label">Bebes<abbr
+						class="required" title="required"> * </abbr>
+					</label>
+					<div class="col-sm-4">
+						<select th:field="*{babys}" class="form-control">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
 					</div>
 				</div>
 
@@ -75,7 +132,7 @@
 					<button type="submit" class="btn btn-primary">
 						<i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
 					</button>
-					</div>
+				</div>
 			</form>
 </body>
 </html>

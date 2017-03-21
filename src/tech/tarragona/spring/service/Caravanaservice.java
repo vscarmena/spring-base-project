@@ -30,13 +30,16 @@ public class Caravanaservice {
 	}
 
 	@Transactional
-	public void seleccionarPersonas(int adults, int babys, int kids, Caravana caravana)
+	public void seleccionarPersonas(Caravana caravana, BindingResult result)
 	{
-		caravana.setAdults(adults);
-		caravana.setBabys(babys);
-		caravana.setKids(kids);
+			caravana = caravanaRepository.findByPlate(caravana.getPlate());
+			
+			caravana.setAdults(caravana.getAdults());
+			caravana.setBabys(caravana.getBabys());
+			caravana.setKids(caravana.getKids());
+			
+			caravanaRepository.save(caravana);
+		}
 		
-		caravanaRepository.save(caravana);
+		
 	}
-	
-}

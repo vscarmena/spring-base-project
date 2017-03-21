@@ -29,20 +29,12 @@ public class CaravanaController {
 	}
 	@PostMapping("/caravana")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
-
 		caravanaservice.addCaravana(caravana);
+		
+		caravanaservice.seleccionarPersonas(caravana, result);
+		
+		model.addAttribute("caravana", caravana);
+		
 		return "paginaDePruebas";
-	}
-	
-	@PostMapping("/caravana")
-	public String seleccionarPersonas(Caravana caravana, BindingResult result, Model model)
-	{
-		int adults = caravana.getAdults();
-		int kids = caravana.getKids();
-		int babys = caravana.getBabys();
-		
-		caravanaservice.seleccionarPersonas(adults, babys, kids, caravana);
-		
-		return "gestionCaravana";
 	}
 }
