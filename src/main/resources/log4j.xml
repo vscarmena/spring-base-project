@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.examples.spring">
+	<logger name="tech.tarragona">
 		<level value="debug" />
 	</logger>
 	
@@ -25,11 +25,11 @@
 	</logger>
 	
 	<logger name="org.springframework.context">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 
 	<logger name="org.springframework.web">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 	
 	<logger name="org.springframework.security">
@@ -38,7 +38,7 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="info" />
 		<appender-ref ref="console" />
 	</root>
 	

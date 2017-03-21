@@ -41,7 +41,7 @@ public class DataConfig {
 	    LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 	    entityManagerFactory.setJpaVendorAdapter(getEclipseLinkJpaVendorAdapter());
 	    Map<String, Object> jpaProperties = new Hashtable<>();
-	    jpaProperties.put("eclipselink.logging.level","fine");
+	    jpaProperties.put("eclipselink.logging.level","info");
 	    jpaProperties.put("eclipselink.weaving","false");
 	    entityManagerFactory.setJpaPropertyMap(jpaProperties);
 	    entityManagerFactory.setPackagesToScan("tech.tarragona.spring.model");
