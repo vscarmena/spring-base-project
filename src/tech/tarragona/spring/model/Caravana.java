@@ -22,28 +22,30 @@ public class Caravana implements Serializable {
 
 	@Id
 	//@NotEmpty
+	//@Size(max=10)
 	private String plate;
 	//@NotEmpty
 	//@Size(min=8, max=50)
 	private String name;
 	//@NotEmpty
-	//@Size(min=50, max=255)
+	//@Size(min=50, max=300)
 	private String description;
 	//@Min(1)
 	private int adults;
 	private int babys;
 	// @NotEmpty
-	// @Size(min=5, max=50)
+	// @Size(min=5, max=15)
 	private String brand;
 	// @NotEmpty
 	// @Range(min=1900, max=2017)
+	// @Size(max=4)
 	@Column(name = "construction_year")
 	private int constructionYear;
 
 	private int kids;
 
 	// @NotEmpty
-	// @Size(min=5, max=50)
+	// @Size(min=5, max=15)
 	private String model;
 
 	// bi-directional many-to-one association to Caracteristica

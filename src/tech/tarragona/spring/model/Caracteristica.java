@@ -24,7 +24,8 @@ public class Caracteristica implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @NotEmpty
-	private int id;
+	//@Size(max=10)
+	private String id;
 
 	private byte awning;
 
@@ -54,11 +55,11 @@ public class Caracteristica implements Serializable {
 	public Caracteristica() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
