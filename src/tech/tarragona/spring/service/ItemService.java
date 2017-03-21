@@ -10,8 +10,8 @@ import tech.tarragona.spring.repository.ItemRepository;
 
 @Service
 public class ItemService {
-	
-	@Autowired
+
+	@Autowired	
 	ItemRepository itemRepository;
 	
 	public List<Item> getAllItems() {
