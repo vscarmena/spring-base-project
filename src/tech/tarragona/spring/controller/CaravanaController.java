@@ -24,8 +24,8 @@ public class CaravanaController {
 	Caravanaservice caravanaService;
 	
 	@GetMapping("/caravana")
-	public String addPerson(Model model) {
-		model.addAttribute("person", new Caravana());
+	public String addCaravana(Model model) {
+		model.addAttribute("caravana", new Caravana());
 		return "gestionCaravana";
 	}
 	@PostMapping("/caravana")
