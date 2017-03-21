@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -20,7 +21,7 @@ public class Norma implements Serializable {
 	private int id;
 
 	private byte kids;
-
+	//@Size(max=100)
 	private String other;
 
 	private byte party;

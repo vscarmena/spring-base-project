@@ -8,8 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="caravanas")
@@ -18,10 +22,12 @@ public class Caravana implements Serializable {
 
 	@Id
 	//@NotEmpty
+
 	private String plate;
-	//@NotEmpty
+	
+	//@Min(1)
 	private int adults;
-	//@NotEmpty
+	
 	private int babys;
 	//@NotEmpty
 	//@Size(min=5, max=50)
@@ -31,7 +37,7 @@ public class Caravana implements Serializable {
 
 	@Column(name="construction_year")
 	private int constructionYear;
-	//@NotEmpty
+	
 	private int kids;
 
 
