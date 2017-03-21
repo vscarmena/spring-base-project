@@ -18,7 +18,8 @@ public class Norma implements Serializable {
 
 	@Id
 	@NotEmpty
-	private int id;
+	//@Size(max=10)
+	private String id;
 
 	private byte kids;
 	//@Size(max=100)
@@ -37,11 +38,11 @@ public class Norma implements Serializable {
 	public Norma() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

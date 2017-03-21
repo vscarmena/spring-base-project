@@ -16,48 +16,51 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-@Table(name="caravanas")
+@Table(name = "caravanas")
 public class Caravana implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	//@NotEmpty
-
+	//@Size(max=10)
 	private String plate;
-	
+	//@NotEmpty
+	//@Size(min=8, max=50)
+	private String name;
+	//@NotEmpty
+	//@Size(min=50, max=300)
+	private String description;
 	//@Min(1)
 	private int adults;
-	
 	private int babys;
-	//@NotEmpty
-	//@Size(min=5, max=50)
+	// @NotEmpty
+	// @Size(min=5, max=15)
 	private String brand;
-	//@NotEmpty
-	//@Range(min=1900, max=2017)
-
-	@Column(name="construction_year")
+	// @NotEmpty
+	// @Range(min=1900, max=2017)
+	// @Size(max=4)
+	@Column(name = "construction_year")
 	private int constructionYear;
-	
+
 	private int kids;
 
-
-	//@NotEmpty
-	//@Size(min=5, max=50)
+	// @NotEmpty
+	// @Size(min=5, max=15)
 	private String model;
 
-	//bi-directional many-to-one association to Caracteristica
+	// bi-directional many-to-one association to Caracteristica
 	@ManyToOne
-	@JoinColumn(name="id_caracteristicas")
+	@JoinColumn(name = "id_caracteristicas")
 	private Caracteristica caracteristica;
 
-	//bi-directional many-to-one association to Norma
+	// bi-directional many-to-one association to Norma
 	@ManyToOne
-	@JoinColumn(name="id_normas")
+	@JoinColumn(name = "id_normas")
 	private Norma norma;
 
-	//bi-directional many-to-one association to Servicio
+	// bi-directional many-to-one association to Servicio
 	@ManyToOne
-	@JoinColumn(name="id_servicios")
+	@JoinColumn(name = "id_servicios")
 	private Servicio servicio;
 
 	public Caravana() {
@@ -71,6 +74,7 @@ public class Caravana implements Serializable {
 		this.plate = plate;
 	}
 
+	
 	public int getAdults() {
 		return this.adults;
 	}
@@ -141,6 +145,22 @@ public class Caravana implements Serializable {
 
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

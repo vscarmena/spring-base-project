@@ -14,29 +14,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import tech.tarragona.spring.model.Caravana;
 import tech.tarragona.spring.service.Caravanaservice;
 
+
+
 @Controller
-@RequestMapping(value = "/caravana")
-public class CaravanaController {
-	
+@RequestMapping(value = "/caravana4")
+public class CaravanaController4 {
+
 	@Autowired
-	Caravanaservice caravanaservice;
+	Caravanaservice caravanaService;
 	
-	@GetMapping("/caravana")
-	public String addCaravana(Model model) {
+	@GetMapping("/caravana4")
+	public String showAddCharacteristics(Model model) {
 		
 		model.addAttribute("caravana", new Caravana());
 		return "5.1";
 	}
-	@PostMapping("/caravana")
-	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
-		caravanaservice.addCaravana(caravana);
+	@PostMapping("/caravana4")
+	public String addCharacteristics(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
 		
-		caravanaservice.seleccionarPersonas(caravana, result);
-		
-		model.addAttribute("caravana", caravana);
-		
-		caravanaservice.addCaravana(caravana);
-
+		caravanaService.addCaravana(caravana);
 		return "paginaDePruebas";
 	}
+	
+	
 }
