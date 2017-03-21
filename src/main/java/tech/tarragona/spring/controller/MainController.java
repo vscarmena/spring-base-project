@@ -2,10 +2,11 @@ package tech.tarragona.spring.controller;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import tech.tarragona.spring.model.User;
 
 @Controller
 public class MainController {
@@ -27,7 +28,12 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/")
-	  public String hello(Model model) {
+	  public String hello(@AuthenticationPrincipal User activeUser, Model model) {
+		  model.addAttribute("name", activeUser.getUsername() != null ? activeUser.getUsername() : "");
+		  if (activeUser.getUserData() != null) {
+			  System.out.println("USER NAME: " + activeUser.getUserData().getName());
+		  }
+		  
 	      return "hello";
 	  }
 	  
