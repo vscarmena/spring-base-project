@@ -17,7 +17,7 @@ public class Caravana implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@NotEmpty
+	//@NotEmpty
 	private String plate;
 	//@NotEmpty
 	private int adults;
