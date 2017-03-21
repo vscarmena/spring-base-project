@@ -9,15 +9,12 @@
 <body>
 	<header layout:fragment="header">
 		<div class="container">
-			<div class="page-header">
-				<h1 th:text="#{title.page.addCaravana}"></h1>
-			</div>
 		</div>
 	</header>
 	<div class="container" layout:fragment="content">
 		<div class="row">
-			<form action="#" th:action="@{/caravana/caravana}"
-				th:object="${caravana}" method="post" class="form-horizontal">
+			<form action="caravana4" th:action="@{/caravana/caravana}"
+				th:object="${caravana4}" method="post" class="form-horizontal">
 
 				<div class="form-group" th:classappend=="${#fields.hasErrors('brand')} ? has-error">
 					<label for="brand" class="col-sm-3 control-label">Marca<abbr

@@ -29,17 +29,14 @@ public class Caravana implements Serializable {
 	//@NotEmpty
 	//@Size(min=50, max=255)
 	private String description;
-
-	// @Min(1)
+	//@Min(1)
 	private int adults;
-
 	private int babys;
 	// @NotEmpty
 	// @Size(min=5, max=50)
 	private String brand;
 	// @NotEmpty
 	// @Range(min=1900, max=2017)
-
 	@Column(name = "construction_year")
 	private int constructionYear;
 
@@ -75,22 +72,7 @@ public class Caravana implements Serializable {
 		this.plate = plate;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
+	
 	public int getAdults() {
 		return this.adults;
 	}
@@ -161,6 +143,22 @@ public class Caravana implements Serializable {
 
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }
