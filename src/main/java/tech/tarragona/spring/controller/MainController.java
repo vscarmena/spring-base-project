@@ -1,5 +1,10 @@
 package tech.tarragona.spring.controller;
 
+import java.util.Locale;
+
+import javax.mail.MessagingException;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -7,9 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import tech.tarragona.spring.model.User;
+import tech.tarragona.spring.service.EmailService;
 
 @Controller
 public class MainController {
+	
+	@Autowired
+	EmailService emailService;
 
 	  @RequestMapping("/login")
 	  public String login() {
@@ -28,12 +37,17 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/")
-	  public String hello(@AuthenticationPrincipal User activeUser, Model model) {
+	  public String hello(@AuthenticationPrincipal User activeUser, Model model, Locale locale) {
 		  model.addAttribute("name", activeUser.getUsername() != null ? activeUser.getUsername() : "");
 		  if (activeUser.getUserData() != null) {
 			  System.out.println("USER NAME: " + activeUser.getUserData().getName());
 		  }
-		  
+		  try {
+			emailService.sendTestMail("Cesar", "cediar.metmin@gmail.com", null, null, null, locale);
+		} catch (MessagingException e) {
+
+			e.printStackTrace();
+		}
 	      return "hello";
 	  }
 	  
