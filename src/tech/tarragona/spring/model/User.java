@@ -25,7 +25,7 @@ public class User {
 		@Email
 		@NotEmpty
 		@OneToOne
-		@JoinColumn(name="login")
+		@JoinColumn(name="users")
 		//TODO comprobar nombre de la tabla con primary key
 		private String email;
 
