@@ -1,33 +1,48 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
-/**
- * The persistent class for the caravanas database table.
- * 
- */
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+
 @Entity
 @Table(name="caravanas")
 public class Caravana implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@NotEmpty
+
 	private String plate;
-
+	
+	//@Min(1)
 	private int adults;
-
+	
 	private int babys;
-
+	//@NotEmpty
+	//@Size(min=5, max=50)
 	private String brand;
+	//@NotEmpty
+	//@Range(min=1900, max=2017)
 
 	@Column(name="construction_year")
 	private int constructionYear;
-
+	
 	private int kids;
 
+
+	//@NotEmpty
+	//@Size(min=5, max=50)
 	private String model;
 
 	//bi-directional many-to-one association to Caracteristica
