@@ -25,6 +25,10 @@ public class Caravana implements Serializable {
 
 	private String plate;
 	
+	private String name;
+
+	private String description;
+	
 	//@Min(1)
 	private int adults;
 	
@@ -141,6 +145,22 @@ public class Caravana implements Serializable {
 
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

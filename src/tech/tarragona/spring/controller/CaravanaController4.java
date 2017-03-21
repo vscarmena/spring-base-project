@@ -1,7 +1,5 @@
 package tech.tarragona.spring.controller;
 
-import java.sql.Time;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,20 +17,20 @@ import tech.tarragona.spring.service.Caravanaservice;
 
 
 @Controller
-@RequestMapping(value = "/caravana")
-public class CaravanaController {
+@RequestMapping(value = "/caravana4")
+public class CaravanaController4 {
 
 	@Autowired
 	Caravanaservice caravanaService;
 	
-	@GetMapping("/caravana")
-	public String addCaravana(Model model) {
+	@GetMapping("/caravana4")
+	public String showAddCharacteristics(Model model) {
 		
 		model.addAttribute("caravana", new Caravana());
 		return "5.1";
 	}
-	@PostMapping("/caravana")
-	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
+	@PostMapping("/caravana4")
+	public String addCharacteristics(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
 		
 		caravanaService.addCaravana(caravana);
 		return "paginaDePruebas";

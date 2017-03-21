@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import tech.tarragona.spring.model.Caravana;
 import tech.tarragona.spring.repository.CaravanaRepository;
 
+@Service
+public class Caravanaservice4 {
 	@Service
 	public class Caravanaservice {
 		@Autowired
@@ -22,9 +24,25 @@ import tech.tarragona.spring.repository.CaravanaRepository;
 			}
 		}
 		@Transactional
-		public Caravana addCaravana(Caravana caravana){	
+		public Caravana showAddCaravana(Caravana caravana){	
 			 return caravanaRepository.save(caravana);
 		}
 	
-}
+	}
+	@Autowired
+	CaravanaRepository caravanaRepository;
+	@Transactional
+	public boolean caravanaAlreadyExists(Caravana caravana,BindingResult result){
+		if(caravanaRepository.findByPlate(caravana.getPlate())==null){
+			return false;			
+		}else{
+			result.rejectValue("plate", "caravanaAlreadyExists");
+			return true;
+		}
+	}
+	@Transactional
+	public Caravana showAddCaravana(Caravana caravana){	
+		 return caravanaRepository.save(caravana);
+	}
 
+}
