@@ -15,6 +15,16 @@ public class MainController {
 	  public String login() {
 	    return "login";
 	  }
+	  
+	  @RequestMapping("/persons")
+	  public String persons() {
+	    return "persons";
+	  }
+	  
+	  @RequestMapping("/hello")
+	  public String hello() {
+	    return "hello";
+	  }
 
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
