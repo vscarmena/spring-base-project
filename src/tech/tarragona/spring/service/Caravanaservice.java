@@ -8,23 +8,38 @@ import org.springframework.validation.BindingResult;
 import tech.tarragona.spring.model.Caravana;
 import tech.tarragona.spring.repository.CaravanaRepository;
 
-	@Service
-	public class Caravanaservice {
-		@Autowired
-		CaravanaRepository caravanaRepository;
-		@Transactional
-		public boolean caravanaAlreadyExists(Caravana caravana,BindingResult result){
-			if(caravanaRepository.findByPlate(caravana.getPlate())==null){
-				return false;			
-			}else{
-				result.rejectValue("plate", "caravanaAlreadyExists");
-				return true;
-			}
-		}
-		@Transactional
-		public Caravana addCaravana(Caravana caravana){	
-			 return caravanaRepository.save(caravana);
-		}
-	
-}
+@Service
+public class Caravanaservice {
 
+	@Autowired
+	CaravanaRepository caravanaRepository;
+	
+	@Transactional
+	public boolean caravanaAlreadyExists(Caravana caravana,BindingResult result){
+		if(caravanaRepository.findByPlate(caravana.getPlate())==null){
+			return false;			
+		}else{
+			result.rejectValue("plate", "caravanaAlreadyExists");
+			return true;
+		}
+	}
+	@Transactional
+	public Caravana addCaravana(Caravana caravana){
+
+		 return caravanaRepository.save(caravana);
+	}
+
+	@Transactional
+	public void seleccionarPersonas(Caravana caravana, BindingResult result)
+	{
+			caravana = caravanaRepository.findByPlate(caravana.getPlate());
+			
+			caravana.setAdults(caravana.getAdults());
+			caravana.setBabys(caravana.getBabys());
+			caravana.setKids(caravana.getKids());
+			
+			caravanaRepository.save(caravana);
+		}
+		
+		
+	}
