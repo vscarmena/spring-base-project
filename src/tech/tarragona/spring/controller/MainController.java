@@ -39,6 +39,11 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/")
+	  public String start(Model model) {
+	      return "hello";
+	  }
+	  
+	  @RequestMapping("/hello")
 	  public String hello(Model model) {
 	      return "hello";
 	  }
