@@ -47,6 +47,31 @@ cityf varchar (25) NOT NULL DEFAULT ''
   	
 ) engine=InnoDB;
 
+CREATE TABLE campings (
+id int(11) primary key auto_increment,
+owner int(11),
+KEY fk_camping_idowner (owner),
+  	CONSTRAINT fk_camping_idowner FOREIGN KEY (owner) REFERENCES users (id),
+name varchar(30) NOT NULL DEFAULT '',
+idTelephone int(2) NOT NULL DEFAULT '0',
+telephone varchar(15) NOT NULL DEFAULT'',
+address varchar (30) NOT NULL DEFAULT '',
+country varchar (25) NOT NULL DEFAULT '',
+CP varchar (10) NOT NULL DEFAULT '',
+city varchar (25) NOT NULL DEFAULT '',
+cif varchar (10) NOT NULL DEFAULT '',
+namef varchar(30) NOT NULL DEFAULT '',
+idTelephonef int(2) NOT NULL DEFAULT '0',
+telephonef varchar(15) NOT NULL DEFAULT'',
+addressf varchar (30) NOT NULL DEFAULT '',
+countryf varchar (25) NOT NULL DEFAULT '',
+CPf varchar (10) NOT NULL DEFAULT '',
+cityf varchar (25) NOT NULL DEFAULT '',
+description varchar(1000) NOT NULL DEFAULT '',
+ubicacion varchar (250) NOT NULL DEFAULT ''
+  	
+) engine=InnoDB;
+
 
 INSERT INTO authorities (authority_name) VALUES ('ROLE_ADMIN');
 INSERT INTO authorities (authority_name) VALUES ('ROLE_USER');
