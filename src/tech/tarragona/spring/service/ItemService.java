@@ -10,7 +10,7 @@ import tech.tarragona.spring.repository.ItemRepository;
 
 @Service
 public class ItemService {
-	
+
 	@Autowired
 	ItemRepository itemRepository;
 	

@@ -15,6 +15,18 @@ public class MainController {
 	    return "login";
 	  }
 
+	  
+	  @RequestMapping("/register")
+	  public String regsiter() {
+	    return "register";
+	  }
+	  
+	  @RequestMapping("/info")
+	  public String info() {
+	    return "info";
+	  }
+	  
+
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
 	    model.addAttribute("loginError", true);
