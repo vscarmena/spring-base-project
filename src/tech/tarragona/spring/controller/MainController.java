@@ -25,6 +25,11 @@ public class MainController {
 	    return "info";
 	  }
 	  
+	  @RequestMapping("/facturacion")
+	  public String facturacion() {
+	    return "facturacion";
+	  }
+	  
 	  
 
 	  @RequestMapping("/login-error")
