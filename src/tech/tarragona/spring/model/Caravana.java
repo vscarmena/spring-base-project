@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
@@ -21,11 +22,14 @@ public class Caravana implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@NotEmpty
-	//@Size(max=10)
+	@Size(min=4, max=10)
+	@NotEmpty
+	@NotNull
+	//plate varchar (10) not null primary key
 	private String plate;
 	//@NotEmpty
 	//@Size(min=8, max=50)
+	
 	private String name;
 	//@NotEmpty
 	//@Size(min=50, max=300)
@@ -33,19 +37,22 @@ public class Caravana implements Serializable {
 	//@Min(1)
 	private int adults;
 	private int babys;
-	// @NotEmpty
-	// @Size(min=5, max=15)
+	//@NotNull
+	//@Size(min=5, max=15)
+	//@NotEmpty
+	// brand varchar (15) not null,
 	private String brand;
 	// @NotEmpty
 	// @Range(min=1900, max=2017)
 	// @Size(max=4)
 	@Column(name = "construction_year")
-	private int constructionYear;
+	private Integer constructionYear;
 
 	private int kids;
-
-	// @NotEmpty
-	// @Size(min=5, max=15)
+	@NotNull
+	@NotEmpty
+	@Size(min=5, max=15)
+	//model varchar (15)not null
 	private String model;
 
 	// bi-directional many-to-one association to Caracteristica
@@ -99,11 +106,11 @@ public class Caravana implements Serializable {
 		this.brand = brand;
 	}
 
-	public int getConstructionYear() {
+	public Integer getConstructionYear() {
 		return this.constructionYear;
 	}
 
-	public void setConstructionYear(int constructionYear) {
+	public void setConstructionYear(Integer constructionYear) {
 		this.constructionYear = constructionYear;
 	}
 

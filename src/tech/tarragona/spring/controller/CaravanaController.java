@@ -41,14 +41,14 @@ public class CaravanaController {
 	}
 	@PostMapping("/caravana")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
-		caravanaservice.addCaravana(caravana);
-		
-		caravanaservice.seleccionarPersonas(caravana, result);
-		
-		model.addAttribute("caravana", caravana);
-		
-		caravanaservice.addCaravana(caravana);
-
-		return "paginaDePruebas";
+		if (!result.hasErrors()){
+			caravanaservice.addCaravana(caravana);
+			caravanaservice.seleccionarPersonas(caravana, result);
+			model.addAttribute("caravana", caravana);
+			caravanaservice.addCaravana(caravana);
+			return "paginaDePruebas";
+		}
+		System.out.println("ERRORS: " + result.getFieldErrors());
+		return "5.1";
 	}
 }
