@@ -25,7 +25,7 @@ public class Caravana implements Serializable {
 	@Size(min=4, max=10)
 	@NotEmpty
 	@NotNull
-	// plate varchar (10) not null primary key,
+	//plate varchar (10) not null primary key
 	private String plate;
 	//@NotEmpty
 	//@Size(min=8, max=50)
@@ -49,9 +49,10 @@ public class Caravana implements Serializable {
 	private Integer constructionYear;
 
 	private int kids;
-
-	//@NotEmpty
-	// @Size(min=5, max=15)
+	@NotNull
+	@NotEmpty
+	@Size(min=5, max=15)
+	//model varchar (15)not null
 	private String model;
 
 	// bi-directional many-to-one association to Caracteristica
