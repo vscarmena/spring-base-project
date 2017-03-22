@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import tech.tarragona.spring.model.Caravana;
+import tech.tarragona.spring.model.Servicio;
 import tech.tarragona.spring.service.Caravanaservice;
 
 
@@ -26,11 +27,11 @@ public class CaravanaController4 {
 	@GetMapping("/caravana4")
 	public String showAddCharacteristics(Model model) {
 		
-		model.addAttribute("caravana", new Caravana());
-		return "5.1";
+		model.addAttribute("servicio", new Servicio());
+		return "extrasCaravana";
 	}
 	@PostMapping("/caravana4")
-	public String addCharacteristics(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
+	public String addCharacteristics(@Valid @ModelAttribute("servicio") Caravana caravana, BindingResult result, Model model){
 		
 		caravanaService.addCaravana(caravana);
 		return "paginaDePruebas";
