@@ -8,13 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name = "caravanas")
@@ -22,36 +21,35 @@ public class Caravana implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Size(min=4, max=10)
 	@NotEmpty
 	@NotNull
+	@Length(min=5,max=10)
 	//plate varchar (10) not null primary key
 	private String plate;
-	//@NotEmpty
-	//@Size(min=8, max=50)
-	
+	@NotEmpty
+	@Length(min=5,max=50)
 	private String name;
-	//@NotEmpty
-	//@Size(min=50, max=300)
+	@NotEmpty
+	@Length(min=20, max=300)
+	//description varchar (300)
 	private String description;
-	//@Min(1)
 	private int adults;
 	private int babys;
-	//@NotNull
-	//@Size(min=5, max=15)
-	//@NotEmpty
+	@NotNull
+	@Length(min=5, max=15)
+	@NotEmpty
 	// brand varchar (15) not null,
 	private String brand;
-	// @NotEmpty
-	// @Range(min=1900, max=2017)
-	// @Size(max=4)
+	//@NotNull
+	//@NotEmpty
+	//@Range(min=1900, max=2017)
+	//@Size(max=4)
 	@Column(name = "construction_year")
 	private Integer constructionYear;
-
 	private int kids;
 	@NotNull
 	@NotEmpty
-	@Size(min=5, max=15)
+	@Length(min=5, max=15)
 	//model varchar (15)not null
 	private String model;
 
