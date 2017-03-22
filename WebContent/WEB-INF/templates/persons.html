@@ -25,9 +25,9 @@
 		   					<th th:text="#{title.id}"></th>
 		   					<th th:text="#{title.name}"></th>
 		   				</tr>
-		   				<tr th:each="person: ${lista}">
-		   					<td th:text="${person.email}"></td>
-        					<td th:text="${person.name}"></td>
+		   				<tr th:each="user: ${lista}">
+		   					<td th:text="${user.email}"></td>
+        					<td th:text="${user.name}"></td>
 		   				</tr>
 		   			</table>
 		   		</div>

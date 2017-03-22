@@ -3,8 +3,11 @@ package tech.tarragona.spring.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import tech.tarragona.spring.model.Person;
+import tech.tarragona.spring.model.UserData;
+
 @Repository
-public interface PersonRepository extends JpaRepository<Person, String> {
+public interface UserDataRepository extends JpaRepository <UserData, Integer>{
+
+
 
 }
