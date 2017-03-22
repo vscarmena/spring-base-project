@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
   	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   	username varchar(50) NOT NULL,
   	password varchar(50) NOT NULL,
+    securityCode varchar(50) DEFAULT NULL,
   	enabled tinyint(1) NOT NULL
 ) engine=InnoDB;
 
@@ -88,3 +89,8 @@ VALUES (1,'silentxavi@yahoo.es', 'Xavier', 'shurmano', '1', '1999-02-09', '34', 
 (2,'cesarAsturianu@gmail.com', 'Cesare', 'Augusto', '1', '1912-09-17', '34', '654321789', 'c/de la Sidra', 'Russiano', '09876'),
 (3,'victor_tgn_69@hotmail.com', 'Victor', 'Condemor Praderar', '1', '1992-09-25', '33', '654123989', 'c/de los Sueños 14 7oC', 'Vietnam', '08081'),
 (4,'sevillana_69@yahoo.es', 'Beatrix', 'Lestrange', '0', '1990-08-16', '45', '666777885', 'a/De la Grasia n89 6o2a', 'Andalucia', '98798');
+INSERT INTO `caravaning`.`campings` (`owner`, `name`, `idTelephone`, `telephone`, `address`, `country`, `CP`, `city`)
+VALUES ('1', 'CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
+('2', 'CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
+('3', 'CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
+('4', 'CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
