@@ -17,16 +17,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class User {
 
 	@Entity
-	@Table(name="persons")
+	@Table(name="user_data")
 	public class Person implements Serializable {
 		private static final long serialVersionUID = 1L;
 
 		@Id
-		@Email
-		@NotEmpty
+		
 		@OneToOne
 		@JoinColumn(name="users")
-		//TODO comprobar nombre de la tabla con primary key
+		private int id;
+				
+		@Email
+		@NotEmpty
 		private String email;
 
 		@NotEmpty
@@ -81,6 +83,15 @@ public class User {
 		public Person() {
 		}
 
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		
 		public String getEmail() {
 			return this.email;
 		}
