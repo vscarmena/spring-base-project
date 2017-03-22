@@ -30,6 +30,16 @@ public class MainController {
 	    return "facturacion";
 	  }
 	  
+	  @RequestMapping("/registration-error")
+	  public String registrationError() {
+	    return "registration-error";
+	  }
+	  
+	  @RequestMapping("/registration-success")
+	  public String registrationSuccess() {
+	    return "registration-success";
+	  }
+	  
 	  
 
 	  @RequestMapping("/login-error")
