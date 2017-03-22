@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
 	/*
 	    Multi Step Form
 	*/
-	$('.msf-form form fieldset:first-child').fadeIn('slow');
+	$('.msf-form form fieldset:first').fadeIn('slow');
 	
 	// next step
 	$('.msf-form form .btn-next').on('click', function() {

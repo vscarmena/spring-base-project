@@ -25,7 +25,7 @@ public class CaravanaController {
 	public String addCaravana(Model model) {
 		
 		model.addAttribute("caravana", new Caravana());
-		return "5.1";
+		return "gestionCaravanas";
 	}
 	@PostMapping("/caravana")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
