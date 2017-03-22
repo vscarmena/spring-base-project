@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import tech.tarragona.spring.model.Caracteristica;
 import tech.tarragona.spring.model.Caravana;
+import tech.tarragona.spring.model.Norma;
+import tech.tarragona.spring.model.Servicio;
 import tech.tarragona.spring.service.Caravanaservice;
 
 @Controller
@@ -23,8 +26,17 @@ public class CaravanaController {
 	
 	@GetMapping("/caravana")
 	public String addCaravana(Model model) {
+		 Caravana caravana =new Caravana();
 		
-		model.addAttribute("caravana", new Caravana());
+	        caravana.setNorma(new Norma());
+	        caravana.setServicio(new Servicio());
+	        caravana.setCaracteristica(new Caracteristica());
+	        
+	        model.addAttribute("caravana", caravana);
+	       
+	      
+	        
+	        
 		return "gestionCaravanas";
 	}
 	@PostMapping("/caravana")

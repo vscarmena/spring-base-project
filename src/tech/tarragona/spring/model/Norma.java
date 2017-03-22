@@ -21,15 +21,15 @@ public class Norma implements Serializable {
 	//@Size(max=10)
 	private String id;
 
-	private byte kids;
+	private boolean kids;
 	//@Size(max=100)
 	private String other;
 
-	private byte party;
+	private boolean party;
 
-	private byte pets;
+	private boolean pets;
 
-	private byte smoke;
+	private boolean smoke;
 
 	//bi-directional many-to-one association to Caravana
 	@OneToMany(mappedBy="norma")
@@ -46,11 +46,11 @@ public class Norma implements Serializable {
 		this.id = id;
 	}
 
-	public byte getKids() {
+	public boolean getKids() {
 		return this.kids;
 	}
 
-	public void setKids(byte kids) {
+	public void setKids(boolean kids) {
 		this.kids = kids;
 	}
 
@@ -62,27 +62,27 @@ public class Norma implements Serializable {
 		this.other = other;
 	}
 
-	public byte getParty() {
+	public boolean getParty() {
 		return this.party;
 	}
 
-	public void setParty(byte party) {
+	public void setParty(boolean party) {
 		this.party = party;
 	}
 
-	public byte getPets() {
+	public boolean getPets() {
 		return this.pets;
 	}
 
-	public void setPets(byte pets) {
+	public void setPets(boolean pets) {
 		this.pets = pets;
 	}
 
-	public byte getSmoke() {
+	public boolean getSmoke() {
 		return this.smoke;
 	}
 
-	public void setSmoke(byte smoke) {
+	public void setSmoke(boolean smoke) {
 		this.smoke = smoke;
 	}
 
