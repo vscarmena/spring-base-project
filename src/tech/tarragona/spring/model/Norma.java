@@ -1,28 +1,28 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import java.util.List;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * The persistent class for the norma database table.
+ * 
+ */
 @Entity
-@Table(name="normas")
+@NamedQuery(name="Norma.findAll", query="SELECT n FROM Norma n")
 public class Norma implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@NotEmpty
-	//@Size(max=10)
-	private String id;
+	private String plate;
 
 	private boolean kids;
+
+<<<<<<< HEAD
+	private boolean kids;
 	//@Size(max=100)
+=======
+>>>>>>> 1b3b92cd54b65634a3ffa786b3ec04024228f473
 	private String other;
 
 	private boolean party;
@@ -31,19 +31,20 @@ public class Norma implements Serializable {
 
 	private boolean smoke;
 
-	//bi-directional many-to-one association to Caravana
-	@OneToMany(mappedBy="norma")
-	private List<Caravana> caravanas;
+	//bi-directional one-to-one association to Caravana
+	@OneToOne
+	@PrimaryKeyJoinColumn(name="plate")
+	private Caravana caravana;
 
 	public Norma() {
 	}
 
-	public String getId() {
-		return this.id;
+	public String getPlate() {
+		return this.plate;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setPlate(String plate) {
+		this.plate = plate;
 	}
 
 	public boolean getKids() {
@@ -86,26 +87,12 @@ public class Norma implements Serializable {
 		this.smoke = smoke;
 	}
 
-	public List<Caravana> getCaravanas() {
-		return this.caravanas;
+	public Caravana getCaravana() {
+		return this.caravana;
 	}
 
-	public void setCaravanas(List<Caravana> caravanas) {
-		this.caravanas = caravanas;
-	}
-
-	public Caravana addCaravana(Caravana caravana) {
-		getCaravanas().add(caravana);
-		caravana.setNorma(this);
-
-		return caravana;
-	}
-
-	public Caravana removeCaravana(Caravana caravana) {
-		getCaravanas().remove(caravana);
-		caravana.setNorma(null);
-
-		return caravana;
+	public void setCaravana(Caravana caravana) {
+		this.caravana = caravana;
 	}
 
 }

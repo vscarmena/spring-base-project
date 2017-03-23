@@ -26,6 +26,7 @@ public class CaravanaController {
 	
 	@GetMapping("/caravana")
 	public String addCaravana(Model model) {
+<<<<<<< HEAD
 		 Caravana caravana =new Caravana();
 		
 	        caravana.setNorma(new Norma());
@@ -37,15 +38,22 @@ public class CaravanaController {
 	      
 	        
 	        
+=======
+		model.addAttribute("caravana", new Caravana());
+>>>>>>> 1b3b92cd54b65634a3ffa786b3ec04024228f473
 		return "gestionCaravanas";
 	}
 	@PostMapping("/caravana")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
 		if (!result.hasErrors()){
+			
+			caravana.getServicio().setPlate(caravana.getPlate());
+			caravana.getNorma().setPlate(caravana.getPlate());
+			caravana.getCaracteristica().setPlate(caravana.getPlate());
+			
+		
 			caravanaservice.addCaravana(caravana);
-			caravanaservice.seleccionarPersonas(caravana, result);
-			model.addAttribute("caravana", caravana);
-			caravanaservice.addCaravana(caravana);
+			
 			return "paginaDePruebas";
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());
