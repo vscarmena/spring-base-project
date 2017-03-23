@@ -16,14 +16,29 @@ public class MainController {
 	    return "login";
 	  }
 	  
-	  @RequestMapping("/persons")
-	  public String persons() {
-	    return "persons";
+	  @RequestMapping("/register")
+	  public String regsiter() {
+	    return "register";
 	  }
 	  
-	  @RequestMapping("/hello")
-	  public String hello() {
-	    return "hello";
+	  @RequestMapping("/info")
+	  public String info() {
+	    return "info";
+	  }
+	  
+	  @RequestMapping("/facturacion")
+	  public String facturacion() {
+	    return "facturacion";
+	  }
+	  
+	  @RequestMapping("/registration-error")
+	  public String registrationError() {
+	    return "registration-error";
+	  }
+	  
+	  @RequestMapping("/registration-success")
+	  public String registrationSuccess() {
+	    return "registration-success";
 	  }
 
 	  @RequestMapping("/login-error")
@@ -38,12 +53,13 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/")
-	  public String hello(@AuthenticationPrincipal User activeUser, Model model) {
-		  model.addAttribute("name", activeUser.getUsername() != null ? activeUser.getUsername() : "");
-		  if (activeUser.getUserData() != null) {
-			  System.out.println("USER NAME: " + activeUser.getUserData().getName());
-		  }
-		  
+
+	  public String start(Model model) {
+	      return "hello";
+	  }
+	  
+	  @RequestMapping("/hello")
+	  public String hello(Model model) {
 	      return "hello";
 	  }
 	  
@@ -67,7 +83,4 @@ public class MainController {
 		  model.addAttribute("name", activeUser.getUsername());
 	      return "hello";
 	  }
-	  
-	  
-
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}">
+<html xmlns:th="http://www.thymeleaf.org"  th:lang="${lang}">
 <head>
     <title th:text="#{title.hello}"></title>
     <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-
+Bienvenido
     <h2 th:text="#{title.hello} + ' ' + ${name} + '!'"> </h2>
 
 </div>

@@ -13,9 +13,26 @@ import tech.tarragona.spring.repository.UserRepository;
 public class UserService {
 	@Autowired
 	UserRepository userRepository;
-@Transactional
-public List <User> getUserData(){
-	return userRepository.findAll();
-}
+	@Transactional
+	public List <User> getUserData(){
+		return userRepository.findAll();
+	}
+	@Transactional
+	public void updateSecurityCode(String code) {
+		User user = new User();
+		user.setSecurityCode(code);
+		userRepository.save(user);
+	}
+	
+	@Transactional
+	public boolean findBySecurityCodeAndSetEnabled(String code) {
+		if (userRepository.findBySecurityCode(code)!=null){
+			User user = userRepository.findBySecurityCode(code);
+			user.setEnabled(true);
+			return true;
+		}else{
+			return false;
+		}		
+	}
 }
 

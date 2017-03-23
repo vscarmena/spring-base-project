@@ -110,6 +110,14 @@ public class User implements UserDetails, CredentialsContainer  {
 		this.authorities = Collections.unmodifiableSet(sortAuthorities(authorities));
 		this.userData = userData;
 	}
+	
+	public String getSecurityCode() {
+		return securityCode;
+	}
+
+	public void setSecurityCode(String securityCode) {
+		this.securityCode = securityCode;
+	}
 
 	public Integer getId() {
 		return this.id;
