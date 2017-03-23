@@ -35,7 +35,7 @@ public class UserDataService {
 	@Transactional
 	public boolean userAlreadyExists(UserData userData, BindingResult result){
 		
-		if (userDataRepository.findByUsername(userData.getUsername())==null){
+		if (userDataRepository.findByEmail(userData.getEmail())==null){
 			return false;
 			
 		}else{
@@ -43,7 +43,7 @@ public class UserDataService {
 			return true;
 		}
 	}
-
+	@Transactional
 	public User findUserById(Integer id) {
 		return userRepository.findById(id);
 		

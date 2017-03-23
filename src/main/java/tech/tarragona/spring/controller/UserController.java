@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import tech.tarragona.spring.model.User;
-import tech.tarragona.spring.model.UserData;
 import tech.tarragona.spring.service.EmailService;
 import tech.tarragona.spring.service.UserDataService;
 import tech.tarragona.spring.service.UserService;
@@ -66,7 +64,7 @@ public class UserController {
 		}		
 	}
 
-	@GetMapping("/user/confirmation/mail/{code}")
+	@GetMapping("/hello/{code}")
 	public String enableUser(@PathVariable String code){
 		if (userService.findBySecurityCodeAndSetEnabled(code)){
 			return	ACTIVATION_OK;
