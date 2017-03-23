@@ -273,6 +273,7 @@ public class User implements UserDetails, CredentialsContainer  {
 		return sb.toString();
 	}
 
+
 	public String getUsername() {
 		return username;
 	}
@@ -282,5 +283,6 @@ public class User implements UserDetails, CredentialsContainer  {
 	}
 	
 	
+
 
 }
