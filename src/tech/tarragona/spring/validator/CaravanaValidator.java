@@ -21,13 +21,18 @@ public class CaravanaValidator implements Validator {
 	public void validate(Object object, Errors errors) {
 		Caravana caravana = (Caravana) object;
 
-		if (caravana.getConstructionYear() < 1931) {
-			errors.rejectValue("constructionYear", "constructionYear.OutOfRangeMin");
-
-		}
-		if (caravana.getConstructionYear() > Calendar.getInstance().get(Calendar.YEAR)) {
-			errors.rejectValue("constructionYear", "constructionYear.OutOfRangeMax");
-		}
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "constructionYear", "constructionYear.NotEmptyOrWhitespace");
+		
+		
+		
+		if (caravana.getConstructionYear() == null) {
+			errors.rejectValue("constructionYear", "constructionYear.NotEmptyOrWhitespace");
+			
+			} else if (caravana.getConstructionYear() < 1931) {
+				errors.rejectValue("constructionYear", "constructionYear.OutOfRangeMin");
+			} else if (caravana.getConstructionYear() > Calendar.getInstance().get(Calendar.YEAR)) {
+				errors.rejectValue("constructionYear", "constructionYear.OutOfRangeMax");
+			} else if (caravana.getConstructionYear().toString() == "") {
+				ValidationUtils.rejectIfEmptyOrWhitespace(errors, "constructionYear", "constructionYear.NotEmptyOrWhitespace");
+			}
 	}
 }
