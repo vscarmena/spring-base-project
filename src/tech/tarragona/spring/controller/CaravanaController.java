@@ -31,6 +31,8 @@ public class CaravanaController {
 		if (!result.hasErrors()){
 			
 			caravana.getServicio().setPlate(caravana.getPlate());
+			caravana.getNorma().setPlate(caravana.getPlate());
+			caravana.getCaracteristica().setPlate(caravana.getPlate());
 			
 		
 			caravanaservice.addCaravana(caravana);

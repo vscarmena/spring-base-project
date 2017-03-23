@@ -76,7 +76,7 @@
 								</button>
 							</fieldset>
 
-							<!--5.6++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+							<!--5.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
 								<h4 th:text="#{title.page.addPerson}">
 									<span class="step" th:text="#{step.2}"> </span>
@@ -171,7 +171,44 @@
 									<span class="step" th:text="#{step.3}"> </span>
 								</h4>
 
-								<!--5.3relleno*******************-->
+								<div class="checkboxes-1">
+                                    <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-1-options" value="checkboxes-1-option-1"
+                                        th:field="*{caracteristica.beds}"> Camas
+                                    </label> <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-1-options" value="checkboxes-1-option-2"
+                                        th:field="*{caracteristica.kitchen}"> Cocina
+                                    </label> <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-1-options" value="checkboxes-1-option-3"
+                                        th:field="*{caracteristica.living}"> Salón
+                                    </label> <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-1-options" value="checkboxes-1-option-4"
+                                        th:field="*{caracteristica.bath}"> Baño
+                                    </label> <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-1-options" value="checkboxes-1-option-5"
+                                        th:field="*{caracteristica.awning}"> Toldo
+                                    </label>
+
+                                </div>
+                                <div class="checkboxes-2">
+                                    <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-2-options" value="checkboxes-2-option-1"
+                                        th:field="*{caracteristica.terraceTable}"> Mesa
+                                        terraza
+                                    </label> <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-2-options" value="checkboxes-2-option-2"
+                                        th:field="*{caracteristica.climatize}"> Climatización
+                                    </label> <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-2-options" value="checkboxes-2-option-3"
+                                        th:field="*{caracteristica.tv}"> TV
+                                    </label> <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-2-options" value="checkboxes-2-option-4"
+                                        th:field="*{caracteristica.fridge}"> Nevera
+                                    </label> <label class="checkbox-inline"> <input type="checkbox"
+                                        name="checkboxes-2-options" value="checkboxes-2-option-5"
+                                        th:field="*{caracteristica.closer}"> Armarios
+                                    </label>
+                                </div>
 
 
 								<button type="button" class="btn btn-previous"
@@ -226,7 +263,25 @@
 									<span class="step" th:text="#{step.5}"> </span>
 								</h4>
 
-								<!--5.5relleno*******************-->
+								<label class="checkbox-inline">
+                                        <input type="checkbox" th:field="*{norma.kids}"> Niños
+                                    </label>
+                                    
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" th:field="*{norma.pets}"> Mascotas
+                                    </label>
+                                    
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" th:field="*{norma.smoke}" > Fumadores
+                                    </label>
+                                    
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" th:field="*{norma.party}"> Fiestas
+                                    </label>
+                                    
+                                    <label class="checkbox-inline">
+                                        <input type="text" th:field="*{norma.other}" > Añadir normas
+                                    </label>
 
 
 								<button type="button" class="btn btn-previous"
@@ -244,7 +299,26 @@
 									<span class="step" th:text="#{step.6}"> </span>
 								</h4>
 
-								<!--5.6relleno*******************-->
+								<div class="form-group" th:classappend=="${#fields.hasErrors('name')} ? has-error">
+                                    <label for="name" class="col-sm-3 control-label"
+                                        th:text="#{Name}"> <abbr class="required"
+                                        title="required"> * </abbr>
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" th:field="*{name}" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                                            class="error">Name error</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="why-join">Ej.: color, tamaño, materiales,
+                                        metros cuadrados, si ha sufrido reformas, etc.</label><br>
+                                    <textarea name="why-join" class="why-join form-control" th:field="*{description}"
+                                        id="why-join"></textarea>
+                                </div>
 
 
 								<button type="button" class="btn btn-previous"
