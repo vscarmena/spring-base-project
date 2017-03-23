@@ -21,12 +21,12 @@ public class CaravanaController {
 	@Autowired
 	Caravanaservice caravanaservice;
 	
-	@GetMapping("/caravana")
+	@GetMapping("/add")
 	public String addCaravana(Model model) {
 		model.addAttribute("caravana", new Caravana());
 		return "gestionCaravanas";
 	}
-	@PostMapping("/caravana")
+	@PostMapping("/add")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
 		if (!result.hasErrors()){
 			
