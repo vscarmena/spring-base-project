@@ -43,7 +43,6 @@ public class Caravana implements Serializable {
 	private Integer constructionYear;
 	
 	@NotEmpty
-	@Length(min = 20)
 	@Size(max = 255)
 	private String description;
 
