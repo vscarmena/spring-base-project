@@ -1,168 +1,144 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.*;
 
 
 /**
- * The persistent class for the caracteristicas database table.
+ * The persistent class for the caracteristica database table.
  * 
  */
 @Entity
-@Table(name="caracteristicas")
 @NamedQuery(name="Caracteristica.findAll", query="SELECT c FROM Caracteristica c")
 public class Caracteristica implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id @NotEmpty
-	//@Size(max=10)
-	private String id;
+	@Id
+	private String plate;
 
-	private byte awning;
+	private boolean awning;
 
-	private byte bath;
+	private boolean bath;
 
-	private byte beds;
+	private boolean beds;
 
-	private byte climatize;
+	private boolean climatize;
 
-	private byte closer;
+	private boolean closer;
 
-	private byte fridge;
+	private boolean fridge;
 
-	private byte kitchen;
+	private boolean kitchen;
 
-	private byte living;
+	private boolean living;
 
 	@Column(name="terrace_table")
-	private byte terraceTable;
+	private boolean terraceTable;
 
-	private byte tv;
+	private boolean tv;
 
-	//bi-directional many-to-one association to Caravana
-	@OneToMany(mappedBy="caracteristica")
-	private List<Caravana> caravanas;
+	//bi-directional one-to-one association to Caravana
+	@OneToOne
+	@PrimaryKeyJoinColumn(name="plate")
+	private Caravana caravana;
 
 	public Caracteristica() {
 	}
 
-	public String getId() {
-		return this.id;
+	public String getPlate() {
+		return this.plate;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setPlate(String plate) {
+		this.plate = plate;
 	}
 
-	public byte getAwning() {
+	public boolean getAwning() {
 		return this.awning;
 	}
 
-	public void setAwning(byte awning) {
+	public void setAwning(boolean awning) {
 		this.awning = awning;
 	}
 
-	public byte getBath() {
+	public boolean getBath() {
 		return this.bath;
 	}
 
-	public void setBath(byte bath) {
+	public void setBath(boolean bath) {
 		this.bath = bath;
 	}
 
-	public byte getBeds() {
+	public boolean getBeds() {
 		return this.beds;
 	}
 
-	public void setBeds(byte beds) {
+	public void setBeds(boolean beds) {
 		this.beds = beds;
 	}
 
-	public byte getClimatize() {
+	public boolean getClimatize() {
 		return this.climatize;
 	}
 
-	public void setClimatize(byte climatize) {
+	public void setClimatize(boolean climatize) {
 		this.climatize = climatize;
 	}
 
-	public byte getCloser() {
+	public boolean getCloser() {
 		return this.closer;
 	}
 
-	public void setCloser(byte closer) {
+	public void setCloser(boolean closer) {
 		this.closer = closer;
 	}
 
-	public byte getFridge() {
+	public boolean getFridge() {
 		return this.fridge;
 	}
 
-	public void setFridge(byte fridge) {
+	public void setFridge(boolean fridge) {
 		this.fridge = fridge;
 	}
 
-	public byte getKitchen() {
+	public boolean getKitchen() {
 		return this.kitchen;
 	}
 
-	public void setKitchen(byte kitchen) {
+	public void setKitchen(boolean kitchen) {
 		this.kitchen = kitchen;
 	}
 
-	public byte getLiving() {
+	public boolean getLiving() {
 		return this.living;
 	}
 
-	public void setLiving(byte living) {
+	public void setLiving(boolean living) {
 		this.living = living;
 	}
 
-	public byte getTerraceTable() {
+	public boolean getTerraceTable() {
 		return this.terraceTable;
 	}
 
-	public void setTerraceTable(byte terraceTable) {
+	public void setTerraceTable(boolean terraceTable) {
 		this.terraceTable = terraceTable;
 	}
 
-	public byte getTv() {
+	public boolean getTv() {
 		return this.tv;
 	}
 
-	public void setTv(byte tv) {
+	public void setTv(boolean tv) {
 		this.tv = tv;
 	}
 
-	public List<Caravana> getCaravanas() {
-		return this.caravanas;
+	public Caravana getCaravana() {
+		return this.caravana;
 	}
 
-	public void setCaravanas(List<Caravana> caravanas) {
-		this.caravanas = caravanas;
-	}
-
-	public Caravana addCaravana(Caravana caravana) {
-		getCaravanas().add(caravana);
-		caravana.setCaracteristica(this);
-
-		return caravana;
-	}
-
-	public Caravana removeCaravana(Caravana caravana) {
-		getCaravanas().remove(caravana);
-		caravana.setCaracteristica(null);
-
-		return caravana;
+	public void setCaravana(Caravana caravana) {
+		this.caravana = caravana;
 	}
 
 }

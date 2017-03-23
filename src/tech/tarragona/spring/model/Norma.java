@@ -1,56 +1,52 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import java.util.List;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * The persistent class for the norma database table.
+ * 
+ */
 @Entity
-@Table(name="normas")
+@NamedQuery(name="Norma.findAll", query="SELECT n FROM Norma n")
 public class Norma implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@NotEmpty
-	//@Size(max=10)
-	private String id;
+	private String plate;
 
-	private byte kids;
-	//@Size(max=100)
+	private boolean kids;
+
 	private String other;
 
-	private byte party;
+	private boolean party;
 
-	private byte pets;
+	private boolean pets;
 
-	private byte smoke;
+	private boolean smoke;
 
-	//bi-directional many-to-one association to Caravana
-	@OneToMany(mappedBy="norma")
-	private List<Caravana> caravanas;
+	//bi-directional one-to-one association to Caravana
+	@OneToOne
+	@PrimaryKeyJoinColumn(name="plate")
+	private Caravana caravana;
 
 	public Norma() {
 	}
 
-	public String getId() {
-		return this.id;
+	public String getPlate() {
+		return this.plate;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setPlate(String plate) {
+		this.plate = plate;
 	}
 
-	public byte getKids() {
+	public boolean getKids() {
 		return this.kids;
 	}
 
-	public void setKids(byte kids) {
+	public void setKids(boolean kids) {
 		this.kids = kids;
 	}
 
@@ -62,50 +58,36 @@ public class Norma implements Serializable {
 		this.other = other;
 	}
 
-	public byte getParty() {
+	public boolean getParty() {
 		return this.party;
 	}
 
-	public void setParty(byte party) {
+	public void setParty(boolean party) {
 		this.party = party;
 	}
 
-	public byte getPets() {
+	public boolean getPets() {
 		return this.pets;
 	}
 
-	public void setPets(byte pets) {
+	public void setPets(boolean pets) {
 		this.pets = pets;
 	}
 
-	public byte getSmoke() {
+	public boolean getSmoke() {
 		return this.smoke;
 	}
 
-	public void setSmoke(byte smoke) {
+	public void setSmoke(boolean smoke) {
 		this.smoke = smoke;
 	}
 
-	public List<Caravana> getCaravanas() {
-		return this.caravanas;
+	public Caravana getCaravana() {
+		return this.caravana;
 	}
 
-	public void setCaravanas(List<Caravana> caravanas) {
-		this.caravanas = caravanas;
-	}
-
-	public Caravana addCaravana(Caravana caravana) {
-		getCaravanas().add(caravana);
-		caravana.setNorma(this);
-
-		return caravana;
-	}
-
-	public Caravana removeCaravana(Caravana caravana) {
-		getCaravanas().remove(caravana);
-		caravana.setNorma(null);
-
-		return caravana;
+	public void setCaravana(Caravana caravana) {
+		this.caravana = caravana;
 	}
 
 }
