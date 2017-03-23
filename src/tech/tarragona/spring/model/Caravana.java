@@ -1,177 +1,147 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * The persistent class for the caravana database table.
+ *
+ */
 @Entity
-@Table(name = "caravanas")
+@NamedQuery(name="Caravana.findAll", query="SELECT c FROM Caravana c")
 public class Caravana implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	
-	
-	@Id
-	@NotEmpty
-	@NotNull
-	@Length(min=5)
-	@Size(max=10)
-	//plate varchar (10) not null primary key
-	private String plate;
-	@NotEmpty
-	@Length(min=5)
-	@Size(max=50)
-	private String name;
-	@NotEmpty
-	@Length(min=20)
-	@Size(max=300)
-	//description varchar (300)
-	private String description;
-	private int adults;
-	private int babys;
-	@NotNull
-	@Length(min=5)
-	@Size(max=15)
-	@NotEmpty
-	// brand varchar (15) not null,
-	private String brand;
-	//@NotNull
-	//@NotEmpty
-	//@Range(min=1900, max=2017)
-	//@Size(max=4)
-	@Column(name = "construction_year")
-	private Integer constructionYear;
-	private int kids;
-	@NotNull
-	@NotEmpty
-	@Length(min=5)
-	@Size(max=15)
-	//model varchar (15)not null
-	private String model;
+    private static final long serialVersionUID = 1L;
 
-	// bi-directional many-to-one association to Caracteristica
-	@ManyToOne
-	@JoinColumn(name = "id_caracteristicas")
-	private Caracteristica caracteristica;
+    @Id
+    private String plate;
 
-	// bi-directional many-to-one association to Norma
-	@ManyToOne
-	@JoinColumn(name = "id_normas")
-	private Norma norma;
+    private int adults;
 
-	// bi-directional many-to-one association to Servicio
-	@ManyToOne
-	@JoinColumn(name = "id_servicios")
-	private Servicio servicio;
+    private int babys;
 
-	public Caravana() {
-	}
+    private String brand;
 
-	public String getPlate() {
-		return this.plate;
-	}
+    @Column(name="construction_year")
+    private int constructionYear;
 
-	public void setPlate(String plate) {
-		this.plate = plate;
-	}
+    private String description;
 
-	
-	public int getAdults() {
-		return this.adults;
-	}
+    private int kids;
 
-	public void setAdults(int adults) {
-		this.adults = adults;
-	}
+    private String model;
 
-	public int getBabys() {
-		return this.babys;
-	}
+    private String name;
 
-	public void setBabys(int babys) {
-		this.babys = babys;
-	}
+    //bi-directional one-to-one association to Caracteristica
+    @OneToOne(mappedBy="caravana")
+    private Caracteristica caracteristica;
 
-	public String getBrand() {
-		return this.brand;
-	}
+    //bi-directional one-to-one association to Norma
+    @OneToOne(mappedBy="caravana")
+    private Norma norma;
 
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
+    //bi-directional one-to-one association to Servicio
+    @OneToOne(mappedBy="caravana", targetEntity=Servicio.class)
+    private Servicio servicio;
 
-	public Integer getConstructionYear() {
-		return this.constructionYear;
-	}
+    public Caravana() {
+    }
 
-	public void setConstructionYear(Integer constructionYear) {
-		this.constructionYear = constructionYear;
-	}
+    public String getPlate() {
+        return this.plate;
+    }
 
-	public int getKids() {
-		return this.kids;
-	}
+    public void setPlate(String plate) {
+        this.plate = plate;
+    }
 
-	public void setKids(int kids) {
-		this.kids = kids;
-	}
+    public int getAdults() {
+        return this.adults;
+    }
 
-	public String getModel() {
-		return this.model;
-	}
+    public void setAdults(int adults) {
+        this.adults = adults;
+    }
 
-	public void setModel(String model) {
-		this.model = model;
-	}
+    public int getBabys() {
+        return this.babys;
+    }
 
-	public Caracteristica getCaracteristica() {
-		return this.caracteristica;
-	}
+    public void setBabys(int babys) {
+        this.babys = babys;
+    }
 
-	public void setCaracteristica(Caracteristica caracteristica) {
-		this.caracteristica = caracteristica;
-	}
+    public String getBrand() {
+        return this.brand;
+    }
 
-	public Norma getNorma() {
-		return this.norma;
-	}
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 
-	public void setNorma(Norma norma) {
-		this.norma = norma;
-	}
+    public int getConstructionYear() {
+        return this.constructionYear;
+    }
 
-	public Servicio getServicio() {
-		return this.servicio;
-	}
+    public void setConstructionYear(int constructionYear) {
+        this.constructionYear = constructionYear;
+    }
 
-	public void setServicio(Servicio servicio) {
-		this.servicio = servicio;
-	}
+    public String getDescription() {
+        return this.description;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public int getKids() {
+        return this.kids;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setKids(int kids) {
+        this.kids = kids;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getModel() {
+        return this.model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Caracteristica getCaracteristica() {
+        return this.caracteristica;
+    }
+
+    public void setCaracteristica(Caracteristica caracteristica) {
+        this.caracteristica = caracteristica;
+    }
+
+    public Norma getNorma() {
+        return this.norma;
+    }
+
+    public void setNorma(Norma norma) {
+        this.norma = norma;
+    }
+
+    public Servicio getServicio() {
+        return this.servicio;
+    }
+
+    public void setServicio(Servicio servicio) {
+        this.servicio = servicio;
+    }
 
 }
