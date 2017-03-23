@@ -21,22 +21,29 @@ public class CaravanaController {
 	@Autowired
 	Caravanaservice caravanaservice;
 	
-	@GetMapping("/caravana")
+	@GetMapping("/add")
 	public String addCaravana(Model model) {
-		
 		model.addAttribute("caravana", new Caravana());
 		return "gestionCaravanas";
 	}
-	@PostMapping("/caravana")
+	@PostMapping("/add")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, BindingResult result, Model model){
 		if (!result.hasErrors()){
+			
+			caravana.getServicio().setPlate(caravana.getPlate());
+			caravana.getNorma().setPlate(caravana.getPlate());
+			caravana.getCaracteristica().setPlate(caravana.getPlate());
+			
+		
 			caravanaservice.addCaravana(caravana);
+
 			caravanaservice.seleccionarPersonas(caravana, result);
 			
 			
 			
 			model.addAttribute("caravana", caravana);
 			caravanaservice.addCaravana(caravana);
+
 			return "paginaDePruebas";
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());

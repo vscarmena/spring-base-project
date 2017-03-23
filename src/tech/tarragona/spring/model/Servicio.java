@@ -2,119 +2,103 @@ package tech.tarragona.spring.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
- * The persistent class for the servicios database table.
+ * The persistent class for the servicio database table.
  * 
  */
 @Entity
-@Table(name="servicios")
-@NamedQuery(name="Servicio.findAll", query="SELECT s FROM Servicio s")
+
 public class Servicio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@Size(max=10)
-	private String id;
+	private String plate;
 
-	private byte bbq;
+	private boolean bbq;
 
 	@Column(name="bed_sheets")
-	private byte bedSheets;
+	private boolean bedSheets;
 
-	private byte cycle;
+	private boolean cycle;
 
-	private byte hammock;
+	private boolean hammock;
 
-	private byte towels;
+	private boolean towels;
 
-	private byte umbrella;
+	private boolean umbrella;
 
-	//bi-directional many-to-one association to Caravana
-	@OneToMany(mappedBy="servicio")
-	private List<Caravana> caravanas;
+	//bi-directional one-to-one association to Caravana
+	@OneToOne(targetEntity=Caravana.class)
+	@PrimaryKeyJoinColumn(name="plate", referencedColumnName="plate")
+	private Caravana caravana;
 
 	public Servicio() {
 	}
 
-	public String getId() {
-		return this.id;
+	public String getPlate() {
+		return this.plate;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setPlate(String plate) {
+		this.plate = plate;
 	}
 
-	public byte getBbq() {
+	public boolean getBbq() {
 		return this.bbq;
 	}
 
-	public void setBbq(byte bbq) {
+	public void setBbq(boolean bbq) {
 		this.bbq = bbq;
 	}
 
-	public byte getBedSheets() {
+	public boolean getBedSheets() {
 		return this.bedSheets;
 	}
 
-	public void setBedSheets(byte bedSheets) {
+	public void setBedSheets(boolean bedSheets) {
 		this.bedSheets = bedSheets;
 	}
 
-	public byte getCycle() {
+	public boolean getCycle() {
 		return this.cycle;
 	}
 
-	public void setCycle(byte cycle) {
+	public void setCycle(boolean cycle) {
 		this.cycle = cycle;
 	}
 
-	public byte getHammock() {
+	public boolean getHammock() {
 		return this.hammock;
 	}
 
-	public void setHammock(byte hammock) {
+	public void setHammock(boolean hammock) {
 		this.hammock = hammock;
 	}
 
-	public byte getTowels() {
+	public boolean getTowels() {
 		return this.towels;
 	}
 
-	public void setTowels(byte towels) {
+	public void setTowels(boolean towels) {
 		this.towels = towels;
 	}
 
-	public byte getUmbrella() {
+	public boolean getUmbrella() {
 		return this.umbrella;
 	}
 
-	public void setUmbrella(byte umbrella) {
+	public void setUmbrella(boolean umbrella) {
 		this.umbrella = umbrella;
 	}
 
-	public List<Caravana> getCaravanas() {
-		return this.caravanas;
+	public Caravana getCaravana() {
+		return this.caravana;
 	}
 
-	public void setCaravanas(List<Caravana> caravanas) {
-		this.caravanas = caravanas;
-	}
-
-	public Caravana addCaravana(Caravana caravana) {
-		getCaravanas().add(caravana);
-		caravana.setServicio(this);
-
-		return caravana;
-	}
-
-	public Caravana removeCaravana(Caravana caravana) {
-		getCaravanas().remove(caravana);
-		caravana.setServicio(null);
-
-		return caravana;
+	public void setCaravana(Caravana caravana) {
+		this.caravana = caravana;
 	}
 
 }
