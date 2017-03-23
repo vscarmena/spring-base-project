@@ -36,12 +36,8 @@ public class UserController {
 	public static final String REGISTRATION_FAIL = "registration-error";
 	public static final String ACTIVATION_OK = "activation-success";
 	public static final String ACTIVATION_FAIL = "activation-error";
-
-	public String lista(User user) {
-
-		return "lista";
-	}
-	
+	public static final String EDIT_USER = "edit-user-info";
+	public static final String REDIRECT_EDIT_USER = "redirect:/" +EDIT_USER;
 
 	@PostMapping("/register")
 	public String registro(@Valid @ModelAttribute("user") User user, BindingResult result, Locale locale){
@@ -72,6 +68,7 @@ public class UserController {
 			return	ACTIVATION_FAIL;
 		}
 	}
+	
 
 
 

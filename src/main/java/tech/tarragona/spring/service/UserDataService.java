@@ -27,8 +27,8 @@ public class UserDataService {
 	}
 	
 	@Transactional
-	public void addNewUser(UserData user){
-		userDataRepository.save(user);
+	public void editUserInfo(UserData userData){
+		userDataRepository.save(userData);
 		
 	}
 	

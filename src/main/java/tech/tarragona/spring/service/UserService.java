@@ -35,7 +35,7 @@ public class UserService {
 	}
 	@Transactional
 	public void addNewUser(User user) {
-		userRepository.save(user);		
+		userRepository.save(user);	
 	}
 	@Transactional
 	public void generateAndSaveSecurityCode(Integer id) {

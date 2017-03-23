@@ -31,19 +31,33 @@ public class UserDataController {
 
 	@Autowired
 	UserService userService;
-
-	public static final String VIEW_PEOPLE = "persons";
+	
+	public static final String HOME_PAGE = "home";
 	public static final String REGISTER_PAGE = "register";
 	public static final String REGISTRATION_OK = "registration-success";
 	public static final String REGISTRATION_FAIL = "registration-error";
 	public static final String ACTIVATION_OK = "activation-success";
 	public static final String ACTIVATION_FAIL = "activation-error";
-
-	@GetMapping("/listar")
-	public String lista(UserData userdata, Model model) {
-		model.addAttribute("lista", userDataService.getUserData());
-		return VIEW_PEOPLE;
+	public static final String EDIT_USER = "edit-user-info";
+	public static final String REDIRECT_EDIT_USER = "redirect:/" +EDIT_USER;
+	
+	@GetMapping("/edit-user-info")
+	public String redirectToEditUser(){
+		return REDIRECT_EDIT_USER;
 	}
+
+	@PostMapping("/edit-user-info")
+	public String editUserInfo(@Valid @ModelAttribute("userData") UserData userData, BindingResult result, Locale locale){
+		if (result.hasErrors()){
+			return EDIT_USER;
+		}
+		else {
+			userDataService.editUserInfo(userData);
+		}
+		return HOME_PAGE;
+		
+	}
+	
 
 	
 
