@@ -30,7 +30,8 @@ public class EmailService {
 		final Context ctx = new Context(locale);
 //		ctx.setVariable("name", user.getUserData().getName()); //Si en "registro" se envía nombre.
 		ctx.setVariable("subscriptionDate", new Date());
-		ctx.setVariable("code", user.getSecurityCode());
+		String url = "http://localhost:8080/spring-base-project/hello/"+user.getSecurityCode();
+		ctx.setVariable("url", url);
 
 		final String htmlContent = emailTemplateEngine.process("html/registration-mail", ctx);
 
