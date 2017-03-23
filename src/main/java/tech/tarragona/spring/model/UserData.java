@@ -20,7 +20,7 @@ public class UserData implements Serializable {
     @Id
     private Integer id;
     
-    private String email;
+    private String username;
 
     private String address;
 
@@ -65,13 +65,13 @@ public class UserData implements Serializable {
     @PrimaryKeyJoinColumn(name="id")
     private User user;
 
-    public UserData(Integer id, String email, String address, String addressf, Date birthDate, String city,
+    public UserData(Integer id, String username, String address, String addressf, Date birthDate, String city,
 			String cityf, String country, String countryf, String cp, String cPf, int genre, int idTelephone,
 			int idTelephonef, String name, String namef, String nif, String surname, String surnamef, String telephone,
 			String telephonef) {
 		super();
 		this.id = id;
-		this.email = email;
+		this.username = username;
 		this.address = address;
 		this.addressf = addressf;
 		this.birthDate = birthDate;
@@ -104,12 +104,12 @@ public class UserData implements Serializable {
 		this.id = id;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getAddress() {

@@ -17,7 +17,8 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/register")
-	  public String regsiter() {
+	  public String regsiter(Model model) {
+		model.addAttribute("user", new User());
 	    return "register";
 	  }
 	  

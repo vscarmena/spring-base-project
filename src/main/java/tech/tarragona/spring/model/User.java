@@ -143,14 +143,6 @@ public class User implements UserDetails, CredentialsContainer  {
 		this.password = password;
 	}
 
-	public String getUsername() {
-		return this.username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public List<UserAuthority> getUserAuthorities() {
 		return this.userAuthorities;
 	}
@@ -280,5 +272,15 @@ public class User implements UserDetails, CredentialsContainer  {
 
 		return sb.toString();
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	
 
 }
