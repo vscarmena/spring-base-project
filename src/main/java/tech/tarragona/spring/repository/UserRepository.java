@@ -12,4 +12,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	User findById(Integer id);
 	User findBySecurityCode(String code);
 
+
 }

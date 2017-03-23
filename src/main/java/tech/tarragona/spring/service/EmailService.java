@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import tech.tarragona.spring.model.UserData;
+import tech.tarragona.spring.model.User;
 
 @Service
 public class EmailService {
@@ -24,13 +24,13 @@ public class EmailService {
 	@Autowired
 	JavaMailSender mailSender;
 
-	public void sendConfirmationMail(UserData userData, Locale locale)
+	public void sendConfirmationMail(User user, Locale locale)
 			throws MessagingException {
 
 		final Context ctx = new Context(locale);
-		ctx.setVariable("name", userData.getName());
+//		ctx.setVariable("name", user.getUserData().getName()); //Si en "registro" se envía nombre.
 		ctx.setVariable("subscriptionDate", new Date());
-		ctx.setVariable("code", userData.getUser().getSecurityCode());
+		ctx.setVariable("code", user.getSecurityCode());
 
 		final String htmlContent = emailTemplateEngine.process("html/registration-mail", ctx);
 
@@ -38,9 +38,9 @@ public class EmailService {
 		final MimeMessage mimeMessage = mailSender.createMimeMessage();
 		final MimeMessageHelper message =
 				new MimeMessageHelper(mimeMessage, true, "UTF-8");
-		message.setSubject("Caravaning: Necesaria confirmación de email");
+		message.setSubject("Registro Caravaning: Necesaria confirmación de email");
 		message.setFrom("caravaning.tgn@gmail.com");
-		message.setTo(userData.getEmail());
+		message.setTo(user.getUsername());
 
 		// Create the HTML body using Thymeleaf
 		message.setText(htmlContent, true);

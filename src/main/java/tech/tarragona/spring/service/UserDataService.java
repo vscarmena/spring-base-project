@@ -35,7 +35,7 @@ public class UserDataService {
 	@Transactional
 	public boolean userAlreadyExists(UserData userData, BindingResult result){
 		
-		if (userDataRepository.findByEmail(userData.getEmail())==null){
+		if (userDataRepository.findByUsername(userData.getUsername())==null){
 			return false;
 			
 		}else{
@@ -49,12 +49,6 @@ public class UserDataService {
 		
 	}
 	
-	public void generateAndSaveSecurityCode(Integer id){
-		String securityCode = UUID.randomUUID().toString();
-		User user = (userDataRepository.findById(id)).getUser();
-		user.setSecurityCode(securityCode);
-		userRepository.save(user);
-	}
 	
 	
 }//

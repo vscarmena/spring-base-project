@@ -9,7 +9,7 @@ import tech.tarragona.spring.model.UserData;
 @Repository
 public interface UserDataRepository extends JpaRepository <UserData, Integer>{
 
-	UserData findByEmail(String email);
+	UserData findByUsername(String username);
 
 	UserData findById(Integer id);
 

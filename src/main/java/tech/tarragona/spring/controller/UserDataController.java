@@ -45,34 +45,6 @@ public class UserDataController {
 		return VIEW_PEOPLE;
 	}
 
-	@PostMapping("/register")
-	public String registro(@Valid @ModelAttribute("user") UserData userData, BindingResult result, Locale locale){
-		//Add to BD
-		if (result.hasErrors()){
-			return REGISTER_PAGE;
-		}
-		if (userDataService.userAlreadyExists(userData, result)){
-			return REGISTER_PAGE;
-		}else {
-			userDataService.addNewUser(userData);
-			userDataService.generateAndSaveSecurityCode(userData.getId());
-			try {
-				emailService.sendConfirmationMail(userData, locale);
-				return REGISTRATION_OK;
-			} catch (MessagingException e) {
-				e.printStackTrace();
-				return REGISTRATION_FAIL;
-			}
-		}		
-	}
-
-	@GetMapping("/user/confirmation/mail/{code}")
-	public String enableUser(@PathVariable String code){
-		if (userService.findBySecurityCodeAndSetEnabled(code)){
-			return	ACTIVATION_OK;
-		}else{
-			return	ACTIVATION_FAIL;
-		}
-	}
+	
 
 }
