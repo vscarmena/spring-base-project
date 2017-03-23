@@ -42,14 +42,14 @@ public class MainController {
 	    return "registration-success";
 	  }
 	  
-	  @RequestMapping("/confirmation-success")
-	  public String confirmationSuccess() {
-	    return "confirmation-success";
+	  @RequestMapping("/activation-success")
+	  public String activationSuccess() {
+	    return "activation-success";
 	  }
 
-	  @RequestMapping("/confirmation-error")
-	  public String confirmationError() {
-	    return "confirmation-error";
+	  @RequestMapping("/activation-error")
+	  public String activationError() {
+	    return "activation-error";
 	  }
 	  
 	  @RequestMapping("/login-error")
