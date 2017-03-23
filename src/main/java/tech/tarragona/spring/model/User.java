@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.CascadeType;
 
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
@@ -51,10 +52,10 @@ public class User implements UserDetails, CredentialsContainer  {
 	@Transient
 	private Set<GrantedAuthority> authorities;
 
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", cascade = CascadeType.PERSIST)
 	private List<UserAuthority> userAuthorities;
 	
-	@OneToOne(mappedBy="user")
+	@OneToOne(mappedBy="user", cascade = CascadeType.PERSIST)
 	private UserData userData;
 	
 	public User(){

@@ -26,6 +26,12 @@ public class UserAuthority implements Serializable {
 	public UserAuthority() {
 	}
 
+	public UserAuthority(Authority authority, User user) {
+		super();
+		this.authority = authority;
+		this.user = user;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}

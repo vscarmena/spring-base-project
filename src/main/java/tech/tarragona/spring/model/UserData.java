@@ -3,9 +3,9 @@ package tech.tarragona.spring.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 
@@ -19,25 +19,30 @@ public class UserData implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 
 	private String lastname;
 
 	private String name;
-
-	//bi-directional one-to-one association to User
-	@OneToOne
-	@PrimaryKeyJoinColumn(name="id")
+	
 	private User user;
 
 	public UserData() {
 	}
 
-	public int getId() {
+	public UserData(String lastname, String name, User user) {
+		super();
+		this.lastname = lastname;
+		this.name = name;
+		this.user = user;
+	}
+
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
