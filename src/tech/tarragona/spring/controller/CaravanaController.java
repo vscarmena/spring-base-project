@@ -32,6 +32,9 @@ public class CaravanaController {
 		if (!result.hasErrors()){
 			caravanaservice.addCaravana(caravana);
 			caravanaservice.seleccionarPersonas(caravana, result);
+			
+			
+			
 			model.addAttribute("caravana", caravana);
 			caravanaservice.addCaravana(caravana);
 			return "paginaDePruebas";
