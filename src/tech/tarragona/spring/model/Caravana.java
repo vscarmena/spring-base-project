@@ -41,8 +41,7 @@ public class Caravana implements Serializable {
 	@Column(name = "construction_year")
 	private Integer constructionYear;
 	
-	@NotEmpty
-	@Length(min = 20)
+	
 	@Size(max = 255)
 	private String description;
 
