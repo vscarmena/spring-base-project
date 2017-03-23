@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}">
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title th:text="#{title.hello}"></title>
-    <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
+  <title th:text="#{title.page.items}"></title>
 </head>
 <body>
-<div class="container">
-
-    <h2 th:text="#{title.hello} + ' ' + ${name} + '!'"> </h2>
-
-</div>
-<!-- /container -->
-<script th:src="@{/resources/js/jquery.min.js}"></script>
-<script th:src="@{/resources/js/bootstrap.min.js}"></script>
-</body>
+  <header layout:fragment="header">
+  	<div class="container">
+		<div class="page-header">
+    		<h1> Bienvenido forastero</h1>
+    	</div>
+    </div>
+  </header>
+	<body>
+		<div class="container" layout:fragment="content">
+		    <img src="http://www.miamiplatja.es/planol/img/PRATS.jpg" alt="Smiley face" height="450" width="1200">
+		</div>
+	</body>
 </html>
