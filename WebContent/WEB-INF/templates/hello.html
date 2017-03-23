@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-  <title th:text="#{title.page.items}"></title>
+  <title th:text="#{hello.title}"></title>
 </head>
 <body>
   <header layout:fragment="header">
   	<div class="container">
 		<div class="page-header">
-    		<h1> Bienvenido forastero</h1>
+    		<h1 th:text="#{hello.greeting}"> </h1>
     	</div>
     </div>
   </header>
