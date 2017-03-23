@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8">
+<title>5.1</title>
+</head>
+<body>
+	<header layout:fragment="header">
+		<div class="container">
+			<div class="page-header">
+				<h1 th:text="#{title.page.addPersonasEnCaravana}"></h1>
+			</div>
+		</div>
+	</header>
+	<div class="container" layout:fragment="content">
+		<div class="row">
+			<form action="#" th:action="@{/caravana/caravana}"
+				th:object="${caravana}" method="post" class="form-horizontal">
+
+				<div class="form-group">
+					<label for="adults" class="col-sm-3 control-label">Adultos<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<select th:field="*{adults}" class="form-control">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="kids" class="col-sm-3 control-label">Niños<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<select th:field="*{kids}" class="form-control">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="babys" class="col-sm-3 control-label">Bebes<abbr
+						class="required" title="required"> * </abbr>
+					</label>
+					<div class="col-sm-4">
+						<select th:field="*{babys}" class="form-control">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group col-sm-7 text-right">
+					<button type="submit" class="btn btn-primary">
+						<i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
+					</button>
+				</div>
+			</form>
+</body>
+</html>
