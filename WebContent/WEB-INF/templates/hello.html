@@ -1,18 +1,34 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:with="lang=${#locale.language}" th:lang="${lang}">
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title th:text="#{title.hello}"></title>
-    <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
+  <title>welcome</title>
 </head>
 <body>
-<div class="container">
+  <header layout:fragment="header">
+  	<div class="container">
+		<div class="page-header">
+    		<h1> Bienvenido forastero</h1>
+    	</div>
+    </div>
+  </header>
+	<body>
 
-    <h2 th:text="#{title.hello} + ' ' + ${name} + '!'"> </h2>
-
-</div>
-<!-- /container -->
-<script th:src="@{/resources/js/jquery.min.js}"></script>
-<script th:src="@{/resources/js/bootstrap.min.js}"></script>
-</body>
+		<div class="container" layout:fragment="content">
+		    <img src="http://www.miamiplatja.es/planol/img/PRATS.jpg" alt="Smiley face" height="450" width="1200">
+		
+		
+		<h3>Contacto</h3>
+		<ul>
+		<li>A7-Salida 1138</li>
+		<li>AP-7-Salida 37-38</li>
+		<li>Crta .N-340,Km 1137</li>
+		<li>Tel +34 977 810 027</li>
+		<li>fax +34 977 170 901</li>
+		<li> Apartado de Correos 110,43892 MIAMI PLATJA</li>
+		<li>info@campingelsprats.com</li>
+		<li>long 00º 58' 55,47" , lat 41º 02' 26.49"</li>
+		</ul>
+		</div>
+	
+	</body>
 </html>
