@@ -18,6 +18,7 @@ public class Norma implements Serializable {
 
 	private boolean kids;
 
+	//@Size(max=100)
 	private String other;
 
 	private boolean party;
