@@ -281,12 +281,5 @@ public class User implements UserDetails, CredentialsContainer  {
 		return sb.toString();
 	}
 
-	public String getSecurityCode() {
-		return securityCode;
-	}
-
-	public void setSecurityCode(String securityCode) {
-		this.securityCode = securityCode;
-	}
 
 }
