@@ -34,6 +34,8 @@ public class CaravanaController {
 			caravanaservice.seleccionarPersonas(caravana, result);
 			model.addAttribute("caravana", caravana);
 			caravanaservice.addCaravana(caravana);
+			
+			
 			return "paginaDePruebas";
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());

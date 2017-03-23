@@ -8,9 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -19,24 +18,30 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "caravanas")
 public class Caravana implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
+	
+	
 	@Id
 	@NotEmpty
 	@NotNull
-	@Length(min=5,max=10)
+	@Length(min=5)
+	@Size(max=10)
 	//plate varchar (10) not null primary key
 	private String plate;
 	@NotEmpty
-	@Length(min=5,max=50)
+	@Length(min=5)
+	@Size(max=50)
 	private String name;
 	@NotEmpty
-	@Length(min=20, max=300)
+	@Length(min=20)
+	@Size(max=300)
 	//description varchar (300)
 	private String description;
 	private int adults;
 	private int babys;
 	@NotNull
-	@Length(min=5, max=15)
+	@Length(min=5)
+	@Size(max=15)
 	@NotEmpty
 	// brand varchar (15) not null,
 	private String brand;
@@ -49,7 +54,8 @@ public class Caravana implements Serializable {
 	private int kids;
 	@NotNull
 	@NotEmpty
-	@Length(min=5, max=15)
+	@Length(min=5)
+	@Size(max=15)
 	//model varchar (15)not null
 	private String model;
 
