@@ -41,7 +41,17 @@ public class MainController {
 	  public String registrationSuccess() {
 	    return "registration-success";
 	  }
+	  
+	  @RequestMapping("/confirmation-success")
+	  public String confirmationSuccess() {
+	    return "confirmation-success";
+	  }
 
+	  @RequestMapping("/confirmation-error")
+	  public String confirmationError() {
+	    return "confirmation-error";
+	  }
+	  
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
 	    model.addAttribute("loginError", true);
