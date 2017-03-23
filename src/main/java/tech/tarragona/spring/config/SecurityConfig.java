@@ -24,10 +24,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 		        .antMatchers("/**").permitAll()
-<<<<<<< HEAD
-		        .anyRequest().authenticated()
-=======
->>>>>>> feature/EINFOB
 		        .and()
 		    .formLogin()
 		        .loginPage("/login")
@@ -42,22 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 	
 	@Override
-<<<<<<< HEAD
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(customUserDetailsService);
-=======
 	  public void configure(WebSecurity web) throws Exception {
 	    web
 	      .ignoring()
 	         .antMatchers("/resources/**");
 	  }
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-        	.jdbcAuthentication()
-				.dataSource(dataSource);
->>>>>>> feature/EINFOB
-    }
-  
 }

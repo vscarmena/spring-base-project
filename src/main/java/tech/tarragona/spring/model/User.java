@@ -42,6 +42,7 @@ public class User implements UserDetails, CredentialsContainer  {
 	private boolean enabled;
 	private String password;
 	private String username;
+	private String securityCode;
 	@Transient
 	private final boolean accountNonExpired;
 	@Transient
@@ -108,6 +109,14 @@ public class User implements UserDetails, CredentialsContainer  {
 		this.accountNonLocked = accountNonLocked;
 		this.authorities = Collections.unmodifiableSet(sortAuthorities(authorities));
 		this.userData = userData;
+	}
+	
+	public String getSecurityCode() {
+		return securityCode;
+	}
+
+	public void setSecurityCode(String securityCode) {
+		this.securityCode = securityCode;
 	}
 
 	public Integer getId() {

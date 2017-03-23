@@ -16,17 +16,6 @@ public class MainController {
 	    return "login";
 	  }
 	  
-<<<<<<< HEAD
-	  @RequestMapping("/persons")
-	  public String persons() {
-	    return "persons";
-	  }
-	  
-	  @RequestMapping("/hello")
-	  public String hello() {
-	    return "hello";
-	  }
-=======
 	  @RequestMapping("/register")
 	  public String regsiter() {
 	    return "register";
@@ -51,9 +40,6 @@ public class MainController {
 	  public String registrationSuccess() {
 	    return "registration-success";
 	  }
-	  
-	  
->>>>>>> feature/EINFOB
 
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
@@ -67,21 +53,13 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/")
-<<<<<<< HEAD
-	  public String hello(@AuthenticationPrincipal User activeUser, Model model) {
-		  model.addAttribute("name", activeUser.getUsername() != null ? activeUser.getUsername() : "");
-		  if (activeUser.getUserData() != null) {
-			  System.out.println("USER NAME: " + activeUser.getUserData().getName());
-		  }
-		  
-=======
+
 	  public String start(Model model) {
 	      return "hello";
 	  }
 	  
 	  @RequestMapping("/hello")
 	  public String hello(Model model) {
->>>>>>> feature/EINFOB
 	      return "hello";
 	  }
 	  
@@ -105,7 +83,4 @@ public class MainController {
 		  model.addAttribute("name", activeUser.getUsername());
 	      return "hello";
 	  }
-	  
-	  
-
 }
