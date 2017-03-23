@@ -18,11 +18,7 @@ public class Norma implements Serializable {
 
 	private boolean kids;
 
-<<<<<<< HEAD
-	private boolean kids;
 	//@Size(max=100)
-=======
->>>>>>> 1b3b92cd54b65634a3ffa786b3ec04024228f473
 	private String other;
 
 	private boolean party;

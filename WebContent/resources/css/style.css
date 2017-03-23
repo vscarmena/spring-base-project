@@ -11,7 +11,7 @@ body {
 strong { font-weight: 700; }
 
 a, a:hover, a:focus {
-	color: #a93a52;
+	color: #fff;
 	text-decoration: none;
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }

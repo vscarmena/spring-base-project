@@ -26,21 +26,9 @@ public class CaravanaController {
 	
 	@GetMapping("/caravana")
 	public String addCaravana(Model model) {
-<<<<<<< HEAD
-		 Caravana caravana =new Caravana();
-		
-	        caravana.setNorma(new Norma());
-	        caravana.setServicio(new Servicio());
-	        caravana.setCaracteristica(new Caracteristica());
-	        
-	        model.addAttribute("caravana", caravana);
-	       
-	      
-	        
-	        
-=======
+
 		model.addAttribute("caravana", new Caravana());
->>>>>>> 1b3b92cd54b65634a3ffa786b3ec04024228f473
+
 		return "gestionCaravanas";
 	}
 	@PostMapping("/caravana")
