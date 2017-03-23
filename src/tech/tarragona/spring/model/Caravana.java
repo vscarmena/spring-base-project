@@ -1,48 +1,73 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * The persistent class for the caravana database table.
- * 
+ *
  */
 @Entity
-@NamedQuery(name="Caravana.findAll", query="SELECT c FROM Caravana c")
+@NamedQuery(name = "Caravana.findAll", query = "SELECT c FROM Caravana c")
 public class Caravana implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@NotNull
+	@NotEmpty
+	@Length(min = 5)
+	@Size(max = 10)
 	private String plate;
 
 	private int adults;
 
 	private int babys;
-
+	@NotNull
+	@NotEmpty
+	@Length(min = 5)
+	@Size(max = 15)
 	private String brand;
-
-	@Column(name="construction_year")
-	private int constructionYear;
-
+	
+	@Column(name = "construction_year")
+	private Integer constructionYear;
+	
+	@NotEmpty
+	@Length(min = 20)
+	@Size(max = 255)
 	private String description;
 
 	private int kids;
-
+	@NotNull
+	@NotEmpty
+	@Length(min = 5)
+	@Size(max = 15)
 	private String model;
-
+	
+	@NotEmpty
+	@Length(min = 5)
+	@Size(max = 50)
 	private String name;
 
-	//bi-directional one-to-one association to Caracteristica
-	@OneToOne(mappedBy="caravana")
+	// bi-directional one-to-one association to Caracteristica
+	@OneToOne(mappedBy = "caravana")
 	private Caracteristica caracteristica;
 
-	//bi-directional one-to-one association to Norma
-	@OneToOne(mappedBy="caravana")
+	// bi-directional one-to-one association to Norma
+	@OneToOne(mappedBy = "caravana")
 	private Norma norma;
 
-	//bi-directional one-to-one association to Servicio
-	@OneToOne(mappedBy="caravana", targetEntity=Servicio.class)
+	// bi-directional one-to-one association to Servicio
+	@OneToOne(mappedBy = "caravana", targetEntity = Servicio.class)
 	private Servicio servicio;
 
 	public Caravana() {
@@ -80,11 +105,11 @@ public class Caravana implements Serializable {
 		this.brand = brand;
 	}
 
-	public int getConstructionYear() {
+	public Integer getConstructionYear() {
 		return this.constructionYear;
 	}
 
-	public void setConstructionYear(int constructionYear) {
+	public void setConstructionYear(Integer constructionYear) {
 		this.constructionYear = constructionYear;
 	}
 
