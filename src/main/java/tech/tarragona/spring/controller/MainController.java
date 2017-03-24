@@ -22,6 +22,11 @@ public class MainController {
 	    return "register";
 	  }
 	  
+	  @RequestMapping("/error")
+	  public String error(Model model) {
+	    return "error";
+	  }
+	  
 	  @RequestMapping("/info")
 	  public String info() {
 	    return "info";
