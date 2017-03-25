@@ -9,6 +9,8 @@ import tech.tarragona.spring.model.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	User findByUsername(String username);
-	
+	User findById(Integer id);
+	User findBySecurityCode(String code);
+
 
 }

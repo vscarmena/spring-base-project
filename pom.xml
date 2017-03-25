@@ -189,7 +189,18 @@
         <artifactId>commons-lang3</artifactId>
         <version>3.3.2</version>
     </dependency>
- 
+    
+   	<!-- Mail -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>mail</artifactId>
+		<version>1.4.7</version>
+	</dependency>
   </dependencies>
  
 </project>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
   <title th:text="#{title.page.items}"></title>
 </head>
@@ -25,9 +25,9 @@
 		   					<th th:text="#{title.id}"></th>
 		   					<th th:text="#{title.name}"></th>
 		   				</tr>
-		   				<tr th:each="item: ${items}">
-		   					<td th:text="${item.id}"></td>
-        					<td th:text="${item.name}"></td>
+		   				<tr th:each="user: ${lista}">
+		   					<td th:text="${user.email}"></td>
+        					<td th:text="${user.name}"></td>
 		   				</tr>
 		   			</table>
 		   		</div>

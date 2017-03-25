@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Registrar</title>
+     <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/spring-base-project.css}" rel="stylesheet"/>
+    
+
+  </head>
+  <body>
+<div class="container">
+    <div class="row">	
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Registro</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="https://image.flaticon.com/icons/svg/226/226653.svg"
+                    alt="">
+                <form th:action="@{/register}" method="post" th:object="${user}" class="form-signin">
+                <label for="username">Correo</label>: <br />
+                <input type="text" id="username" name="username" class="form-control" placeholder="Email" required autofocus>
+                <label for="password">Contrase�a</label>: <br />
+                <input type="password" id="password" name="password" class="form-control" placeholder="Contrase�a" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Registrar</button>
+        	
+                </form>
+                
+                <div class="g-signin2" data-onsuccess="onSignIn">
+                <script>
+                function onSignIn(googleUser) {
+                	  var profile = googleUser.getBasicProfile();
+                	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                	  console.log('Name: ' + profile.getName());
+                	  console.log('Image URL: ' + profile.getImageUrl());
+                	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                	}
+                	                
+                </script>
+                </div>
+                
+            </div>
+            <a href="login.html" class="text-center new-account">Iniciar Sesi�n </a>
+        </div>
+    </div>
+</div>
+
+  <script th:src="@{/resources/js/jquery.min.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<script th:src="@{/resources/js/spring-base-project.js}"></script>
+  </body>
+</html>

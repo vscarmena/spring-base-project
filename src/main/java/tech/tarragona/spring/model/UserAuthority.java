@@ -1,7 +1,13 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -17,7 +23,6 @@ public class UserAuthority implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
-	//bi-directional many-to-one association to Authority
 	@ManyToOne
 	private Authority authority;
 

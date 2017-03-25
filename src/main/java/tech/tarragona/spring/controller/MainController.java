@@ -2,10 +2,11 @@ package tech.tarragona.spring.controller;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import tech.tarragona.spring.model.User;
 
 
 @Controller
@@ -15,7 +16,43 @@ public class MainController {
 	  public String login() {
 	    return "login";
 	  }
+	  
+	  @RequestMapping("/register")
+	  public String regsiter(Model model) {
+		model.addAttribute("user", new User());
+	    return "register";
+	  }
+	  
+	  @RequestMapping("/info")
+	  public String info() {
+	    return "info";
+	  }
+	  
+	  @RequestMapping("/facturacion")
+	  public String facturacion() {
+	    return "facturacion";
+	  }
+	  
+	  @RequestMapping("/registration-error")
+	  public String registrationError() {
+	    return "registration-error";
+	  }
+	  
+	  @RequestMapping("/registration-success")
+	  public String registrationSuccess() {
+	    return "registration-success";
+	  }
+	  
+	  @RequestMapping("/activation-success")
+	  public String activationSuccess() {
+	    return "activation-success";
+	  }
 
+	  @RequestMapping("/activation-error")
+	  public String activationError() {
+	    return "activation-error";
+	  }
+	  
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
 	    model.addAttribute("loginError", true);
@@ -28,14 +65,8 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/")
-	  public String hello(@AuthenticationPrincipal User activeUser, Model model) {
-		  //TODO: Con @AuthenticationPrincipal hay problemas conocidos http://stackoverflow.com/questions/32686587/null-authenticationprincipal-with-spring-boot-security
-		  //model.addAttribute("name", activeUser.getUsername() != null ? activeUser.getUsername() : "");
-		  //if (activeUser.getUserData() != null) {
-			  //System.out.println("USER NAME: " + activeUser.getUserData().getName());
-		  //}
-		  
-	      return "redirect:/items";
+	  public String hello(Model model) {
+	      return "hello";
 	  }
 	  
 	  @Secured("ROLE_ADMIN")
@@ -58,7 +89,4 @@ public class MainController {
 		  model.addAttribute("name", activeUser.getUsername());
 	      return "hello";
 	  }
-	  
-	  
-
 }

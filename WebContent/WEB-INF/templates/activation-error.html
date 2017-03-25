@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Confirmación Completada</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    
+    <div style="width: 100px; margin: 0 auto;">
+        <img src="https://image.flaticon.com/icons/svg/190/190406.svg">
+    </div>
+ 
+  <div class="alert alert-success" style="text-align:center">
+    <strong>Confirmación de registro completado!</strong> ¡Felicidades, tu cuenta ha sido activada con éxito!
+  </div>
+   
+</div>
+    
+    
+    
+ <div style="text-align:center">   
+     <p>Serás redireccionado automaticamente en <span id="count">10</span> segundos...</p>
+
+     <script type="text/javascript">
+
+         window.onload = function(){
+
+(function(){
+  var counter = 10;
+
+  setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      span = document.getElementById("count");
+      span.innerHTML = counter;
+    }
+    // Display 'counter' wherever you want to display it.
+    
+
+  }, 1000);
+
+})();
+
+}
+
+     </script>
+</div>
+
+<meta http-equiv="refresh" content="10;url=hello.html" /> <!---- CAMBIAR AQUÍ LA REDIRECCIÓN --->
+</body>
+</html>
