@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<link th:href="@{/resources/css/form-elements.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/media-queries.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+
+<meta charset="UTF-8">
+<title th:text="#{6.3}"></title>
+</head>
+<body>
+	<header layout:fragment="header">
+		<div class="container">
+			<div class="page-header">
+				<h1 th:text="#{6.3}"></h1>
+			</div>
+		</div>
+	</header>
+	<div class="container" layout:fragment="content">
+		<div class="msf-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 msf-form">
+						<form action="#" th:action="@{/caravana/add}"
+							th:object="${caravana}" method="post" class="form-inline">
+							<fieldset>
+
+				<div class="form-group">
+					<label for="stay_lenght_min" th:text="#{stay_lenght_min}"><abbr
+						class="required" title="required" > * </abbr></label>
+					
+						<select th:field="*{stay_lenght_min}" class="form-control">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+				</div>
+
+				<div class="form-group">
+					<label for="stay_lenght_max" th:text="#{stay_lenght_max}"><abbr
+						class="required" title="required"> * </abbr></label>
+					
+						<select th:field="*{stay_lenght_max}" class="form-control">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+						</select>
+				</div>
+				
+				<h4 th:text="#{tip}"></h4>
+				<h4 th:text="#{tip.text}"></h4>
+				
+
+				</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
