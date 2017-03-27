@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import tech.tarragona.spring.model.Camping;
 import tech.tarragona.spring.model.User;
 
 @Controller
@@ -17,7 +18,7 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/register")
-	  public String regsiter(Model model) {
+	  public String register(Model model) {
 		model.addAttribute("user", new User());
 	    return "register";
 	  }
@@ -37,6 +38,12 @@ public class MainController {
 	    return "facturacion";
 	  }
 	  
+	  @RequestMapping("/addCamping")
+	  public String addCamping(Model model) {
+		model.addAttribute("camping", new Camping());
+	    return "addCamping";
+	  }
+
 	  @RequestMapping("/registration-error")
 	  public String registrationError() {
 	    return "registration-error";
