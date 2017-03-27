@@ -58,6 +58,16 @@ public class MainController {
 	    return "activation-error";
 	  }
 	  
+	  @RequestMapping("/datos-fiscales")
+	  public String datosFiscales() {
+	    return "datos-fiscales";
+	  }
+	  
+	  @RequestMapping("/datos-facturacion-camping")
+	  public String datosFacturacionCamping() {
+	    return "datos-facturacion-camping";
+	  }
+	  
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
 	    model.addAttribute("loginError", true);
