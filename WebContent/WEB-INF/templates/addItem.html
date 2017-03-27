@@ -15,7 +15,7 @@
 			<div class="row">
 				<form action="#" th:action="@{/items/add}" th:object="${item}" method="post" class="form-horizontal">
 					<div class="form-group" th:classappend=="${#fields.hasErrors('name')} ? has-error">
-						<label for="name" class="col-sm-3 control-label" >Name<abbr class="required" title="required"> * </abbr></label>
+						<label for="name" class="col-sm-3 control-label" th:text="#{title.name}"><abbr class="required" title="required"> * </abbr></label>
 						<div class="col-sm-4">
 							<input type="text" th:field="*{name}" class="form-control"/>
 						</div>
