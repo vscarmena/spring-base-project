@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,8 +30,14 @@ public class CustomUserDetailsService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
         if (user != null){
-        	logger.debug("LOGIN : " + user.getUsername());
-            return new User(user.getUsername(), user.getPassword(), getGrantedAuthorities(user.getUserAuthorities()), user.getUserData());
+        	if (!user.isEnabled()) {
+        		throw new DisabledException("User '" + user + "' is disabled");
+        	}
+        	else {
+        		logger.debug("LOGIN : " + user.getUsername());
+                return new User(user.getUsername(), user.getPassword(), getGrantedAuthorities(user.getUserAuthorities()), user.getUserData());
+        	}
+        	
         }
         throw new UsernameNotFoundException("USER NOT FOUND");
 	}

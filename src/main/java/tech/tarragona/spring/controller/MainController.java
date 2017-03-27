@@ -13,13 +13,13 @@ public class MainController {
 
 	  @RequestMapping("/login")
 	  public String login() {
-	    return "login";
+	    return "user/login";
 	  }
 	  
 	  @RequestMapping("/register")
 	  public String regsiter(Model model) {
 		model.addAttribute("user", new User());
-	    return "register";
+	    return "user/register";
 	  }
 	  
 	  @RequestMapping("/error")
@@ -29,38 +29,38 @@ public class MainController {
 	  
 	  @RequestMapping("/info")
 	  public String info() {
-	    return "info";
+	    return "user/info";
 	  }
 	  
 	  @RequestMapping("/facturacion")
 	  public String facturacion() {
-	    return "facturacion";
+	    return "user/facturacion";
 	  }
 	  
 	  @RequestMapping("/registration-error")
 	  public String registrationError() {
-	    return "registration-error";
+	    return "user/registration-error";
 	  }
 	  
 	  @RequestMapping("/registration-success")
 	  public String registrationSuccess() {
-	    return "registration-success";
+	    return "user/registration-success";
 	  }
 	  
 	  @RequestMapping("/activation-success")
 	  public String activationSuccess() {
-	    return "activation-success";
+	    return "user/activation-success";
 	  }
 
 	  @RequestMapping("/activation-error")
 	  public String activationError() {
-	    return "activation-error";
+	    return "user/activation-error";
 	  }
 	  
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
 	    model.addAttribute("loginError", true);
-	    return "login";
+	    return "user/login";
 	  }
 	  
 	  @RequestMapping("/403")
@@ -69,12 +69,6 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/")
-
-	  public String start(Model model) {
-	      return "hello";
-	  }
-	  
-	  @RequestMapping("/hello")
 	  public String hello(Model model) {
 	      return "hello";
 	  }
@@ -99,4 +93,5 @@ public class MainController {
 		  model.addAttribute("name", activeUser.getUsername());
 	      return "hello";
 	  }
+
 }

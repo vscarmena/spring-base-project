@@ -22,7 +22,7 @@ import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("tech.tarragona")
+@ComponentScan("tech.tarragona.spring")
 public class WebMvcConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
 	private ApplicationContext applicationContext;
