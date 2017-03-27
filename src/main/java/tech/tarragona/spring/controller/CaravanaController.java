@@ -26,8 +26,6 @@ public class CaravanaController {
 
 	@Autowired
 	CaravanaValidator caravanaValidator;
-	
-	
 
 	@GetMapping("/add")
 	public String addCaravana(Model model) {
@@ -50,6 +48,15 @@ public class CaravanaController {
 		
 			caravanaservice.addCaravana(caravana);
 		
+			
+
+			caravanaservice.seleccionarPersonas(caravana, result);
+			
+			
+			
+			model.addAttribute("caravana", caravana);
+			caravanaservice.addCaravana(caravana);
+			
 			return "caravan/paginaDePruebas";
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());
