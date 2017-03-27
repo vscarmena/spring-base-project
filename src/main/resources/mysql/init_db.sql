@@ -103,53 +103,82 @@ CREATE TABLE IF NOT EXISTS campings (
 
 /* -------------  CARAVANA ------------- */
 
-CREATE TABLE IF NOT EXISTS caravana (
-   plate varchar (10) NOT NULL PRIMARY KEY,
-   brand varchar (15) NOT NULL,
-   model varchar (15) NOT NULL,
-   construction_year integer (4) NOT NULL,
-   babys integer (1),
-   kids integer (1),
-   adults integer (1),
-   name varchar(50),
-   description varchar (255)
-) ENGINE=InnoDB;
+create table if not exists caravan (
+    id integer (10) not null primary key auto_increment,
+    brand varchar (15) not null,
+    model varchar (15)not null,
+    construction_year integer (4) not null,
+    babys integer (1),
+    kids integer (1),
+    adults integer (1),
+    name varchar(50),
+    description varchar (250),
+    insurance boolean,
+	insurance_offer varchar (20),
+ 
+	what_camping varchar(40),
+	who_trans varchar (15),
+	inf_trans_name varchar(20),
+	inf_trans_adress varchar (50),
+	inf_trans_telephone integer (15),
+	inf_trans_email varchar (30),
+	inf_trans_contact varchar(50),
+    
+    recommendation varchar (100),
+    
+    lenght_stay_time integer (3),
+    lenght_stay_date varchar (15),
+    
+    reserv_advance_time integer (3),
+    reserv_advance_date varchar (15),
+    
+    availability_time integer (3),
+    availability_date integer (15)
+);
 
-CREATE TABLE IF NOT EXISTS caracteristica (
-	plate VARCHAR(10) NOT NULL PRIMARY KEY,
-	beds boolean,
-	kitchen boolean,
-	living boolean,
-	bath boolean,
-	awning boolean,
-	terrace_table boolean,
-	climatize boolean,
-	tv boolean,
-	fridge boolean,
-	closer boolean,
-	CONSTRAINT relacion_caravana_caracteristica FOREIGN KEY (plate) REFERENCES caravana (plate)
-) ENGINE=InnoDB;
+create table if not exists characteristic (
+id integer(10) not null primary key auto_increment,
+constraint relation_caravan_characteristic
+            foreign key (id)
+           references caravan (id),
+beds boolean,
+kitchen boolean,
+living boolean,
+bath boolean,
+awning boolean,
+terrace_table boolean,
+climatize boolean,
+tv boolean,
+fridge boolean,
+closer boolean
 
-CREATE TABLE IF NOT EXISTS servicio (
-	plate VARCHAR(10) NOT NULL PRIMARY KEY,
-	umbrella boolean,
-	cycle boolean,
-	hammock boolean,
-	bbq boolean,
-	towels boolean,
-	bed_sheets boolean,
-	CONSTRAINT relacion_caravana_servicio FOREIGN KEY (plate) REFERENCES caravana (plate)
-) ENGINE=InnoDB;
+);
 
-CREATE TABLE IF NOT EXISTS norma (
-	plate VARCHAR(10) NOT NULL PRIMARY KEY,
-	kids boolean,
-	pets boolean,
-	smoke boolean,
-	party boolean,
-	other varchar (100),
-	CONSTRAINT relacion_caravana_norma FOREIGN KEY (plate) REFERENCES caravana (plate)
-) ENGINE=InnoDB;
+create table if not exists service (
+id integer(10) not null primary key auto_increment,
+constraint relation_caravan_service
+            foreign key (id)
+           references caravan (id),
+umbrella boolean,
+cycle boolean,
+hammock boolean,
+bbq boolean,
+towels boolean,
+bed_sheets boolean
+
+);
+
+create table if not exists rule (
+id integer(10) not null primary key auto_increment,
+constraint relation_caravan_rule
+            foreign key (id)
+           references caravan (id),
+kids boolean,
+pets boolean,
+smoke boolean,
+party boolean,
+other varchar (100)
+);
 
 /* ------------- INSERT MOCK DATA ------------- */
 

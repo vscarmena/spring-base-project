@@ -4,17 +4,13 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
-/**
- * The persistent class for the caracteristica database table.
- * 
- */
 @Entity
-@NamedQuery(name="Caracteristica.findAll", query="SELECT c FROM Caracteristica c")
-public class Caracteristica implements Serializable {
+public class Characteristic implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String plate;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 
 	private boolean awning;
 
@@ -37,20 +33,19 @@ public class Caracteristica implements Serializable {
 
 	private boolean tv;
 
-	//bi-directional one-to-one association to Caravana
 	@OneToOne
-	@PrimaryKeyJoinColumn(name="plate")
-	private Caravana caravana;
+	@PrimaryKeyJoinColumn(name="id")
+	private Caravan caravan;
 
-	public Caracteristica() {
+	public Characteristic() {
 	}
 
-	public String getPlate() {
-		return this.plate;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setPlate(String plate) {
-		this.plate = plate;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public boolean getAwning() {
@@ -133,12 +128,12 @@ public class Caracteristica implements Serializable {
 		this.tv = tv;
 	}
 
-	public Caravana getCaravana() {
-		return this.caravana;
+	public Caravan getCaravan() {
+		return this.caravan;
 	}
 
-	public void setCaravana(Caravana caravana) {
-		this.caravana = caravana;
+	public void setCaravan(Caravan caravan) {
+		this.caravan = caravan;
 	}
 
 }

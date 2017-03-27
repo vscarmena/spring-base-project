@@ -3,18 +3,13 @@ package tech.tarragona.spring.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
-/**
- * The persistent class for the servicio database table.
- * 
- */
 @Entity
-
-public class Servicio implements Serializable {
+public class Service implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String plate;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 
 	private boolean bbq;
 
@@ -29,20 +24,20 @@ public class Servicio implements Serializable {
 
 	private boolean umbrella;
 
-	//bi-directional one-to-one association to Caravana
-	@OneToOne(targetEntity=Caravana.class)
-	@PrimaryKeyJoinColumn(name="plate", referencedColumnName="plate")
-	private Caravana caravana;
+	
+	@OneToOne
+	@PrimaryKeyJoinColumn(name="id")
+	private Caravan caravan;
 
-	public Servicio() {
+	public Service() {
 	}
 
-	public String getPlate() {
-		return this.plate;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setPlate(String plate) {
-		this.plate = plate;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public boolean getBbq() {
@@ -93,12 +88,12 @@ public class Servicio implements Serializable {
 		this.umbrella = umbrella;
 	}
 
-	public Caravana getCaravana() {
-		return this.caravana;
+	public Caravan getCaravan() {
+		return this.caravan;
 	}
 
-	public void setCaravana(Caravana caravana) {
-		this.caravana = caravana;
+	public void setCaravan(Caravan caravan) {
+		this.caravan = caravan;
 	}
 
 }

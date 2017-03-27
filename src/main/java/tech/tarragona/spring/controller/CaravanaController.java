@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import tech.tarragona.spring.model.Caravana;
+import tech.tarragona.spring.model.Caravan;
 import tech.tarragona.spring.service.Caravanaservice;
 import tech.tarragona.spring.validator.CaravanaValidator;
 
@@ -23,26 +23,36 @@ public class CaravanaController {
 	@Autowired
 	Caravanaservice caravanaservice;
 	
+
 	@Autowired
 	CaravanaValidator caravanaValidator;
+	
+	
 
 	@GetMapping("/add")
 	public String addCaravana(Model model) {
-		model.addAttribute("caravana", new Caravana());
+
+		model.addAttribute("caravana", new Caravan());
+
 		return "caravan/gestionCaravanas";
 	}
 
+
 	@PostMapping("/add")
-	public String addCaravana(@Valid @ModelAttribute("caravana") Caravana caravana, Errors errors, BindingResult result, Model model){
-		caravanaValidator.validate(caravana, errors);
+	public String addCaravana(@Valid @ModelAttribute("caravana") Caravan caravana, Errors errors, BindingResult result, Model model){
+	caravanaValidator.validate(caravana, errors);
 		if (!result.hasErrors()){
-			caravana.getServicio().setPlate(caravana.getPlate());
-			caravana.getNorma().setPlate(caravana.getPlate());
-			caravana.getCaracteristica().setPlate(caravana.getPlate());
+			
+			caravana.getService().setId(caravana.getId());
+			caravana.getRule().setId(caravana.getId());
+			caravana.getCharacteristic().setId(caravana.getId());
+			
+		
 			caravanaservice.addCaravana(caravana);
+		
 			return "caravan/paginaDePruebas";
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());
-		return "gestionCaravanas";
+		return "caravan/gestionCaravanas";
 	}
 }
