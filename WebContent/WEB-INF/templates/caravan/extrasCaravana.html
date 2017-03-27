@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+>
+<head>
+<meta charset="UTF-8">
+<title>EXTRAS</title>
+</head>
+<body>
+	<header layout:fragment="header">
+		<div class="container">
+			<div class="page-header">
+				<h1 th:text="#{title.page.extrasCaravana}"></h1>
+			</div>
+		</div>
+	</header>
+	<div class="container" layout:fragment="content">
+		<div class="row">
+			<form action="#" th:action="@{/caravana4/caravana4}"
+				th:object="${servicio}" method="post" class="form-horizontal">
+
+				<div class="form-group">
+					<label for="cycle" class="col-sm-3 control-label">bicicletas<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<input type="checkbox" value="cycle" class="form-control" />
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label for="umbrella" class="col-sm-3 control-label">Parasol<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<input type="checkbox" value="umbrella" class="form-control" />
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label for="hammock" class="col-sm-3 control-label">hamacas<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<input type="checkbox" value="hammock" class="form-control" />
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label for="bbq" class="col-sm-3 control-label">Barbacoa<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<input type="checkbox" value="bbq" class="form-control" />
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label for="towel" class="col-sm-3 control-label">Toalla<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<input type="checkbox" value="towel" class="form-control" />
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label for="bedSheet" class="col-sm-3 control-label">Sabanas<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<input type="checkbox" value="bedSheet" class="form-control" />
+					</div>
+
+				</div>
+				<div class="form-group col-sm-7 text-right">
+					<button type="submit" class="btn btn-primary">
+						<i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>

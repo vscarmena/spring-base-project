@@ -1,9 +1,13 @@
+/* ------------- TABLA DE EJEMPLO PARA REALIZAR OPERACIONES BASICAS ------------- */
+
 CREATE TABLE IF NOT EXISTS items (
 	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   	name varchar(50) NOT NULL DEFAULT '',
   	field1 varchar(50) DEFAULT NULL,
   	field2 varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB;
+
+/* ------------- IDENTIFIACION, AUTENTICACION y AUTORIZACON DE USUARIOS ------------- */
 
 CREATE TABLE IF NOT EXISTS authorities (
 	id int(11) NOT NULL PRIMARY KEY,
@@ -56,20 +60,22 @@ CREATE TABLE IF NOT EXISTS user_data (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS UserConnection (
-	userId varchar(255) not null,
-    providerId varchar(255) not null,
+	userId varchar(255) NOT NULL,
+    providerId varchar(255) NOT NULL,
     providerUserId varchar(255),
-    rank int not null,
+    rank int NOT NULL,
     displayName varchar(255),
     profileUrl varchar(512),
     imageUrl varchar(512),
-    accessToken varchar(512) not null,
+    accessToken varchar(512) NOT NULL,
     secret varchar(512),
     refreshToken varchar(512),
     expireTime bigint,
-    primary key (userId, providerId, providerUserId)
+    PRIMARY KEY (userId, providerId, providerUserId)
 ) ENGINE=InnoDB;
 CREATE UNIQUE INDEX UserConnectionRank on UserConnection(userId, providerId, rank);
+
+/* ------------- CAMPING ------------- */
 
 CREATE TABLE IF NOT EXISTS campings (
 	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -94,6 +100,58 @@ CREATE TABLE IF NOT EXISTS campings (
 	KEY fk_camping_idowner (owner),
   	CONSTRAINT fk_camping_idowner FOREIGN KEY (owner) REFERENCES users (id)
 ) ENGINE=InnoDB;
+
+/* -------------  CARAVANA ------------- */
+
+CREATE TABLE IF NOT EXISTS caravana (
+   plate varchar (10) NOT NULL PRIMARY KEY,
+   brand varchar (15) NOT NULL,
+   model varchar (15) NOT NULL,
+   construction_year integer (4) NOT NULL,
+   babys integer (1),
+   kids integer (1),
+   adults integer (1),
+   name varchar(50),
+   description varchar (255)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS caracteristica (
+	plate VARCHAR(10) NOT NULL PRIMARY KEY,
+	beds boolean,
+	kitchen boolean,
+	living boolean,
+	bath boolean,
+	awning boolean,
+	terrace_table boolean,
+	climatize boolean,
+	tv boolean,
+	fridge boolean,
+	closer boolean,
+	CONSTRAINT relacion_caravana_caracteristica FOREIGN KEY (plate) REFERENCES caravana (plate)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS servicio (
+	plate VARCHAR(10) NOT NULL PRIMARY KEY,
+	umbrella boolean,
+	cycle boolean,
+	hammock boolean,
+	bbq boolean,
+	towels boolean,
+	bed_sheets boolean,
+	CONSTRAINT relacion_caravana_servicio FOREIGN KEY (plate) REFERENCES caravana (plate)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS norma (
+	plate VARCHAR(10) NOT NULL PRIMARY KEY,
+	kids boolean,
+	pets boolean,
+	smoke boolean,
+	party boolean,
+	other varchar (100),
+	CONSTRAINT relacion_caravana_norma FOREIGN KEY (plate) REFERENCES caravana (plate)
+) ENGINE=InnoDB;
+
+/* ------------- INSERT MOCK DATA ------------- */
 
 INSERT INTO items (name, field1, field2) VALUES ('lorem', 'ipsum', 'dolor');
 INSERT INTO items (name, field1, field2) VALUES ('consectetur', 'adipiscing', 'elit');
