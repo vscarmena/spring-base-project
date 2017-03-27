@@ -155,17 +155,52 @@
    		<artifactId>validation-api</artifactId>
    		<version>1.1.0.Final</version>
    	</dependency>
+   	
+   	<!-- Spring Social -->
+   	
+   	<dependency>
+	    <groupId>org.springframework.social</groupId>
+	    <artifactId>spring-social-web</artifactId>
+	    <version>1.1.4.RELEASE</version>
+	</dependency>
+   	
+   	<dependency>
+	    <groupId>org.springframework.social</groupId>
+	    <artifactId>spring-social-security</artifactId>
+	    <version>1.1.4.RELEASE</version>
+	</dependency>
+   	
+   	<dependency>
+        <groupId>org.springframework.social</groupId>
+        <artifactId>spring-social-facebook</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework.social</groupId>
+        <artifactId>spring-social-google</artifactId>
+        <version>1.0.0.RELEASE</version>
+    </dependency>
+    
+    <!-- Apache Commons -->
+    
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.3.2</version>
+    </dependency>
+    
    	<!-- Mail -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
-		</dependency>
- 
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>mail</artifactId>
+		<version>1.4.7</version>
+	</dependency>
   </dependencies>
+ 
 </project>

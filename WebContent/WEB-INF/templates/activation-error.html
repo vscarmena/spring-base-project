@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Error en la confirmación</title>
+  <title th:text="#{formActivationBoth.ErrorConfirm}"></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
     </div>
  
   <div class="alert alert-success" style="text-align:center">
-    <strong>Error en la confirmación!</strong> Ha ocurrido un error en la confirmación...
+    <strong th:text="#{formActivationBoth.ErrorConfirm}">!</strong> <a th:text="#{formActivationBoth.ErrorConfirm}"></a>
   </div>
    
 </div>
@@ -25,7 +25,7 @@
     
     
  <div style="text-align:center">   
-     <p>Serás redireccionado automaticamente en <span id="count">10</span> segundos...</p>
+     <p><a th:text="#{formRegistrationBoth.redirect}"></a> <span id="count">10</span> <a th:text="#{formRegistrationBoth.seconds}"></a>...</p>
 
      <script type="text/javascript">
 

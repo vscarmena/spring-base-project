@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import tech.tarragona.spring.model.User;
 
+
 @Controller
 public class MainController {
 
@@ -69,12 +70,6 @@ public class MainController {
 	  }
 	  
 	  @RequestMapping("/")
-
-	  public String start(Model model) {
-	      return "hello";
-	  }
-	  
-	  @RequestMapping("/hello")
 	  public String hello(Model model) {
 	      return "hello";
 	  }

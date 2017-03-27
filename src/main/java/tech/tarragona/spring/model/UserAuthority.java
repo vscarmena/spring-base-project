@@ -23,13 +23,18 @@ public class UserAuthority implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
-	//bi-directional many-to-one association to Authority
 	@ManyToOne
 	private Authority authority;
 
 	private User user;
 
 	public UserAuthority() {
+	}
+
+	public UserAuthority(Authority authority, User user) {
+		super();
+		this.authority = authority;
+		this.user = user;
 	}
 
 	public Integer getId() {

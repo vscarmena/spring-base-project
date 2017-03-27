@@ -4,12 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 @Entity
@@ -17,16 +15,20 @@ import javax.persistence.TemporalType;
 public class UserData implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Id
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
     
     private String email;
 
     private String address;
 
+	private String name;
+	
+	private User user;
+	
     private String addressf;
 
-    @Temporal(TemporalType.DATE)
     private Date birthDate;
 
     private String city;
@@ -47,8 +49,6 @@ public class UserData implements Serializable {
 
     private int idTelephonef;
 
-    private String name;
-
     private String namef;
 
     private String nif;
@@ -60,44 +60,15 @@ public class UserData implements Serializable {
     private String telephone;
 
     private String telephonef;
-    
-    @OneToOne
-    @PrimaryKeyJoinColumn(name="id")
-    private User user;
-
-    public UserData(Integer id, String email, String address, String addressf, Date birthDate, String city,
-			String cityf, String country, String countryf, String cp, String cPf, int genre, int idTelephone,
-			int idTelephonef, String name, String namef, String nif, String surname, String surnamef, String telephone,
-			String telephonef) {
-		super();
-		this.id = id;
-		this.email = email;
-		this.address = address;
-		this.addressf = addressf;
-		this.birthDate = birthDate;
-		this.city = city;
-		this.cityf = cityf;
-		this.country = country;
-		this.countryf = countryf;
-		this.cp = cp;
-		CPf = cPf;
-		this.genre = genre;
-		this.idTelephone = idTelephone;
-		this.idTelephonef = idTelephonef;
-		this.name = name;
-		this.namef = namef;
-		this.nif = nif;
-		this.surname = surname;
-		this.surnamef = surnamef;
-		this.telephone = telephone;
-		this.telephonef = telephonef;
-	}
-
+		
 	public UserData() {
     }
-
-	public Integer getId() {
-		return id;
+	
+	public UserData(String name, String surname, String email) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
 	}
 
 	public void setId(Integer id) {
