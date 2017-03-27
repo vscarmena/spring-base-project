@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<link th:href="@{/resources/css/form-elements.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/media-queries.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+</head>
+<meta charset="UTF-8">
+<title th:text="#{5}"></title>
+</head>
+<body>
+
+	<form action="#" th:action="@{/caravana/add}" th:object="${caravan}"
+		method="post" class="form-inline">
+
+		<div class="form-group" th:classappend=="${#fields.hasErrors('description')} ? has-error">
+									<label for="recommendation" class="col-sm-3 control-label"
+										th:text="#{recommendation}"><abbr
+										class="required" title="required"> * </abbr>
+									</label> <input type="text" th:field="*{recommendation}"
+										class="form-control" />
+
+									<p th:if="${#fields.hasErrors('recommendation')}"
+										th:errors="*{recommendation}" class="error">Name error</p>
+								</div>
+
+	</form>
+
+</body>
+</html>
