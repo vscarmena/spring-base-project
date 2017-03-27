@@ -20,6 +20,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @NamedQuery(name = "Caravana.findAll", query = "SELECT c FROM Caravana c")
 public class Caravana implements Serializable {
+	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -68,6 +70,8 @@ public class Caravana implements Serializable {
 	// bi-directional one-to-one association to Servicio
 	@OneToOne(mappedBy = "caravana", targetEntity = Servicio.class)
 	private Servicio servicio;
+	
+	private String recommendation;
 
 	public Caravana() {
 	}
@@ -166,6 +170,14 @@ public class Caravana implements Serializable {
 
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
+	}
+	
+	public String getRecommendation() {
+		return recommendation;
+	}
+
+	public void setRecommendation(String recommendation) {
+		this.recommendation = recommendation;
 	}
 
 }
