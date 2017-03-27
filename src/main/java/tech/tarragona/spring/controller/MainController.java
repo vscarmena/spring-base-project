@@ -38,12 +38,6 @@ public class MainController {
 	  public String facturacion() {
 	    return "facturacion";
 	  }
-	  
-	  @RequestMapping("/addCamping")
-	  public String addCamping(Model model) {
-		model.addAttribute("camping", new Camping());
-	    return "addCamping";
-	  }
 
 	  @RequestMapping("/registration-error")
 	  public String registrationError() {
