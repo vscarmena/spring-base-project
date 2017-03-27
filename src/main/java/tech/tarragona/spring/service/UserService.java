@@ -47,6 +47,8 @@ public class UserService {
 		String securityCode = UUID.randomUUID().toString();
 		User user = userRepository.findById(id);
 		user.setSecurityCode(securityCode);
+		String passwordEncode = passwordEncoder.encode(user.getPassword());
+		user.setPassword(passwordEncode);
 		userRepository.save(user);
 		
 	}	
