@@ -58,7 +58,7 @@ public class MainController {
 	  @GetMapping("/caravana")
 	  public String formCaravana(Model model){
 		  model.addAttribute("caravana", new Caravana());
-		  return "gestionCaravana";
+		  return "calendar";
 	  }
 
 }
