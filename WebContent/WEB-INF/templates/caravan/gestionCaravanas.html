@@ -618,8 +618,8 @@
 					<fieldset>
 						<div class="form-group">
 							<h1>Quien llevara tu caravana?</h1>
-							<select name="whoTrans" id="whoTrans" class="form-control">
-								<option id="mySelf" value="mySelf" th:text="#{mySelf}"></option>
+							<select name="whoTrans" id="whoTrans" class="form-control" th:field="*{whoTrans}">
+								<option id="mySelf" value="mySelf" th:text="#{mySelf}" ></option>
 								<option id="myParking" value="myParking" th:text="#{myParking}"></option>
 								<option id="traveler" value="traveler" th:text="#{traveler}"></option>
 								<option id="serviceTrans" value="serviceTrans"
@@ -628,8 +628,8 @@
 
 
 							<div id="row_dim">
-								<form action="#" th:action="@{/caravana/add}"
-									th:object="${caravana}" method="post">
+								<!--	BORRAR <form action="#" th:action="@{/caravana/add}"
+									th:object="${caravana}" method="post">	BORRAR -->
 									<div>
 
 										<label for="infTransName" th:text="#{infTransName}"> </label>
@@ -666,13 +666,52 @@
 							th:utext="#{previous}">
 							<i class="fa fa-angle-left"></i>
 						</button>
-						<button type="submit" class="btn btn-primary" th:utext="#{t.save}">
-
-							<i class="fa fa-floppy-o" aria-hidden="true"></i>
-
-						</button>
+						<button type="button" class="btn btn-next" th:utext="#{next}">
+									<i class="fa fa-angle-right"></i>
+								</button>
 					</fieldset>
-					</form>
+					
+					<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+							<fieldset>
+								<h4 th:text="#{6.2}">
+									<span class="step" th:text="#{step.?}"> </span>
+								</h4>
+
+								<div class="form-group" th:classappend=="${#fields.hasErrors('reservAdvanceTime')} ? has-error">
+									<label for="reservAdvanceTime" class="col-sm-3 control-label"
+										th:text="#{reservAdvanceTime}"> <abbr class="required"
+										title="required"> * </abbr>
+									</label> <input type="text" th:field="*{reservAdvanceTime}"
+										class="form-control" />
+
+									<p th:if="${#fields.hasErrors('reservAdvanceTime')}"
+										th:errors="*{reservAdvanceTime}" class="error">Name error</p>
+								</div>
+								<div class="form-group">
+									<select th:field="*{reservAdvanceDate}" class="form-control">
+										<option value="Dias">Día/s</option>
+										<option value="Semanas">Semana/s</option>
+										<option value="Meses">Mes/es</option>
+									</select>
+								</div>
+
+
+								<br> <br>
+
+								<button type="button" class="btn btn-previous"
+									th:utext="#{previous}">
+									<i class="fa fa-angle-left"></i>
+								</button>
+								<button type="submit" class="btn btn-primary"
+									th:utext="#{t.save}">
+
+									<i class="fa fa-floppy-o" aria-hidden="true"></i>
+
+								</button>
+
+							</fieldset>
+					
+				 </form> 	
 
 				</div>
 			</div>
