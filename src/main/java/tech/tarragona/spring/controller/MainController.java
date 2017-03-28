@@ -59,13 +59,10 @@ public class MainController {
 	  
 	  @RequestMapping("/datos-fiscales")
 	  public String datosFiscales() {
-	    return "datos-fiscales";
+	    return "camping/datos-fiscales";
 	  }
 	  
-	  @RequestMapping("/datos-facturacion-camping")
-	  public String datosFacturacionCamping() {
-	    return "datos-facturacion-camping";
-	  }
+	 
 	  
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {

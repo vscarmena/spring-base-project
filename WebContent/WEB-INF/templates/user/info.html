@@ -23,6 +23,9 @@
                 <label for="surname">Apellidos</label>: <br />
                 <input type="text" id="surname" name="surname" th:field="*{surname}" class="form-control" placeholder="Apellidos" required>
                 
+               <label for="nif">NIF</label>
+				<input type="text" id="nif" th:field="*{nif}" name="nif" class="form-control">
+				
                 <label for="username">Email</label>: <br />
                 <input type="email" id="email" name="email" th:field="*{email}" class="form-control" placeholder="Email" >
                 
@@ -48,7 +51,7 @@
   					<option value="351">+351 Portugal</option>
   					<option value="48">+48 Polonia</option>
 				</select>
-				<input type="text" id="phone" name="phone" class="form-control">
+				<input type="text" id="phone" th:field="*{telephone}" name="phone" class="form-control">
 				
 				<label for="address">Direcci�n</label>
 				<input type="text" id="address" th:field="*{address}" name="address" class="form-control">
@@ -70,8 +73,8 @@
 				<label for="postalcode">C�digo Postal</label>
 				<input type="text" id="postalcode" th:field="*{cp}" name="postalcode" class="form-control">
 				
-				<label for="locality">Localidad</label>
-				<input type="text" id="locality" th:field="*{city}" name="locality" class="form-control">
+				<label for="city">Localidad</label>
+				<input type="text" id="city" th:field="*{city}" name="city" class="form-control">
  				<br>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Guardar</button>       	
