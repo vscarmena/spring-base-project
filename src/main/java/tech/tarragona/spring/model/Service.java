@@ -23,6 +23,16 @@ public class Service implements Serializable {
 	private boolean towels;
 
 	private boolean umbrella;
+	
+	private boolean toaster;
+	
+	private boolean microwave;
+	
+	private boolean mixer;
+	
+	private boolean pillows;
+	
+	private String other;
 
 	
 	@OneToOne
@@ -96,4 +106,46 @@ public class Service implements Serializable {
 		this.caravan = caravan;
 	}
 
+	public boolean isToaster() {
+		return toaster;
+	}
+
+	public void setToaster(boolean toaster) {
+		this.toaster = toaster;
+	}
+
+	public boolean isMicrowave() {
+		return microwave;
+	}
+
+	public void setMicrowave(boolean microwave) {
+		this.microwave = microwave;
+	}
+
+	public boolean isMixer() {
+		return mixer;
+	}
+
+	public void setMixer(boolean mixer) {
+		this.mixer = mixer;
+	}
+
+	public boolean isPillows() {
+		return pillows;
+	}
+
+	public void setPillows(boolean pillows) {
+		this.pillows = pillows;
+	}
+
+	public String getOther() {
+		return other;
+	}
+
+	public void setOther(String other) {
+		this.other = other;
+	}
+
+	
+	
 }
