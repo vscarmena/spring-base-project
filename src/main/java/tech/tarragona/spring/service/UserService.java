@@ -1,13 +1,12 @@
 package tech.tarragona.spring.service;
 
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 
+import tech.tarragona.spring.helper.UserHelper;
 import tech.tarragona.spring.model.User;
 import tech.tarragona.spring.repository.UserRepository;
 
@@ -17,7 +16,10 @@ public class UserService {
 	UserRepository userRepository;
 	
 	@Autowired
-	private PasswordEncoder passwordEncoder;
+	UserHelper userHelper;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Transactional
 	public boolean findBySecurityCodeAndSetEnabled(String code) {
@@ -39,18 +41,14 @@ public class UserService {
 	}
 	@Transactional
 	public void addNewUser(User user) {
-		/*TODO: Before save user do passwordEncoder.encode('<password>')*/
-		userRepository.save(user);	
-	}
-	@Transactional
-	public void generateAndSaveSecurityCode(Integer id) {
-		String securityCode = UUID.randomUUID().toString();
-		User user = userRepository.findById(id);
-		user.setSecurityCode(securityCode);
 		String passwordEncode = passwordEncoder.encode(user.getPassword());
 		user.setPassword(passwordEncode);
+		user.setSecurityCode(userHelper.generateAndSaveSecurityCode());
 		userRepository.save(user);
-		
-	}	
+	}
+	public User findUserByUsername(String username) {
+		return userRepository.findByUsername(username);
+	}
+	
 }
 
