@@ -32,8 +32,10 @@ public class UserService {
 	@Transactional
 	public boolean userAlreadyExists(User user, BindingResult result) {
 		if (userRepository.findByUsername(user.getUsername())!=null){
+			result.rejectValue("username", "error.emailAlreadyExists");
 			return true;
 		}else{
+			
 			return false;
 		}
 	}

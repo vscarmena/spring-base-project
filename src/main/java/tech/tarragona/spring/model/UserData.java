@@ -8,6 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -18,45 +24,66 @@ public class UserData implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+   
     
     private String email;
 
+    @NotEmpty
+    @Size(max=40)
     private String address;
 
-	private String name;
+	@NotEmpty
+	@Size(max=15)
+    private String name;
+	
 	
 	private User user;
 	
     private String addressf;
 
+    @DateTimeFormat(pattern="yyyy-mm-dd")
     private Date birthDate;
 
+    @NotEmpty
+    @Size(max=15)
     private String city;
 
     private String cityf;
 
+    @NotEmpty
     private String country;
 
     private String countryf;
 
+    @NotEmpty
+    @Size(max=10)
     private String cp;
 
     private String CPf;
 
-    private int genre;
+    @NotNull
+    private Integer genre;
 
-    private int idTelephone;
+    @Max(value=2)
+    @NotNull
+    private Integer idTelephone;
 
-    private int idTelephonef;
+    private Integer idTelephonef;
 
     private String namef;
 
+    @NotEmpty
+    @Size(max=15)
     private String nif;
 
+    @NotEmpty
+    @Size(max=25)
     private String surname;
 
     private String surnamef;
 
+    @NotEmpty
+    @Size(max=15)
     private String telephone;
 
     private String telephonef;
@@ -163,19 +190,19 @@ public class UserData implements Serializable {
 		this.genre = genre;
 	}
 
-	public int getIdTelephone() {
+	public Integer getIdTelephone() {
 		return idTelephone;
 	}
 
-	public void setIdTelephone(int idTelephone) {
+	public void setIdTelephone(Integer idTelephone) {
 		this.idTelephone = idTelephone;
 	}
 
-	public int getIdTelephonef() {
+	public Integer getIdTelephonef() {
 		return idTelephonef;
 	}
 
-	public void setIdTelephonef(int idTelephonef) {
+	public void setIdTelephonef(Integer idTelephonef) {
 		this.idTelephonef = idTelephonef;
 	}
 
