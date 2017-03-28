@@ -1,7 +1,6 @@
 package tech.tarragona.spring.controller;
 
 import java.util.Locale;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
