@@ -1,20 +1,84 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	layout:decorate="~{layouts/default}"	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html >
+	<script th:src="@{/resources/js/jquery.min.js}"></script>
 <head>
 <meta charset="UTF-8">
 <title>Traslado</title>
+
+
 </head>
 <body>
 
 
 <h1>Quien llevara tu caravana?</h1>
- <select id="whoTrans" th:field="*{whoTrans}">
-<option value="mySelf" th:text="#{mySelf}"></option>
-<option value="myParking" th:text="#{myParking}" ></option>
-<option value="traveler" th:text="#{traveler}"></option>
-<option value="serviceTrans" th:text="#{serviceTrans}" ></option>
+ <select  name="whoTrans" id="whoTrans" >
+<option  id="mySelf" value="mySelf" th:text="#{mySelf}"></option>
+<option id="myParking" value="myParking" th:text="#{myParking}" ></option>
+<option id="traveler" value="traveler" th:text="#{traveler}"></option>
+<option id="serviceTrans" value="serviceTrans" th:text="#{serviceTrans}" ></option>
 </select>
 
+
+<div  id="row_dim" >
+
+<div>
+<label for="infTransName"  th:text="#{infTransName}"> </label>
+<input type="text" th:field="*{infTransName}" class="form-control" />
+</div>
+
+
+<div >
+<label for="infTransAdress"  th:text="#{infTransAdress}"> </label>
+<input type="text" th:field="*{infTransAdress}" />
+</div>
+
+
+<div>
+<label for="infTransTelephone"  th:text="#{infTransTelephone}"> </label>
+<input type="text" th:field="*{infTransTelephone}" />
+</div>
+
+<div  >
+<label for="infTransEmail" th:text="#{infTransEmail}"> </label>
+<input type="text" th:field="*{infTransEmail}" />
+
+</div>
+<div >
+<label for="infTransContact"  th:text="#{infTransContact}"> </label>
+
+<input type="text" th:field="*{infTransContact}" />
+</div>
+</div>
+
+
+ <!--  <div class="row">    
+    Type
+        <select name="type" id="type" style="margin-left:57px; width:153px;">
+                <option name="l_letter" value="l_letter">Large Letter</option>
+                <option name="letter" value="letter">Letter</option>
+                <option name="parcel" value="parcel">Parcel</option>
+        </select>                    
+</div>
+
+<div class="row" id="row_dim">
+    Dimensions
+        <input type="text" name="length" style="margin-left:12px;" class="dimension" placeholder="Length">
+        <input type="text" name="width" class="dimension" placeholder="Width">
+        <input type="text" name="height" class="dimension" placeholder="Height">
+</div> 
+-->
+<script>
+$(function() {
+    $('#row_dim').hide(); 
+    $('#whoTrans').change(function(){
+        if($('#whoTrans').val() == 'myParking') {
+            $('#row_dim').show(); 
+        } else {
+            $('#row_dim').hide(); 
+        } 
+    });
+});
+</script>
 
 </body>
 </html>

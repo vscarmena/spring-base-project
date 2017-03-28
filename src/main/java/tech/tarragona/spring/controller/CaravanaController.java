@@ -51,4 +51,13 @@ public class CaravanaController {
 		System.out.println("ERRORS: " + result.getFieldErrors());
 		return "caravan/gestionCaravanas";
 	}
+	
+	@GetMapping("/pruebaMarcos")
+	public String prueba(Model model) {
+
+		model.addAttribute("caravana", new Caravan());
+
+		return "caravan/trasladoCaravana";
+	}
+	
 }
