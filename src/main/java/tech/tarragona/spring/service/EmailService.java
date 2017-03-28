@@ -49,7 +49,27 @@ public class EmailService {
 		// Send mail
 
 		mailSender.send(mimeMessage);
+	}
+	
 
+	public void sendChangedPassMail(String email, Locale locale) throws MessagingException {
+		
+		final Context ctx = new Context(locale);
+		ctx.setVariable("subscriptionDate", new Date());
+				
+		final String htmlContent = emailTemplateEngine.process("html/changed-pass-mail", ctx);
+		
+		final MimeMessage mimeMessage = mailSender.createMimeMessage();
+		final MimeMessageHelper message =
+				new MimeMessageHelper(mimeMessage, true, "UTF-8");
+		message.setSubject("Caravaning: Se ha modificado su contraseña");
+		message.setFrom("caravaning.tgn@gmail.com");
+		message.setTo(email);
+
+		message.setText(htmlContent, true);
+
+		mailSender.send(mimeMessage);
+		
 	}
 	
 }
