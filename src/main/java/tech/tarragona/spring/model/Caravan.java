@@ -71,6 +71,7 @@ public class Caravan implements Serializable {
 	private Rule rule;
 	//bi-directional one-to-one association to Service
 	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
+	
 	private Service service;
 
 	public Caravan() {

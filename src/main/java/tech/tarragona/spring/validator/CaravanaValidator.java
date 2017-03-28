@@ -23,7 +23,7 @@ public class CaravanaValidator implements Validator {
 
 		if (Caravan.getConstructionYear() == null) {
 			errors.rejectValue("constructionYear", "constructionYear.NotEmptyOrWhitespace");
-		} else if (Caravan.getConstructionYear() < 1931) {
+		} else if (Caravan.getConstructionYear() < 1978) {
 			errors.rejectValue("constructionYear", "constructionYear.OutOfRangeMin");
 		} else if (Caravan.getConstructionYear() > Calendar.getInstance().get(Calendar.YEAR)) {
 			errors.rejectValue("constructionYear", "constructionYear.OutOfRangeMax");
