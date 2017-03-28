@@ -4,8 +4,10 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import tech.tarragona.spring.model.Caravan;
 import tech.tarragona.spring.model.User;
 
 @Controller
@@ -92,6 +94,12 @@ public class MainController {
 	  public String helloUserAdmin(@AuthenticationPrincipal User activeUser, Model model) {
 		  model.addAttribute("name", activeUser.getUsername());
 	      return "hello";
+	  }
+	  
+	  @GetMapping("/caravana")
+	  public String formCaravana(Model model){
+		  model.addAttribute("caravana", new Caravan());
+		  return "calendar";
 	  }
 
 }

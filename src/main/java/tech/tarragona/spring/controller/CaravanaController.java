@@ -32,6 +32,7 @@ public class CaravanaController {
 
 		model.addAttribute("caravana", new Caravan());
 
+
 		return "caravan/gestionCaravanas";
 	}
 
