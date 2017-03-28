@@ -41,7 +41,7 @@ public class CaravanaController {
 	caravanaValidator.validate(caravana, errors);
 		if (!result.hasErrors()){
 			
-			caravana.getService().setId(caravana.getId());
+		    caravana.getService().setId(caravana.getId());
 			caravana.getRule().setId(caravana.getId());
 			caravana.getCharacteristic().setId(caravana.getId());
 			
@@ -50,7 +50,7 @@ public class CaravanaController {
 		
 			
 
-			caravanaservice.seleccionarPersonas(caravana, result);
+			//caravanaservice.seleccionarPersonas(caravana, result);
 			
 			
 			
