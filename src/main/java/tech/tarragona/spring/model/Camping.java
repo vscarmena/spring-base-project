@@ -15,44 +15,7 @@ public class Camping implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-<<<<<<< HEAD
-	private int id;
-=======
 	private Integer id;
-
-	private String address;
-
-	private String addressf;
-
-	private String cif;
-
-	private String city;
-
-	private String country;
-
-	private String cp;
-
-	@Lob
-	private String description;
-
-	private String emailf;
-
-	private int idTelephone;
-
-	private String name;
-
-	private String namef;
-
-	private int rates;
-
-	private float rating;
-
-	private String telephone;
-
-	private String ubication;
-
-	private String zone;
->>>>>>> feature/CAMPINGS
 
 	private String address;
 
