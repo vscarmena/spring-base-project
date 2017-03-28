@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-  <title>Public Home</title>
+  <title th:text="#{FormHello.title}"></title>
 </head>
 <body>
 	<header layout:fragment="header">
 	  	<div class="container">
 			<div class="page-header">
+
+	    		<h1 th:text="#{FormHello.title}"></h1>
+
 	    		<div sec:authorize="isAuthenticated()">
-	    			<p>Logged user: <span sec:authentication="name"></span></p>
+	    			<p><a th:text="#{FormHello.LoggerUser}"></a>: <span sec:authentication="name"></span></p>
 	    		</div>
 	    		<div sec:authorize="isAnonymous()">
-	    			<p>No user logged!</p>
+	    			<p><a th:text="#{FormHello.NoUserLogged}"></a>!</p>
 	    		</div>
 	    	</div>
 	    </div>

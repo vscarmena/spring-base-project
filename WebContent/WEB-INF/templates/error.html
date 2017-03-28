@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Error page</title>
+        <title th:text="#{form403.errorPage}"></title>
         <meta charset="utf-8" />
     </head>
     <body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
         <h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
-        <p th:utext="${errorMessage}">Error java.lang.NullPointerException</p>
+        <p th:text="${errorMessage}">Error java.lang.NullPointerException</p>
         <a href="index.html" th:href="@{/}" th:text="#{form403.backToHome}"></a>
     </body>
 </html>
