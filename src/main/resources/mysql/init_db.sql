@@ -80,6 +80,7 @@ CREATE TABLE IF NOT EXISTS campings (
 	city varchar (25),
 	rating float (2),
 	rates int (8),
+    schedule varchar (20),
 	cif varchar (10) NOT NULL DEFAULT '',
 	namef varchar(30) NOT NULL DEFAULT '',
 	addressf varchar (30) NOT NULL DEFAULT '',

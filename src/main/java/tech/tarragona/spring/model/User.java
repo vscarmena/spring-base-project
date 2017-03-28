@@ -113,7 +113,7 @@ public class User implements UserDetails, CredentialsContainer  {
 	}
 	
 	public String getSecurityCode() {
-		return securityCode;
+		return this.securityCode;
 	}
 
 	public void setSecurityCode(String securityCode) {
