@@ -150,8 +150,14 @@ terrace_table boolean,
 climatize boolean,
 tv boolean,
 fridge boolean,
-closer boolean
-
+closer boolean,
+oven boolean,
+terrace_chairs boolean,
+shower boolean,
+crockery boolean,
+skillets_casseroles boolean,
+cutlery boolean,
+others varchar (100)
 );
 
 create table if not exists service (
@@ -164,8 +170,12 @@ cycle boolean,
 hammock boolean,
 bbq boolean,
 towels boolean,
-bed_sheets boolean
-
+bed_sheets boolean,
+toaster boolean,
+microwave boolean,
+mixer boolean,
+pilows boolean,
+other varchar (100)
 );
 
 create table if not exists rule (
