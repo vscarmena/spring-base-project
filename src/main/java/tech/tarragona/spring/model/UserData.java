@@ -20,6 +20,8 @@ public class UserData implements Serializable {
 	private Integer id;
     
     private String email;
+    
+    private String emailf;
 
     private String address;
 
@@ -33,33 +35,26 @@ public class UserData implements Serializable {
 
     private String city;
 
-    private String cityf;
-
     private String country;
 
-    private String countryf;
-
     private String cp;
-
-    private String CPf;
 
     private int genre;
 
     private int idTelephone;
 
-    private int idTelephonef;
-
     private String namef;
 
     private String nif;
+    
+    private int rates;
+
+	private float rating;
 
     private String surname;
 
-    private String surnamef;
-
     private String telephone;
-
-    private String telephonef;
+    
 		
 	public UserData() {
     }
@@ -71,10 +66,14 @@ public class UserData implements Serializable {
 		this.email = email;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -83,12 +82,36 @@ public class UserData implements Serializable {
 		this.email = email;
 	}
 
+	public String getEmailf() {
+		return emailf;
+	}
+
+	public void setEmailf(String emailf) {
+		this.emailf = emailf;
+	}
+
 	public String getAddress() {
 		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getAddressf() {
@@ -115,14 +138,6 @@ public class UserData implements Serializable {
 		this.city = city;
 	}
 
-	public String getCityf() {
-		return cityf;
-	}
-
-	public void setCityf(String cityf) {
-		this.cityf = cityf;
-	}
-
 	public String getCountry() {
 		return country;
 	}
@@ -131,28 +146,12 @@ public class UserData implements Serializable {
 		this.country = country;
 	}
 
-	public String getCountryf() {
-		return countryf;
-	}
-
-	public void setCountryf(String countryf) {
-		this.countryf = countryf;
-	}
-
 	public String getCp() {
 		return cp;
 	}
 
 	public void setCp(String cp) {
 		this.cp = cp;
-	}
-
-	public String getCPf() {
-		return CPf;
-	}
-
-	public void setCPf(String cPf) {
-		CPf = cPf;
 	}
 
 	public int getGenre() {
@@ -171,22 +170,6 @@ public class UserData implements Serializable {
 		this.idTelephone = idTelephone;
 	}
 
-	public int getIdTelephonef() {
-		return idTelephonef;
-	}
-
-	public void setIdTelephonef(int idTelephonef) {
-		this.idTelephonef = idTelephonef;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getNamef() {
 		return namef;
 	}
@@ -203,20 +186,28 @@ public class UserData implements Serializable {
 		this.nif = nif;
 	}
 
+	public int getRates() {
+		return rates;
+	}
+
+	public void setRates(int rates) {
+		this.rates = rates;
+	}
+
+	public float getRating() {
+		return rating;
+	}
+
+	public void setRating(float rating) {
+		this.rating = rating;
+	}
+
 	public String getSurname() {
 		return surname;
 	}
 
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}
-
-	public String getSurnamef() {
-		return surnamef;
-	}
-
-	public void setSurnamef(String surnamef) {
-		this.surnamef = surnamef;
 	}
 
 	public String getTelephone() {
@@ -227,20 +218,6 @@ public class UserData implements Serializable {
 		this.telephone = telephone;
 	}
 
-	public String getTelephonef() {
-		return telephonef;
-	}
-
-	public void setTelephonef(String telephonef) {
-		this.telephonef = telephonef;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 
 }

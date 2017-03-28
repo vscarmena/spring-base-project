@@ -6,56 +6,57 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import tech.tarragona.spring.model.Camping;
 import tech.tarragona.spring.model.User;
-
 
 @Controller
 public class MainController {
 
 	  @RequestMapping("/login")
 	  public String login() {
-	    return "login";
+	    return "user/login";
 	  }
 	  
 	  @RequestMapping("/register")
-	  public String regsiter(Model model) {
+	  public String register(Model model) {
 		model.addAttribute("user", new User());
+
 	    return "register";
 	  }
 	  
 	  @RequestMapping("/error")
 	  public String error(Model model) {
-	    return "error";
+	    return "user/register";
 	  }
 	  
 	  @RequestMapping("/info")
 	  public String info() {
-	    return "info";
+	    return "user/info";
 	  }
 	  
 	  @RequestMapping("/facturacion")
 	  public String facturacion() {
-	    return "facturacion";
+	    return "user/facturacion";
 	  }
-	  
+
 	  @RequestMapping("/registration-error")
 	  public String registrationError() {
-	    return "registration-error";
+	    return "user/registration-error";
 	  }
 	  
 	  @RequestMapping("/registration-success")
 	  public String registrationSuccess() {
-	    return "registration-success";
+	    return "user/registration-success";
 	  }
 	  
 	  @RequestMapping("/activation-success")
 	  public String activationSuccess() {
-	    return "activation-success";
+	    return "user/activation-success";
 	  }
 
 	  @RequestMapping("/activation-error")
 	  public String activationError() {
-	    return "activation-error";
+	    return "user/activation-error";
 	  }
 	  
 	  @RequestMapping("/datos-fiscales")
@@ -71,7 +72,7 @@ public class MainController {
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
 	    model.addAttribute("loginError", true);
-	    return "login";
+	    return "user/login";
 	  }
 	  
 	  @RequestMapping("/403")
@@ -104,4 +105,5 @@ public class MainController {
 		  model.addAttribute("name", activeUser.getUsername());
 	      return "hello";
 	  }
+
 }

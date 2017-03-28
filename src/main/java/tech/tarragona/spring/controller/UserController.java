@@ -31,12 +31,12 @@ public class UserController {
 	UserService userService;
 
 	public static final String VIEW_PEOPLE = "persons";
-	public static final String REGISTER_PAGE = "register";
-	public static final String REGISTRATION_OK = "registration-success";
-	public static final String REGISTRATION_FAIL = "registration-error";
-	public static final String ACTIVATION_OK = "activation-success";
-	public static final String ACTIVATION_FAIL = "activation-error";
-	public static final String EDIT_USER = "edit-user-info";
+	public static final String REGISTER_PAGE = "user/register";
+	public static final String REGISTRATION_OK = "user/registration-success";
+	public static final String REGISTRATION_FAIL = "user/registration-error";
+	public static final String ACTIVATION_OK = "user/activation-success";
+	public static final String ACTIVATION_FAIL = "user/activation-error";
+	public static final String EDIT_USER = "user/edit-user-info";
 	public static final String REDIRECT_EDIT_USER = "redirect:/" +EDIT_USER;
 
 	@PostMapping("/register")
