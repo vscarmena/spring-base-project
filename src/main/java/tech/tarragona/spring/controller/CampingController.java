@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import tech.tarragona.spring.model.Camping;
@@ -20,13 +21,12 @@ public class CampingController {
 	@GetMapping("/addCamping")
 	public String Camping(Model model) {
 		model.addAttribute("camping", new Camping());
-	    return "addCamping";
+	    return "camping/addCamping";
 	  }
 	
 	@PostMapping("/addCamping")
-	public String addCamping(Model model, Camping camping) {
+	public String addCamping(@ModelAttribute("camping") Camping camping, Model model) {
 		campingService.addNewCamping(camping);
-	    return "addCamping";
+	    return "hello";
 	  }
-
 }

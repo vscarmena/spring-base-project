@@ -1,17 +1,13 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import tech.tarragona.spring.model.User;
+import javax.persistence.*;
 
 
-
+/**
+ * The persistent class for the campings database table.
+ * 
+ */
 @Entity
 @Table(name="campings")
 public class Camping implements Serializable {
@@ -20,85 +16,58 @@ public class Camping implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
-	private Integer owner;
-    
-    private String email;
-    
-    private String emailf;
 
-    private String address;
-    
-    private String addressf;
+	private String address;
+
+	private String addressf;
+
+	private String cif;
+
+	private String city;
+
+	private String country;
+
+	private String cp;
+
+	@Lob
+	private String description;
+
+	private String emailf;
+
+	private int idTelephone;
 
 	private String name;
 
-    private String city;
-    
-    private String country;
+	private String namef;
 
-    private String cp;
+	private int rates;
 
-    private int idTelephone;
+	private float rating;
 
-    private String namef;
-    
-    private User user;
+	private String telephone;
 
-    private String cif;
+	private String ubication;
 
-    private String telephone;
-    
-    private Float rating;
-    
-    private Integer rates;
-    
-    private String description;
-    
-    private String ubication;
-    
-    private String zone;
-    
-    
-    
-    public Camping(){
-    }
-  
+	private String zone;
+
+	//bi-directional many-to-one association to User
+	@ManyToOne
+	@JoinColumn(name="owner")
+	private User user;
+
+	public Camping() {
+	}
 
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Integer getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Integer owner) {
-		this.owner = owner;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getEmailf() {
-		return emailf;
-	}
-
-	public void setEmailf(String emailf) {
-		this.emailf = emailf;
-	}
-
 	public String getAddress() {
-		return address;
+		return this.address;
 	}
 
 	public void setAddress(String address) {
@@ -106,23 +75,23 @@ public class Camping implements Serializable {
 	}
 
 	public String getAddressf() {
-		return addressf;
+		return this.addressf;
 	}
 
 	public void setAddressf(String addressf) {
 		this.addressf = addressf;
 	}
 
-	public String getName() {
-		return name;
+	public String getCif() {
+		return this.cif;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCif(String cif) {
+		this.cif = cif;
 	}
 
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 
 	public void setCity(String city) {
@@ -130,7 +99,7 @@ public class Camping implements Serializable {
 	}
 
 	public String getCountry() {
-		return country;
+		return this.country;
 	}
 
 	public void setCountry(String country) {
@@ -138,71 +107,79 @@ public class Camping implements Serializable {
 	}
 
 	public String getCp() {
-		return cp;
+		return this.cp;
 	}
 
 	public void setCp(String cp) {
 		this.cp = cp;
 	}
 
-	public int getIdTelephone() {
-		return idTelephone;
-	}
-
-	public void setIdTelephone(int idTelephone) {
-		this.idTelephone = idTelephone;
-	}
-
-	public String getNamef() {
-		return namef;
-	}
-
-	public void setNamef(String namef) {
-		this.namef = namef;
-	}
-
-	public String getCif() {
-		return cif;
-	}
-
-	public void setCif(String cif) {
-		this.cif = cif;
-	}
-
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public Float getRating() {
-		return rating;
-	}
-
-	public void setRating(Float rating) {
-		this.rating = rating;
-	}
-
-	public Integer getRates() {
-		return rates;
-	}
-
-	public void setRates(Integer rates) {
-		this.rates = rates;
-	}
-
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	public String getEmailf() {
+		return this.emailf;
+	}
+
+	public void setEmailf(String emailf) {
+		this.emailf = emailf;
+	}
+
+	public int getIdTelephone() {
+		return this.idTelephone;
+	}
+
+	public void setIdTelephone(int idTelephone) {
+		this.idTelephone = idTelephone;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getNamef() {
+		return this.namef;
+	}
+
+	public void setNamef(String namef) {
+		this.namef = namef;
+	}
+
+	public int getRates() {
+		return this.rates;
+	}
+
+	public void setRates(int rates) {
+		this.rates = rates;
+	}
+
+	public float getRating() {
+		return this.rating;
+	}
+
+	public void setRating(float rating) {
+		this.rating = rating;
+	}
+
+	public String getTelephone() {
+		return this.telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
 	public String getUbication() {
-		return ubication;
+		return this.ubication;
 	}
 
 	public void setUbication(String ubication) {
@@ -210,18 +187,16 @@ public class Camping implements Serializable {
 	}
 
 	public String getZone() {
-		return zone;
+		return this.zone;
 	}
 
 	public void setZone(String zone) {
 		this.zone = zone;
 	}
 
-
 	public User getUser() {
-		return user;
+		return this.user;
 	}
-
 
 	public void setUser(User user) {
 		this.user = user;
