@@ -37,5 +37,14 @@ jQuery(document).ready(function() {
 		});
 	});
 	
+	$('#row_dim').hide(); 
+    $('#whoTrans').change(function(){
+        if(($('#whoTrans').val() == 'myParking') || ($('#whoTrans').val() == 'serviceTrans')){
+            $('#row_dim').show(); 
+        } else {
+            $('#row_dim').hide(); 
+        } 
+    });
+	
 	
 });
