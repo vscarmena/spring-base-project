@@ -7,7 +7,6 @@
 	<header layout:fragment="header">
 	  	<div class="container">
 			<div class="page-header">
-	    		<h1>Public Home</h1>
 	    		<div sec:authorize="isAuthenticated()">
 	    			<p>Logged user: <span sec:authentication="name"></span></p>
 	    		</div>
@@ -18,7 +17,7 @@
 	    </div>
 	</header>
 	<div class="container" layout:fragment="content">
-		Public Content
+		<img src="http://www.miamiplatja.es/planol/img/PRATS.jpg" alt="Smiley face" height="450" width="1200">
 	</div>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8">
+<title>5.1</title>
+</head>
+<body>
+	<header layout:fragment="header">
+		<div class="container">
+		</div>
+	</header>
+	<div class="container" layout:fragment="content">
+		<div class="row">
+			<form action="caravana4" th:action="@{/caravana/caravana}"
+				th:object="${caravana4}" method="post" class="form-horizontal">
+
+				<div class="form-group" th:classappend=="${#fields.hasErrors('brand')} ? has-error">
+					<label for="brand" class="col-sm-3 control-label">Marca<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<input type="text" th:field="*{brand}" class="form-control" />
+					</div>
+					<div class="col-sm-5">
+						<p th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"
+							class="error">Name error</p>
+					</div>
+				</div>
+
+				<div class="form-group" th:classappend=="${#fields.hasErrors('brand')} ? has-error">
+					<label for="model" class="col-sm-3 control-label">Modelo<abbr
+						class="required" title="required"> * </abbr></label>
+					<div class="col-sm-4">
+						<input type="text" th:field="*{model}" class="form-control" />
+					</div>
+					<div class="col-sm-5">
+						<p th:if="${#fields.hasErrors('model')}" th:errors="*{model}"
+							class="error">Name error</p>
+					</div>
+				</div>
+
+				<div class="form-group" th:classappend=="${#fields.hasErrors('constructionYear')} ? has-error">
+					<label for="constructionYear" class="col-sm-3 control-label">Año
+						de construccion<abbr class="required" title="required"> * </abbr>
+					</label>
+					<div class="col-sm-4">
+						<input type="text" th:field="*{constructionYear}"
+							class="form-control" />
+					</div>
+					<div class="col-sm-5">
+						<p th:if="${#fields.hasErrors('constructionYear')}"
+							th:errors="*{constructionYear}" class="error">Name error</p>
+					</div>
+				</div>
+				
+				<div class="form-group" th:classappend=="${#fields.hasErrors('plate')} ? has-error">
+					<label for="plate" class="col-sm-3 control-label">plate
+						<abbr class="required" title="required"> * </abbr>
+					</label>
+					<div class="col-sm-4">
+						<input type="text" th:field="*{plate}"
+							class="form-control" />
+					</div>
+					<div class="col-sm-5">
+						<p th:if="${#fields.hasErrors('plate')}"
+							th:errors="*{plate}" class="error">Name error</p>
+					</div>
+				</div>
+				
+								
+			</form>
+</body>
+</html>
