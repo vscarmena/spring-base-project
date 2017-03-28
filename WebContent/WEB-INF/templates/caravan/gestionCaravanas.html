@@ -73,7 +73,7 @@
 									<label for="adults" th:text="#{adults}"> <abbr
 										class="required" title="required"> * </abbr></label> <select
 										th:field="*{adults}" class="form-control">
-										<option value="0">0</option>
+
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -155,8 +155,31 @@
 										<input type="checkbox" name="checkboxes-1-options"
 										value="checkboxes-1-option-5"
 										th:field="*{characteristic.awning}">
+									</label> <a th:text="#{oven}"></a> <label class="checkbox-inline">
+										<input type="checkbox" name="checkboxes-1-options"
+										value="checkboxes-1-option-6"
+										th:field="*{characteristic.oven}">
+									</label> <a th:text="#{terraceChairs}"></a> <label
+										class="checkbox-inline"> <input type="checkbox"
+										name="checkboxes-1-options" value="checkboxes-1-option-7"
+										th:field="*{characteristic.terraceChairs}">
+									</label> <a th:text="#{shower}"></a> <label class="checkbox-inline">
+										<input type="checkbox" name="checkboxes-1-options"
+										value="checkboxes-1-option-8"
+										th:field="*{characteristic.shower}">
+									</label> <a th:text="#{crockery}"></a> <label class="checkbox-inline">
+										<input type="checkbox" name="checkboxes-1-options"
+										value="checkboxes-1-option-9"
+										th:field="*{characteristic.crockery}">
+									</label> <a th:text="#{skilletsCasseroles}"></a> <label
+										class="checkbox-inline"> <input type="checkbox"
+										name="checkboxes-1-options" value="checkboxes-1-option-10"
+										th:field="*{characteristic.skilletsCasseroles}">
+									</label> <a th:text="#{cutlery}"></a> <label class="checkbox-inline">
+										<input type="checkbox" name="checkboxes-1-options"
+										value="checkboxes-1-option-11"
+										th:field="*{characteristic.cutlery}">
 									</label>
-
 								</div>
 								<div class="checkboxes-2">
 									<a th:text="#{terracetable}"></a> <label
@@ -178,7 +201,8 @@
 										<input type="checkbox" name="checkboxes-2-options"
 										value="checkboxes-2-option-5"
 										th:field="*{characteristic.closer}">
-									</label>
+									</label> <a th:text="#{others}"></a> <label class="checkbox-inline">
+										<input type="text" th:field="*{characteristic.others}">
 								</div>
 
 								<br>
@@ -211,6 +235,18 @@
 									<input type="checkbox" th:field="*{service.towels}">
 								</label> <a th:text="#{bed_sheet}"></a> <label class="checkbox-inline">
 									<input type="checkbox" th:field="*{service.bedSheets}">
+								</label> <a th:text="#{bed_sheet}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.toaster}">
+								</label><a th:text="#{toaster}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.microwave}">
+								</label><a th:text="#{microwave}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.bedSheets}">
+								</label><a th:text="#{mixer}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.mixer}">
+								</label><a th:text="#{pillows}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.pillows}">
+								</label><a th:text="#{other}"></a> <label class="checkbox-inline">
+									<input type="text" th:field="*{service.other}">
 								</label> <br>
 
 								<button type="button" class="btn btn-previous"
@@ -283,18 +319,19 @@
 									th:utext="#{previous}">
 									<i class="fa fa-angle-left"></i>
 								</button>
-								<button type="submit" class="btn btn-primary" th:utext="#{t.save}">
+								<button type="submit" class="btn btn-primary"
+									th:utext="#{t.save}">
 							</fieldset>
 
 							<!--5.7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-							
-							
-							
-					</form>
+
+
+
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 </body>
