@@ -31,9 +31,10 @@ public class CaravanaController {
 	public String addCaravana(Model model) {
 
 		model.addAttribute("caravana", new Caravan());
+		
+	return "caravan/gestionCaravanas";
 
-
-		return "caravan/gestionCaravanas";
+		//return "5.7";
 	}
 
 
