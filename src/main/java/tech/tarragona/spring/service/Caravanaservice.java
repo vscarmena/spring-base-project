@@ -28,7 +28,11 @@ public class Caravanaservice {
 
 		 return caravanaRepository.save(caravana);
 	}
+<<<<<<< HEAD
 
 	
+=======
+		
+>>>>>>> 2f2d7cbff45f198fbfb04869b1a2038c0d11da44
 		
 	}

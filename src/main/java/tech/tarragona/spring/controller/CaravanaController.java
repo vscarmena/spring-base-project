@@ -39,6 +39,7 @@ public class CaravanaController {
 	@PostMapping("/add")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravan caravana, Errors errors, BindingResult result, Model model){
 	caravanaValidator.validate(caravana, errors);
+
 		if (!result.hasErrors()){	
 		
 			caravanaservice.addCaravana(caravana);			
