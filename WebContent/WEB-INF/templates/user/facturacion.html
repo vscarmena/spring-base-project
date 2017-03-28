@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Facturación</title>
-     <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
-    <link th:href="@{/resources/css/spring-base-project.css}" rel="stylesheet"/>
-    
-    
-  </head>
-  <body class="background-bg">
-<div class="container">
-    <div class="row">	
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title">Datos de facturación</h1>
-            <div class="account-wall">
-                <img class="profile-img" src="https://image.flaticon.com/icons/svg/272/272378.svg" alt="">
-                <form th:action="@{/facturacion}" method="post" th:object="facturation" class="form-signin">
-                
-                <label for="namef">Nombre/Razón Social</label>: <br />
-                <input type="text" id="namef" name="namef th:field="*{namef}" class="form-control" placeholder="Nombre/Razón Social" required autofocus>
-                
-                <label for="nif">NIF/CIF</label>: <br />
-                <input type="text" id="nif" name="nif" th:field="*{nif}" class="form-control" placeholder="NIF/CIF" required>
-                
-                <label for="emailf">Email</label>: <br />
-                <input type="email" id="email" name="email" th:field="*{emailf}" class="form-control" placeholder="Email" required>
-                
-				
-				<label for="addressf">Dirección</label>
-				<input type="text" id="address" name="address" th:field="*{addressf}" class="form-control" required>
- 				<br>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Guardar</button>       	
-                </form>   
-                
-                     
-            </div>
-            <a href="#" class="text-center new-account">Volver</a>
-        </div>
-    </div>
-</div>
+<head>
 
-  <script th:src="@{/resources/js/jquery.min.js}"></script>
-<script th:src="@{/resources/js/bootstrap.min.js}"></script>
-<script th:src="@{/resources/js/spring-base-project.js}"></script>
-  </body>
+<title th:text="#{formBilling.billing}"></title>
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/spring-base-project.css}"
+	rel="stylesheet" />
+
+
+</head>
+<body class="background-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-md-offset-4">
+
+				<h1 class="text-center login-title"
+					th:text="#{formBilling.billingInformation}"></h1>
+
+				<div class="account-wall">
+					<img class="profile-img"
+						src="https://image.flaticon.com/icons/svg/272/272378.svg" alt="">
+					<form th:action="@{/facturacion}" method="post"
+						th:object="facturation" class="form-signin">
+
+
+						<label for="namef" th:text="#{formRegister.name}"></label>: <br />
+						<input type="text" id="namef" name="namef th:field="
+							*{namef}" class="form-control"
+							th:placeholder="#{formRegister.name}" required autofocus>
+
+						<label for="surnamef" th:text="#{formRegister.surname}"></label>:
+						<br /> <input type="text" id="surname" name="surname"
+							class="form-control" th:placeholder="#{formRegister.surname}"
+							required> <label for="nif">NIF/CIF</label>: <br /> <input
+							type="text" id="nif" name="nif" th:field="*{nif}"
+							class="form-control" placeholder="NIF/CIF" required> <label
+							for="emailf" th:text="#{formRegister.email}"></label>: <br /> <input
+							type="email" id="email" name="email" th:field="*{emailf}"
+							class="form-control" th:placeholder="#{formRegister.email}"
+							required> <label for="addressf"
+							th:text="#{formRegister.address}"></label> <input type="text"
+							id="address" name="address" th:field="*{addressf}"
+							class="form-control" required> <br>
+						<button class="btn btn-lg btn-primary btn-block" type="submit"
+							th:text="#{formRegister.save}"></button>
+					</form>
+
+
+				</div>
+				<a href="#" class="text-center new-account"
+					th:text="#{formBilling.Back}"></a>
+			</div>
+		</div>
+	</div>
+
+	<script th:src="@{/resources/js/jquery.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script th:src="@{/resources/js/spring-base-project.js}"></script>
+</body>
 </html>

@@ -1,91 +1,94 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Información</title>
-     <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
-    <link th:href="@{/resources/css/spring-base-project.css}" rel="stylesheet"/>
-    
-    
-  </head>
-  <body class="background-bg">
-<div class="container">
-    <div class="row">	
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title">Información</h1>
-            <div class="account-wall">
-                <img class="profile-img" src="https://image.flaticon.com/icons/svg/149/149071.svg" alt="">
-                <form th:action="@{/info}" method="post" class="form-signin">
-                
-                <label for="username">Nombre</label>: <br />
-                <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required autofocus>
-                
-                <label for="surname">Apellidos</label>: <br />
-                <input type="text" id="surname" name="surname" class="form-control" placeholder="Apellidos" required>
-                
-                <label for="username">Email</label>: <br />
-                <input type="email" id="email" name="email" class="form-control" placeholder="Email" >
-                
-                <label for="gender">Sexo</label>
-                <select id="gender" name="gender" class="form-control">
-  					<option value="Hombre">Hombre</option>
-  					<option value="Mujer">Mujer</option>
-				</select>
-				
-				<label for="date">Fecha de nacimiento</label>: <br />
-				<input type="date" name="fechaNacimiento" class="form-control">
-				
-				<label for="prefix">Teléfono</label>: <br />
-				<select id="gender" name="gender" class="form-control">
-  					<option value="34">+34 España </option>
-  					<option value="33">+33 Francia </option>
-  					<option value="39">+39 Italia</option>
-  					<option value="46">+46 Suecia</option>
-  					<option value="32">+32 Bélgica</option>
-  					<option value="45">+45 Dinamarca</option>
-  					<option value="7">+07 Rusia</option>
-  					<option value="49">+49 Alemania</option>
-  					<option value="351">+351 Portugal</option>
-  					<option value="48">+48 Polonia</option>
-				</select>
-				<input type="text" id="phone" name="phone" class="form-control">
-				
-				<label for="address">Dirección</label>
-				<input type="text" id="address" name="address" class="form-control">
-				
-				<label for="gender">País</label>
-                <select id="country" name="country" class="form-control">
-  					<option value="Spain">España</option>
-  					<option value="France">Francia</option>
-  					<option value="Itali">Italia</option>
-  					<option value="Sweden">Suecia</option>
-  					<option value="Belgium">Bélgica</option>
-  					<option value="Denmark">Dinamarca</option>
-  					<option value="Russia">Rusia</option>
-  					<option value="Germany">Alemania</option>
-  					<option value="Portugal">Portugal</option>
-  					<option value="Poland">Polonia</option>
-				</select>
-				
-				<label for="postalcode">Código Postal</label>
-				<input type="text" id="postalcode" name="postalcode" class="form-control">
-				
-				<label for="locality">Localidad</label>
-				<input type="text" id="locality" name="locality" class="form-control">
- 				<br>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Guardar</button>       	
-                </form>   
-                
-                     
-            </div>
-            <a href="#" class="text-center new-account">Cambiar Contraseña </a>
-        </div>
-    </div>
-</div>
+<head>
+<title th:text="#{formRegister.info}"></title>
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/spring-base-project.css}"
+	rel="stylesheet" />
 
-  <script th:src="@{/resources/js/jquery.min.js}"></script>
-<script th:src="@{/resources/js/bootstrap.min.js}"></script>
-<script th:src="@{/resources/js/spring-base-project.js}"></script>
-  </body>
+
+</head>
+<body class="background-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-md-offset-4">
+				<h1 class="text-center login-title" th:text="#{formRegister.info}"></h1>
+				<div class="account-wall">
+					<img class="profile-img"
+						src="https://image.flaticon.com/icons/svg/149/149071.svg" alt="">
+					<form th:action="@{/info}" method="post" class="form-signin">
+
+						<label for="username" th:text="#{formRegister.name}"></label>: <br />
+						<input type="text" id="name" name="name" class="form-control"
+							th:placeholder="#{formRegister.name}" required autofocus>
+
+						<label for="surname" th:text="#{formRegister.surname}"></label>: <br />
+						<input type="text" id="surname" name="surname"
+							class="form-control" th:placeholder="#{formRegister.surname}"
+							required> <label for="username"
+							th:text="#{formRegister.email}"></label>: <br /> <input
+							type="email" id="email" name="email" class="form-control"
+							th:placeholder="#{formRegister.email}"> <label
+							for="gender" th:text="#{formRegister.sex}"></label> <select
+							id="gender" name="gender" class="form-control">
+							<option value="Hombre" th:text="#{formRegister.optionMale}"></option>
+							<option value="Mujer" th:text="#{formRegister.optionFemale}"></option>
+						</select> <label for="date" th:text="#{formRegister.birthday}"></label>: <br />
+						<input type="date" name="fechaNacimiento" class="form-control">
+
+
+						<label for="prefix" th:text="#{formRegister.phone}"></label>: <br />
+
+						<select id="gender" name="gender" class="form-control">
+							<option value="34" th:text="#{formBilling.country.SpainC}">
+							</option>
+							<option value="33" th:text="#{formBilling.country.FrenchC}"></option>
+							<option value="39" th:text="#{formBilling.country.ItalyC}"></option>
+							<option value="46" th:text="#{formBilling.country.SwedenC}"></option>
+							<option value="32" th:text="#{formBilling.country.BelgiumC}"></option>
+							<option value="45" th:text="#{formBilling.country.DenmarkC}"></option>
+							<option value="7" th:text="#{formBilling.country.RussiaC}"></option>
+							<option value="49" th:text="#{formBilling.country.GermanyC}"></option>
+							<option value="351" th:text="#{formBilling.country.PortugalC}"></option>
+							<option value="48" th:text="#{formBilling.country.PolandC}"></option>
+						</select> <input type="text" id="phone" name="phone" class="form-control">
+
+						<label for="address" th:text="#{formRegister.address}"></label> <input
+							type="text" id="address" name="address" class="form-control">
+
+						<label for="gender" th:text="#{formRegister.country}"></label> <select
+							id="country" name="country" class="form-control">
+							<option value="Spain" th:text="#{formBilling.country.Spain}"></option>
+							<option value="France" th:text="#{formBilling.country.French}"></option>
+							<option value="Italy" th:text="#{formBilling.country.Italy}"></option>
+							<option value="Sweden" th:text="#{formBilling.country.Sweden}"></option>
+							<option value="Belgium" th:text="#{formBilling.country.Belgium}"></option>
+							<option value="Denmark" th:text="#{formBilling.country.Denmark}"></option>
+							<option value="Russia" th:text="#{formBilling.country.Russia}"></option>
+							<option value="Germany" th:text="#{formBilling.country.Germany}"></option>
+							<option value="Portugal"
+								th:text="#{formBilling.country.Portugal}"></option>
+							<option value="Poland" th:text="#{formBilling.country.Poland}"></option>
+						</select> <label for="postalcode" th:text="#{formRegister.postalCode}"></label>
+						<input type="text" id="postalcode" name="postalcode"
+							class="form-control"> <label for="locality"
+							th:text="#{formRegister.location}"></label> <input type="text"
+							id="locality" name="locality" class="form-control"> <br>
+						<button class="btn btn-lg btn-primary btn-block" type="submit"
+							th:text="#{formRegister.save}"></button>
+					</form>
+
+
+				</div>
+				<a href="#" class="text-center new-account"
+					th:text="#{formRegister.changePassword}"></a>
+			</div>
+		</div>
+	</div>
+
+	<script th:src="@{/resources/js/jquery.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script th:src="@{/resources/js/spring-base-project.js}"></script>
+</body>
 </html>
