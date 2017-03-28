@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS user_data (
 	email varchar (30),
 	name varchar(30) NOT NULL,
 	surname varchar(30) NOT NULL,
+    nif varchar (10) NOT NULL DEFAULT '',
 	genre int(1),
 	birthDate date,
 	idTelephone int(3),
@@ -44,13 +45,20 @@ CREATE TABLE IF NOT EXISTS user_data (
 	city varchar (25),
 	rating float (2),
 	rates int (8),
-	nif varchar (10) NOT NULL DEFAULT '',
-	namef varchar(30) NOT NULL DEFAULT '',
-	addressf varchar (30) NOT NULL DEFAULT '',
-	emailf varchar (30) NOT NULL DEFAULT '',
   	KEY fk_user_data (user_id),
   	CONSTRAINT fk_user_data FOREIGN KEY (user_id) REFERENCES users (id)
 ) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS user_facturation_data (
+	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id int(11) NOT NULL,
+	niff varchar (10) NOT NULL DEFAULT '',
+	namef varchar(30) NOT NULL DEFAULT '',
+	addressf varchar (30) NOT NULL DEFAULT '',
+	emailf varchar (30) NOT NULL DEFAULT '',
+    KEY fk_user_facturation_data (user_id),
+  	CONSTRAINT fk_user_facturation_data FOREIGN KEY (user_id) REFERENCES users (id)
+    ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS UserConnection (
 	userId varchar(255) not null,
@@ -89,6 +97,33 @@ CREATE TABLE IF NOT EXISTS campings (
 	ubication varchar (250) NOT NULL DEFAULT '',
 	zone varchar (30),
   	CONSTRAINT fk_camping_idowner FOREIGN KEY (owner) REFERENCES users (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS campings_services (
+	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  	camping_id int(11) NOT NULL,
+	duchas boolean ,
+    duchas1 boolean ,
+    duchas2 boolean ,
+    duchas3 boolean ,
+    duchas4 boolean ,
+    duchas5 boolean ,
+    duchas6 boolean ,
+    duchas7 boolean ,
+    duchas8 boolean ,
+    duchas9 boolean ,
+    duchas10 boolean ,
+    duchas11 boolean ,
+    duchas12 boolean ,
+    duchas13 boolean ,
+    duchas14 boolean ,
+    duchas15 boolean ,
+    duchas16 boolean ,
+    duchas17 boolean ,
+    duchas18 boolean ,
+    duchas19 boolean ,
+  	KEY fk_campings_service (camping_id),
+  	CONSTRAINT fk_campings_service FOREIGN KEY (camping_id) REFERENCES campings (id)
 ) ENGINE=InnoDB;
 
 INSERT INTO items (name, field1, field2) VALUES ('lorem', 'ipsum', 'dolor');

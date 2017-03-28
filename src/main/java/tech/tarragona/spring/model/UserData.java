@@ -20,16 +20,12 @@ public class UserData implements Serializable {
 	private Integer id;
     
     private String email;
-    
-    private String emailf;
 
     private String address;
 
 	private String name;
 	
 	private User user;
-	
-    private String addressf;
 
     private Date birthDate;
 
@@ -42,8 +38,6 @@ public class UserData implements Serializable {
     private int genre;
 
     private int idTelephone;
-
-    private String namef;
 
     private String nif;
     
@@ -82,14 +76,6 @@ public class UserData implements Serializable {
 		this.email = email;
 	}
 
-	public String getEmailf() {
-		return emailf;
-	}
-
-	public void setEmailf(String emailf) {
-		this.emailf = emailf;
-	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -112,14 +98,6 @@ public class UserData implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public String getAddressf() {
-		return addressf;
-	}
-
-	public void setAddressf(String addressf) {
-		this.addressf = addressf;
 	}
 
 	public Date getBirthDate() {
@@ -170,14 +148,6 @@ public class UserData implements Serializable {
 		this.idTelephone = idTelephone;
 	}
 
-	public String getNamef() {
-		return namef;
-	}
-
-	public void setNamef(String namef) {
-		this.namef = namef;
-	}
-
 	public String getNif() {
 		return nif;
 	}
@@ -218,6 +188,6 @@ public class UserData implements Serializable {
 		this.telephone = telephone;
 	}
 
-	
+
 
 }
