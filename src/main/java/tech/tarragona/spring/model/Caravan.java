@@ -2,90 +2,115 @@ package tech.tarragona.spring.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
 public class Caravan implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id	@NotNull	@NotEmpty
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
+
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	private Integer id;
+	@NotNull
+	@NotEmpty
+	@Length(min = 5)
+	@Size(max = 15)
 	private String brand;
+	@NotNull
+	@NotEmpty
+	@Length(min = 5)
+	@Size(max = 15)
 	private String model;
-	@Column(name="construction_year")
+	@Column(name = "construction_year")
 	private Integer constructionYear;
 
 	private Integer babys;
 	private Integer kids;
 	private Integer adults;
-
+	@NotEmpty
+	@Length(min = 5)
+	@Size(max = 50)
 	private String name;
+	@Size(max = 250)
 	private String description;
-	
-	@Column(name="what_camping")
+
+	@Column(name = "what_camping")
 	private String whatCamping;
-	
+
 	private boolean insurance;
-	@Column(name="insurance_offer")
+	@Column(name = "insurance_offer")
 	private String insuranceOffer;
-	
-	@Column(name="who_trans")
+
+	@Column(name = "who_trans")
 	private String whoTrans;
 
-	@Column(name="inf_trans_adress")
+	@Column(name = "inf_trans_adress")
 	private String infTransAdress;
 
-	@Column(name="inf_trans_contact")
+	@Column(name = "inf_trans_contact")
 	private String infTransContact;
 
-	@Column(name="inf_trans_email")
+	@Column(name = "inf_trans_email")
 	private String infTransEmail;
 
-	@Column(name="inf_trans_name")
+	@Column(name = "inf_trans_name")
 	private String infTransName;
 
-	@Column(name="inf_trans_telephone")
+	@Column(name = "inf_trans_telephone")
 	private Integer infTransTelephone;
 
 	private String recommendation;
 
-	@Column(name="lenght_stay_date")
+	@Column(name = "lenght_stay_date")
 	private String lenghtStayDate;
 
-	@Column(name="lenght_stay_time")
+	@Column(name = "lenght_stay_time")
 	private Integer lenghtStayTime;
 
-	@Column(name="reserv_advance_date")
+	@Column(name = "reserv_advance_date")
 	private String reservAdvanceDate;
 
-	@Column(name="reserv_advance_time")
+	@Column(name = "reserv_advance_time")
 	private Integer reservAdvanceTime;
-	
-	@Column(name="availability_date")
+
+	@Column(name = "availability_date")
 	private Integer availabilityDate;
 
-	@Column(name="availability_time")
+	@Column(name = "availability_time")
 	private Integer availabilityTime;
 
+
+
+
+
+
+
+
 	//bi-directional one-to-one association to Characteristic
-	@OneToOne(mappedBy="caravan")
+	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Characteristic characteristic;
 
 	//bi-directional one-to-one association to Rule
-	@OneToOne(mappedBy="caravan")
+	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Rule rule;
 
 	//bi-directional one-to-one association to Service
-	@OneToOne(mappedBy="caravan")
+	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Service service;
 
 	public Caravan() {

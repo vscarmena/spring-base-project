@@ -26,34 +26,31 @@ public class CaravanaController {
 
 	@Autowired
 	CaravanaValidator caravanaValidator;
-	
-	
 
 	@GetMapping("/add")
 	public String addCaravana(Model model) {
 
 		model.addAttribute("caravana", new Caravan());
-
-
+		
 	return "caravan/gestionCaravanas";
 
 		//return "5.7";
-
 	}
 
 
 	@PostMapping("/add")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravan caravana, Errors errors, BindingResult result, Model model){
 	caravanaValidator.validate(caravana, errors);
-		if (!result.hasErrors()){
-			
-			caravana.getService().setId(caravana.getId());
-			caravana.getRule().setId(caravana.getId());
-			caravana.getCharacteristic().setId(caravana.getId());
-			
+
 		
+		if (!result.hasErrors()){			
+
+			
+			model.addAttribute("caravana", caravana);
 			caravanaservice.addCaravana(caravana);
-		
+			
+			System.out.println(caravana.getId());
+			
 			return "caravan/paginaDePruebas";
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());
