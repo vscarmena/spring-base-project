@@ -23,7 +23,7 @@ public class DataConfig {
 	@Bean
 	public DataSource dataSource() {
 	    JndiDataSourceLookup lookup = new JndiDataSourceLookup();
-	    return lookup.getDataSource("jdbc/caravaning");
+	    return lookup.getDataSource("jdbc/CursoJEETarragona");
 	}
 	
 	@Bean
