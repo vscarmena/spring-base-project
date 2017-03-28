@@ -32,19 +32,13 @@ public class CaravanaValidator implements Validator {
 					"constructionYear.NotEmptyOrWhitespace");
 		}
 
-		if (Caravan.getModel() == null || Caravan.getModel() == "" || Caravan.getModel().contains("")) {
+		if (Caravan.getModel() == null || Caravan.getModel() == "") {
 			// errors.rejectValue("model", "model.NotEmptyOrWhitespace");
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "model", "model.NotEmptyOrWhitespace");
 		} else if (Caravan.getModel().length() < 5) {
 			errors.rejectValue("model", "model.MinChars");
 		} else if (Caravan.getModel().length() > 15) {
 			errors.rejectValue("model", "model.MaxChars");
-		} /*
-			 * else if (Caravan.getModel() == "" ||
-			 * Caravan.getModel().contains("")) {
-			 * ValidationUtils.rejectIfEmptyOrWhitespace(errors, "model",
-			 * "model.NotEmptyOrWhitespace"); }
-			 */
-
+		}
 	}
 }
