@@ -28,18 +28,6 @@ public class Caravanaservice {
 
 		 return caravanaRepository.save(caravana);
 	}
-
-	@Transactional
-	public void seleccionarPersonas(Caravan caravana, BindingResult result)
-	{
-			caravana = caravanaRepository.findById(caravana.getId());
-			
-			caravana.setAdults(caravana.getAdults());
-			caravana.setBabys(caravana.getBabys());
-			caravana.setKids(caravana.getKids());
-			
-			caravanaRepository.save(caravana);
-		}
 		
 		
 	}

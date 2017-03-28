@@ -2,26 +2,29 @@ package tech.tarragona.spring.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+
 @Entity
 public class Caravan implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	
-	
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	private Integer id;
 	@NotNull
 	@NotEmpty
@@ -91,16 +94,24 @@ public class Caravan implements Serializable {
 	@Column(name = "availability_time")
 	private Integer availabilityTime;
 
-	// bi-directional one-to-one association to Characteristic
-	@OneToOne(mappedBy = "caravan")
+
+
+
+
+
+
+
+	//bi-directional one-to-one association to Characteristic
+	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Characteristic characteristic;
 
-	// bi-directional one-to-one association to Rule
-	@OneToOne(mappedBy = "caravan")
+	//bi-directional one-to-one association to Rule
+	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Rule rule;
 
-	// bi-directional one-to-one association to Service
-	@OneToOne(mappedBy = "caravan")
+	//bi-directional one-to-one association to Service
+	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
+
 	private Service service;
 
 	public Caravan() {
