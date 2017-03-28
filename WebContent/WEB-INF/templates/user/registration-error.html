@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Error de Registro</title>
+  <title th:text="#{formRegistrationBoth.registerError}"></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
     </div>
  
   <div class="alert alert-danger" style="text-align:center">
-    <strong>Error en el Registro!</strong> Ha ocurrido un error  durante el registro.
+    <strong th:text="#{formRegistrationBoth.failed}"></strong><h3 th:text="#{formRegistrationBoth.emailFailed}"></h3>
   </div>
    
 </div>
@@ -25,7 +25,7 @@
     
     
  <div style="text-align:center">   
-     <p>Serás redireccionado automaticamente en <span id="count">10</span> segundos...</p>
+     <p><a th:text="#{formRegistrationBoth.redirect}"></a> <span id="count">10</span><a th:text="#{formRegistrationBoth.seconds}"></a>...</p>
 
      <script type="text/javascript">
 
