@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< HEAD:WebContent/WEB-INF/templates/user/info.html
   <head>
     <title>Informaci�n</title>
      <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
@@ -83,9 +84,110 @@
         </div>
     </div>
 </div>
+=======
+<head>
+<title>Información</title>
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/spring-base-project.css}"
+	rel="stylesheet" />
+>>>>>>> validations1_teamB:WebContent/WEB-INF/templates/info.html
 
-  <script th:src="@{/resources/js/jquery.min.js}"></script>
-<script th:src="@{/resources/js/bootstrap.min.js}"></script>
-<script th:src="@{/resources/js/spring-base-project.js}"></script>
-  </body>
+
+</head>
+<body class="background-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-md-offset-4">
+				<h1 class="text-center login-title">Información</h1>
+				<div class="account-wall">
+					<img class="profile-img"
+						src="https://image.flaticon.com/icons/svg/149/149071.svg" alt="">
+					<form th:action="@{/info}" method="post" th:object="${userData}" class="form-signin">
+
+						<label for="name">Nombre</label>: <br />
+						<input type="text"	th:field="*{name}" class="form-control" placeholder="Nombre" required>
+						<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error">Error</p>
+						
+						<label for="surname">Apellidos</label>: <br /> <input type="text" th:field="*{surname}" class="form-control" placeholder="Apellidos" required> <label for="email">Email</label>:<br />
+						<input type="text" th:field="*{surname}" class="form-control" placeholder="Email" required>
+						<p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="error">Error</p>
+						
+						<label for="genre">Sexo</label>
+						<select th:field="*{genre}" class="form-control">
+							<option value="0">Hombre</option>
+							<option value="1">Mujer</option>
+						</select>
+						<p th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}" class="error">Error</p>
+						
+						<label for="birthDate">Fecha de nacimiento</label>: <br />
+						<input type="date" th:field="*{birthDate}" class="form-control" required>
+						<p th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" class="error">Error</p>
+
+						<label for="idTelephone">Teléfono</label>: <br />
+						<select th:field="*{idTelephone}" class="form-control">
+							<option value="34">+34 España</option>
+							<option value="33">+33 Francia</option>
+							<option value="39">+39 Italia</option>
+							<option value="46">+46 Suecia</option>
+							<option value="32">+32 Bélgica</option>
+							<option value="45">+45 Dinamarca</option>
+							<option value="7">+07 Rusia</option>
+							<option value="49">+49 Alemania</option>
+<!-- 							<option value="351">+351 Portugal</option> -->
+							<option value="48">+48 Polonia</option>
+						</select>
+						<p th:if="${#fields.hasErrors('idTelephone')}" th:errors="*{idTelephone}" class="error">Error</p>
+						
+						<label for="telephone">Teléfono</label>
+						<input type="text" th:field="*{telephone}" class="form-control" required>
+						
+
+						<label for="address">Dirección</label>
+						<input type="text" th:field="*{address}" class="form-control" required>
+						<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="error">Error</p>
+						
+						<label for="country">País</label>
+						<select id="country" class="form-control">
+							<option value="Spain">España</option>
+							<option value="France">Francia</option>
+							<option value="Itali">Italia</option>
+							<option value="Sweden">Suecia</option>
+							<option value="Belgium">Bélgica</option>
+							<option value="Denmark">Dinamarca</option>
+							<option value="Russia">Rusia</option>
+							<option value="Germany">Alemania</option>
+							<option value="Portugal">Portugal</option>
+							<option value="Poland">Polonia</option>
+						</select>
+						
+						
+						<label for="cp">Código Postal</label>
+						<input type="text" th:field="*{cp}" class="form-control" required>
+						<p th:if="${#fields.hasErrors('cp')}" th:errors="*{cp}" class="error">Error</p>
+						
+						<label for="city">Localidad</label>
+						<input type="text" th:field="*{city}" class="form-control" required>
+						<p th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="error">Error</p>
+						
+						<label for="nif">NIF</label>
+						<input type="text" th:field="*{nif}" class="form-control" required>
+						<p th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}" class="error">Error</p>
+						<br>
+						
+						<button class="btn btn-lg btn-primary btn-block" type="submit">
+							Guardar</button>
+					</form>
+
+
+				</div>
+				<a href="#" class="text-center new-account">Cambiar Contraseña </a>
+			</div>
+		</div>
+	</div>
+
+	<script th:src="@{/resources/js/jquery.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script th:src="@{/resources/js/spring-base-project.js}"></script>
+</body>
 </html>

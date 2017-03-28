@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +18,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.persistence.CascadeType;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
@@ -41,7 +45,12 @@ public class User implements UserDetails, CredentialsContainer  {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private boolean enabled;
+	@NotEmpty
+	@Size(min=8, max=15)
+	@Pattern(regexp="^[A-Za-z]+[0-9]+.*$")
 	private String password;
+	@NotEmpty
+	@Email
 	private String username;
 	private String securityCode;
 	@Transient
