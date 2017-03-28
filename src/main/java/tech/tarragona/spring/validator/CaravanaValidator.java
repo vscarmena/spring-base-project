@@ -31,7 +31,7 @@ public class CaravanaValidator implements Validator {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "constructionYear",
 					"constructionYear.NotEmptyOrWhitespace");
 		}
-
+		// Model: @NotNull@NotEmpty@Length(min = 5)@Size(max = 15)@NotBlank
 		if (Caravan.getModel() == null || Caravan.getModel() == "") {
 			// errors.rejectValue("model", "model.NotEmptyOrWhitespace");
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "model", "model.NotEmptyOrWhitespace");
@@ -40,18 +40,18 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getModel().length() > 15) {
 			errors.rejectValue("model", "model.MaxChars");
 		}
-
+		// Brand: @NotNull@NotEmpty@Length(min = 5)@Size(max = 15)
 		if (Caravan.getBrand() == null || Caravan.getBrand() == "") {
-			// errors.rejectValue("model", "model.NotEmptyOrWhitespace");
+			// errors.rejectValue("brand", "brand.NotEmptyOrWhitespace");
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "brand", "brand.NotEmptyOrWhitespace");
 		} else if (Caravan.getBrand().length() < 5) {
 			errors.rejectValue("brand", "brand.MinChars");
 		} else if (Caravan.getBrand().length() > 15) {
 			errors.rejectValue("brand", "brand.MaxChars");
 		}
-
+		// Name: @NotEmpty@Length(min = 5)@Size(max = 50)
 		if (Caravan.getName() == "") {
-			// errors.rejectValue("model", "model.NotEmptyOrWhitespace");
+			// errors.rejectValue("name", "name.NotEmptyOrWhitespace");
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name.NotEmptyOrWhitespace");
 		} else if (Caravan.getName().length() < 5) {
 			errors.rejectValue("name", "name.MinChars");
