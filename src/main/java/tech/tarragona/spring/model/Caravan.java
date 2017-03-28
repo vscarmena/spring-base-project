@@ -26,10 +26,10 @@ public class Caravan implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 
 	private Integer id;
-	@NotNull
-	@NotEmpty
-	@Length(min = 5)
-	@Size(max = 15)
+	//@NotNull
+	//@NotEmpty
+	//@Length(min = 5)
+	//@Size(max = 15)
 	private String brand;
 	//@NotNull
 	//@NotEmpty
@@ -43,9 +43,9 @@ public class Caravan implements Serializable {
 	private Integer babys;
 	private Integer kids;
 	private Integer adults;
-	@NotEmpty
-	@Length(min = 5)
-	@Size(max = 50)
+	//@NotEmpty
+	//@Length(min = 5)
+	//@Size(max = 50)
 	private String name;
 	@Size(max = 250)
 	private String description;

@@ -40,5 +40,23 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getModel().length() > 15) {
 			errors.rejectValue("model", "model.MaxChars");
 		}
+
+		if (Caravan.getBrand() == null || Caravan.getBrand() == "") {
+			// errors.rejectValue("model", "model.NotEmptyOrWhitespace");
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "brand", "brand.NotEmptyOrWhitespace");
+		} else if (Caravan.getBrand().length() < 5) {
+			errors.rejectValue("brand", "brand.MinChars");
+		} else if (Caravan.getBrand().length() > 15) {
+			errors.rejectValue("brand", "brand.MaxChars");
+		}
+
+		if (Caravan.getName() == "") {
+			// errors.rejectValue("model", "model.NotEmptyOrWhitespace");
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name.NotEmptyOrWhitespace");
+		} else if (Caravan.getName().length() < 5) {
+			errors.rejectValue("name", "name.MinChars");
+		} else if (Caravan.getName().length() > 50) {
+			errors.rejectValue("name", "name.MaxChars");
+		}
 	}
 }
