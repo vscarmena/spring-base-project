@@ -284,9 +284,56 @@
 								<i class="fa fa-angle-right"></i>
 							</button>
 						</fieldset>
-						<!-- fieldset final%%%%%%%%%%%%%%%%%%%%%%´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´%%%%%%%%%%%%%%%%%%%% -->
+
 						<fieldset>
-						<button type="button" class="btn btn-previous"
+						<div class="form-group">
+						<h1>Quien llevara tu caravana?</h1>
+	<select name="whoTrans" id="whoTrans" class="form-control">
+		<option id="mySelf" value="mySelf" th:text="#{mySelf}"></option>
+		<option id="myParking" value="myParking" th:text="#{myParking}"></option>
+		<option id="traveler" value="traveler" th:text="#{traveler}"></option>
+		<option id="serviceTrans" value="serviceTrans"
+			th:text="#{serviceTrans}"></option>
+	</select>
+
+
+	<div id="row_dim">
+<form action="#" th:action="@{/caravana/add}" th:object="${caravana}" method="post">
+		<div>
+			
+			<label for="infTransName" th:text="#{infTransName}"> </label> <input
+				type="text" th:field="*{infTransName}" />
+		</div>
+
+
+		<div>
+			<label for="infTransAdress" th:text="#{infTransAdress}"> </label> <input
+				type="text" th:field="*{infTransAdress}" />
+		</div>
+
+
+		<div>
+			<label for="infTransTelephone" th:text="#{infTransTelephone}">
+			</label> <input type="text" th:field="*{infTransTelephone}" />
+		</div>
+
+		<div>
+			<label for="infTransEmail" th:text="#{infTransEmail}"> </label> <input
+				type="text" th:field="*{infTransEmail}" />
+
+		</div>
+		<div>
+			<label for="infTransContact" th:text="#{infTransContact}"> </label> <input
+				type="text" th:field="*{infTransContact}" />
+		</div>
+		</form>
+	</div>
+						
+						</div>
+							<br>
+
+							<button type="button" class="btn btn-previous"
+
 								th:utext="#{previous}">
 								<i class="fa fa-angle-left"></i>
 							</button>

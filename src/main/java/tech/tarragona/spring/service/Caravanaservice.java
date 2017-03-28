@@ -19,7 +19,7 @@ public class Caravanaservice {
 		if(caravanaRepository.findById(caravana.getId())==null){
 			return false;			
 		}else{
-			result.rejectValue("plate", "caravanaAlreadyExists");
+			result.rejectValue("Id", "caravanaAlreadyExists");
 			return true;
 		}
 	}
@@ -28,6 +28,6 @@ public class Caravanaservice {
 
 		 return caravanaRepository.save(caravana);
 	}
-		
+
 		
 	}
