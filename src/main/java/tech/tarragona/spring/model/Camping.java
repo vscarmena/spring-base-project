@@ -31,6 +31,8 @@ public class Camping implements Serializable {
 
 	@Lob
 	private String description;
+	
+	private String schedule;
 
 	private String emailf;
 
@@ -112,6 +114,14 @@ public class Camping implements Serializable {
 
 	public void setCp(String cp) {
 		this.cp = cp;
+	}
+	
+	public String getSchedule() {
+		return this.schedule;
+	}
+
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
 	}
 
 	public String getDescription() {
