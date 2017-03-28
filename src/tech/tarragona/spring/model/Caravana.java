@@ -36,7 +36,7 @@ public class Caravana implements Serializable {
 	private int babys;
 	@NotNull
 	@NotEmpty
-	@Length(min = 5)
+	@Length(min = 2)
 	@Size(max = 15)
 	private String brand;
 	
@@ -50,12 +50,12 @@ public class Caravana implements Serializable {
 	private int kids;
 	@NotNull
 	@NotEmpty
-	@Length(min = 5)
+	@Length(min = 2)
 	@Size(max = 15)
 	private String model;
 	
 	@NotEmpty
-	@Length(min = 5)
+	@Length(min = 2)
 	@Size(max = 50)
 	private String name;
 
@@ -73,6 +73,16 @@ public class Caravana implements Serializable {
 	
 	private String recommendation;
 
+	@NotEmpty
+	@Length(min = 1)
+	@Size(max = 12)
+	private String stay_lenght_min;
+	
+	@NotEmpty
+	@Length(min = 1)
+	@Size(max = 20)
+	private String stay_lenght_max;
+	
 	public Caravana() {
 	}
 
@@ -178,6 +188,22 @@ public class Caravana implements Serializable {
 
 	public void setRecommendation(String recommendation) {
 		this.recommendation = recommendation;
+	}
+
+	public String getStay_lenght_min() {
+		return stay_lenght_min;
+	}
+
+	public void setStay_lenght_min(String stay_lenght_min) {
+		this.stay_lenght_min = stay_lenght_min;
+	}
+
+	public String getStay_lenght_max() {
+		return stay_lenght_max;
+	}
+
+	public void setStay_lenght_max(String stay_lenght_max) {
+		this.stay_lenght_max = stay_lenght_max;
 	}
 
 }

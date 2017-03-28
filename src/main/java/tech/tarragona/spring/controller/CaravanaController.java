@@ -32,6 +32,7 @@ public class CaravanaController {
 
 		model.addAttribute("caravana", new Caravan());
 
+
 		return "caravan/gestionCaravanas";
 	}
 
@@ -40,9 +41,11 @@ public class CaravanaController {
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravan caravana, Errors errors, BindingResult result, Model model){
 	caravanaValidator.validate(caravana, errors);
 
+
 		if (!result.hasErrors()){	
 		
 			caravanaservice.addCaravana(caravana);			
+
 			
 			model.addAttribute("caravana", caravana);
 
