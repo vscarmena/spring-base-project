@@ -9,11 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 
@@ -31,10 +31,11 @@ public class Caravan implements Serializable {
 	@Length(min = 5)
 	@Size(max = 15)
 	private String brand;
-	@NotNull
-	@NotEmpty
-	@Length(min = 5)
-	@Size(max = 15)
+	//@NotNull
+	//@NotEmpty
+	//@Length(min = 5)
+	//@Size(max = 15)
+	//@NotBlank
 	private String model;
 	@Column(name = "construction_year")
 	private Integer constructionYear;
