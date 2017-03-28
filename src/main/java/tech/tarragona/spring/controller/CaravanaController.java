@@ -39,24 +39,12 @@ public class CaravanaController {
 	@PostMapping("/add")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravan caravana, Errors errors, BindingResult result, Model model){
 	caravanaValidator.validate(caravana, errors);
-		if (!result.hasErrors()){
-			
-			caravana.getService().setId(caravana.getId());
-			caravana.getRule().setId(caravana.getId());
-			caravana.getCharacteristic().setId(caravana.getId());
-			
+		if (!result.hasErrors()){	
 		
-			caravanaservice.addCaravana(caravana);
-		
-			
-
-			caravanaservice.seleccionarPersonas(caravana, result);
-			
-			
+			caravanaservice.addCaravana(caravana);			
 			
 			model.addAttribute("caravana", caravana);
-			caravanaservice.addCaravana(caravana);
-			
+
 			return "caravan/paginaDePruebas";
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());
