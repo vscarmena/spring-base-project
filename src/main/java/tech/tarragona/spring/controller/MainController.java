@@ -21,7 +21,7 @@ public class MainController {
 	  public String register(Model model) {
 		model.addAttribute("user", new User());
 
-	    return "register";
+	    return "user/register";
 	  }
 	  
 	  @RequestMapping("/error")
@@ -61,13 +61,10 @@ public class MainController {
 	  
 	  @RequestMapping("/datos-fiscales")
 	  public String datosFiscales() {
-	    return "datos-fiscales";
+	    return "camping/datos-fiscales";
 	  }
 	  
-	  @RequestMapping("/datos-facturacion-camping")
-	  public String datosFacturacionCamping() {
-	    return "datos-facturacion-camping";
-	  }
+	 
 	  
 	  @RequestMapping("/login-error")
 	  public String loginError(Model model) {
