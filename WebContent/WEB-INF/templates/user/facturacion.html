@@ -21,14 +21,14 @@
                 <input type="text" id="namef" name="namef th:field="*{namef}" class="form-control" placeholder="Nombre/Razón Social" required autofocus>
                 
                 <label for="nif">NIF/CIF</label>: <br />
-                <input type="text" id="nif" name="nif" th:field="nif" class="form-control" placeholder="NIF/CIF" required>
+                <input type="text" id="nif" name="nif" th:field="*{nif}" class="form-control" placeholder="NIF/CIF" required>
                 
                 <label for="emailf">Email</label>: <br />
-                <input type="email" id="email" name="email" th:field="emailf" class="form-control" placeholder="Email" required>
+                <input type="email" id="email" name="email" th:field="*{emailf}" class="form-control" placeholder="Email" required>
                 
 				
 				<label for="addressf">Dirección</label>
-				<input type="text" id="address" name="address" th:field="addressf" class="form-control" required>
+				<input type="text" id="address" name="address" th:field="*{addressf}" class="form-control" required>
  				<br>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Guardar</button>       	
