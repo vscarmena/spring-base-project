@@ -30,16 +30,10 @@ public class Caravan implements Serializable {
 	private String name;
 	@Size(max = 250)
 	private String description;
-<<<<<<< HEAD
 
 	@Column(name = "id_camping")
 	private String idCamping;
 
-=======
-	
-	@Column(name = "what_camping")
-	private String whatCamping;
->>>>>>> 3974f671298bdd2bfd4e1e99287a7f5af5bb1474
 	private boolean insurance;
 	@Column(name = "insurance_offer")
 	private String insuranceOffer;
@@ -221,7 +215,7 @@ public class Caravan implements Serializable {
 	public void setReservAdvanceTime(Integer reservAdvanceTime) {
 		this.reservAdvanceTime = reservAdvanceTime;
 	}
-<<<<<<< HEAD
+
 
 	public String getIdCamping() {
 		return this.idCamping;
@@ -229,13 +223,6 @@ public class Caravan implements Serializable {
 
 	public void setIdCamping(String idCamping) {
 		this.idCamping = idCamping;
-=======
-	public String getWhatCamping() {
-		return this.whatCamping;
-	}
-	public void setWhatCamping(String whatCamping) {
-		this.whatCamping = whatCamping;
->>>>>>> 3974f671298bdd2bfd4e1e99287a7f5af5bb1474
 	}
 	public void setWhoTrans(String whoTrans) {
 		this.whoTrans = whoTrans;
