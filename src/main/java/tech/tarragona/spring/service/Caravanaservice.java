@@ -1,5 +1,7 @@
 package tech.tarragona.spring.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +21,7 @@ public class Caravanaservice {
 		if(caravanaRepository.findById(caravana.getId())==null){
 			return false;			
 		}else{
-			result.rejectValue("plate", "caravanaAlreadyExists");
+			result.rejectValue("Id", "caravanaAlreadyExists");
 			return true;
 		}
 	}
@@ -28,6 +30,13 @@ public class Caravanaservice {
 
 		 return caravanaRepository.save(caravana);
 	}
+	
+	@Transactional
+	public List<Caravan> findAllCaravan(){
+		List<Caravan> caravanList = caravanaRepository.findAll();
 		
+		return caravanList;
+	}
+
 		
 	}

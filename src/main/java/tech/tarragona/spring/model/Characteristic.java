@@ -32,7 +32,24 @@ public class Characteristic implements Serializable {
 	private boolean terraceTable;
 
 	private boolean tv;
+	
+	private boolean oven;
+	
+	@Column(name="terrace_chairs")
+	private boolean terraceChairs;
+	
+	private boolean shower;
+	
+	private boolean crockery;
+	
+	@Column(name="skillets_casseroles")
+	private boolean skilletsCasseroles;
+	
+	private boolean cutlery;
+	
+	private String others;
 
+	
 	@OneToOne
 	@PrimaryKeyJoinColumn(name="id")
 	private Caravan caravan;
@@ -135,5 +152,63 @@ public class Characteristic implements Serializable {
 	public void setCaravan(Caravan caravan) {
 		this.caravan = caravan;
 	}
+
+	public boolean isOven() {
+		return oven;
+	}
+
+	public void setOven(boolean oven) {
+		this.oven = oven;
+	}
+
+	public boolean isTerraceChairs() {
+		return terraceChairs;
+	}
+
+	public void setTerraceChairs(boolean terraceChairs) {
+		this.terraceChairs = terraceChairs;
+	}
+
+	public boolean isShower() {
+		return shower;
+	}
+
+	public void setShower(boolean shower) {
+		this.shower = shower;
+	}
+
+	public boolean isCrockery() {
+		return crockery;
+	}
+
+	public void setCrockery(boolean crockery) {
+		this.crockery = crockery;
+	}
+
+	public boolean isSkilletsCasseroles() {
+		return skilletsCasseroles;
+	}
+
+	public void setSkilletsCasseroles(boolean skilletsCasseroles) {
+		this.skilletsCasseroles = skilletsCasseroles;
+	}
+
+	public boolean isCutlery() {
+		return cutlery;
+	}
+
+	public void setCutlery(boolean cutlery) {
+		this.cutlery = cutlery;
+	}
+
+	public String getOthers() {
+		return others;
+	}
+
+	public void setOthers(String others) {
+		this.others = others;
+	}
+	
+	
 
 }

@@ -31,9 +31,11 @@ public class CaravanaController {
 	public String addCaravana(Model model) {
 
 		model.addAttribute("caravana", new Caravan());
+		
+		
+	return "caravan/gestionCaravanas";
 
-
-		return "caravan/gestionCaravanas";
+		//return "5.7";
 	}
 
 
@@ -41,18 +43,26 @@ public class CaravanaController {
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravan caravana, Errors errors, BindingResult result, Model model){
 	caravanaValidator.validate(caravana, errors);
 
-		
-		if (!result.hasErrors()){			
 
-			
+		if (!result.hasErrors()){	
+		
+			caravanaservice.addCaravana(caravana);			
+
+			model.addAttribute("caravanList", caravanaservice.findAllCaravan());
 			model.addAttribute("caravana", caravana);
-			caravanaservice.addCaravana(caravana);
-			
-			System.out.println(caravana.getId());
-			
+
 			return "caravan/paginaDePruebas";
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());
 		return "caravan/gestionCaravanas";
 	}
+	
+	@GetMapping("/pruebaMarcos")
+	public String prueba(Model model) {
+
+		model.addAttribute("caravana", new Caravan());
+
+		return "caravan/trasladoCaravana";
+	}
+	
 }

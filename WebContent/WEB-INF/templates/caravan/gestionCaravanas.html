@@ -11,19 +11,12 @@
 <title th:text="#{5}"></title>
 </head>
 <body>
-	<header layout:fragment="header">
-		<div class="container">
-			<div class="page-header">
-				<h1 th:text="#{5}"></h1>
-			</div>
-		</div>
-	</header>
 	<div class="container" layout:fragment="content">
 		<div class="msf-container">
-			<div class="container-fluid">
+			<div class="container">
+
 				<div class="row">
-					<div
-						class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 ">
+					<div class="col-sm-12 msf-form">
 						<form action="#" th:action="@{/caravana/add}"
 							th:object="${caravana}" method="post" class="form-horizontal">
 							<fieldset>
@@ -80,7 +73,7 @@
 									<label for="adults" th:text="#{adults}"> <abbr
 										class="required" title="required"> * </abbr></label> <select
 										th:field="*{adults}" class="form-control">
-										<option value="0">0</option>
+
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -162,8 +155,31 @@
 										<input type="checkbox" name="checkboxes-1-options"
 										value="checkboxes-1-option-5"
 										th:field="*{characteristic.awning}">
+									</label> <a th:text="#{oven}"></a> <label class="checkbox-inline">
+										<input type="checkbox" name="checkboxes-1-options"
+										value="checkboxes-1-option-6"
+										th:field="*{characteristic.oven}">
+									</label> <a th:text="#{terraceChairs}"></a> <label
+										class="checkbox-inline"> <input type="checkbox"
+										name="checkboxes-1-options" value="checkboxes-1-option-7"
+										th:field="*{characteristic.terraceChairs}">
+									</label> <a th:text="#{shower}"></a> <label class="checkbox-inline">
+										<input type="checkbox" name="checkboxes-1-options"
+										value="checkboxes-1-option-8"
+										th:field="*{characteristic.shower}">
+									</label> <a th:text="#{crockery}"></a> <label class="checkbox-inline">
+										<input type="checkbox" name="checkboxes-1-options"
+										value="checkboxes-1-option-9"
+										th:field="*{characteristic.crockery}">
+									</label> <a th:text="#{skilletsCasseroles}"></a> <label
+										class="checkbox-inline"> <input type="checkbox"
+										name="checkboxes-1-options" value="checkboxes-1-option-10"
+										th:field="*{characteristic.skilletsCasseroles}">
+									</label> <a th:text="#{cutlery}"></a> <label class="checkbox-inline">
+										<input type="checkbox" name="checkboxes-1-options"
+										value="checkboxes-1-option-11"
+										th:field="*{characteristic.cutlery}">
 									</label>
-
 								</div>
 								<div class="checkboxes-2">
 									<a th:text="#{terracetable}"></a> <label
@@ -185,7 +201,8 @@
 										<input type="checkbox" name="checkboxes-2-options"
 										value="checkboxes-2-option-5"
 										th:field="*{characteristic.closer}">
-									</label>
+									</label> <a th:text="#{others}"></a> <label class="checkbox-inline">
+										<input type="text" th:field="*{characteristic.others}">
 								</div>
 
 								<br>
@@ -218,6 +235,18 @@
 									<input type="checkbox" th:field="*{service.towels}">
 								</label> <a th:text="#{bed_sheet}"></a> <label class="checkbox-inline">
 									<input type="checkbox" th:field="*{service.bedSheets}">
+								</label> <a th:text="#{bed_sheet}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.toaster}">
+								</label><a th:text="#{toaster}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.microwave}">
+								</label><a th:text="#{microwave}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.bedSheets}">
+								</label><a th:text="#{mixer}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.mixer}">
+								</label><a th:text="#{pillows}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{service.pillows}">
+								</label><a th:text="#{other}"></a> <label class="checkbox-inline">
+									<input type="text" th:field="*{service.other}">
 								</label> <br>
 
 								<button type="button" class="btn btn-previous"
@@ -238,16 +267,16 @@
 								<a th:text="#{kids}"></a> <label class="checkbox-inline">
 									<input type="checkbox" th:field="*{rule.kids}">
 								</label> <a th:text="#{pets}"></a> <label class="checkbox-inline">
-									<input type="checkbox">
+									<input type="checkbox" th:field="*{rule.pets}">
 
-								</label> <a th:text="#{smokers}"></a> <label class="checkbox-inline">
-									<input type="checkbox">
+								</label> <a th:text="#{smoke}"></a> <label class="checkbox-inline">
+									<input type="checkbox" th:field="*{rule.smoke}">
 
 								</label> <a th:text="#{party}"></a> <label class="checkbox-inline">
-									<input type="checkbox">
+									<input type="checkbox" th:field="*{rule.party}">
 
-								</label> <a th:text="#{others}"></a> <label class="checkbox-inline">
-									<input type="text">
+								</label> <a th:text="#{other}"></a> <label class="checkbox-inline">
+									<input type="text" th:field="*{rule.other}">
 
 								</label> <br>
 
@@ -285,6 +314,99 @@
 								</div>
 
 								<br>
+								<button type="button" class="btn btn-previous"
+									th:utext="#{previous}">
+									<i class="fa fa-angle-left"></i>
+								</button>
+								<button type="button" class="btn btn-next" th:utext="#{next}">
+									<i class="fa fa-angle-right"></i>
+								</button>
+							</fieldset>
+
+							<!--5.7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+					
+					<fieldset>
+						<div class="form-group">
+							<h1>Quien llevara tu caravana?</h1>
+							<select name="whoTrans" id="whoTrans" class="form-control" th:field="*{whoTrans}">
+								<option id="mySelf" value="mySelf" th:text="#{mySelf}" ></option>
+								<option id="myParking" value="myParking" th:text="#{myParking}"></option>
+								<option id="traveler" value="traveler" th:text="#{traveler}"></option>
+								<option id="serviceTrans" value="serviceTrans"
+									th:text="#{serviceTrans}"></option>
+							</select>
+
+
+							<div id="row_dim">
+								<!--	BORRAR <form action="#" th:action="@{/caravana/add}"
+									th:object="${caravana}" method="post">	BORRAR -->
+									<div>
+
+										<label for="infTransName" th:text="#{infTransName}"> </label>
+										<input type="text" th:field="*{infTransName}" />
+									</div>
+
+
+									<div>
+										<label for="infTransAdress" th:text="#{infTransAdress}">
+										</label> <input type="text" th:field="*{infTransAdress}" />
+									</div>
+
+
+									<div>
+										<label for="infTransTelephone" th:text="#{infTransTelephone}">
+										</label> <input type="text" th:field="*{infTransTelephone}" />
+									</div>
+
+									<div>
+										<label for="infTransEmail" th:text="#{infTransEmail}">
+										</label> <input type="text" th:field="*{infTransEmail}" />
+
+									</div>
+									<div>
+										<label for="infTransContact" th:text="#{infTransContact}">
+										</label> <input type="text" th:field="*{infTransContact}" />
+									</div>
+							</div>
+
+						</div>
+						<br>
+
+						<button type="button" class="btn btn-previous"
+							th:utext="#{previous}">
+							<i class="fa fa-angle-left"></i>
+						</button>
+						<button type="button" class="btn btn-next" th:utext="#{next}">
+									<i class="fa fa-angle-right"></i>
+								</button>
+					</fieldset>
+					
+					<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+							<fieldset>
+								<h4 th:text="#{6.2}">
+									<span class="step" th:text="#{step.?}"> </span>
+								</h4>
+
+								<div class="form-group" th:classappend=="${#fields.hasErrors('reservAdvanceTime')} ? has-error">
+									<label for="reservAdvanceTime" class="col-sm-3 control-label"
+										th:text="#{reservAdvanceTime}"> <abbr class="required"
+										title="required"> * </abbr>
+									</label> <input type="text" th:field="*{reservAdvanceTime}"
+										class="form-control" />
+
+									<p th:if="${#fields.hasErrors('reservAdvanceTime')}"
+										th:errors="*{reservAdvanceTime}" class="error">Name error</p>
+								</div>
+								<div class="form-group">
+									<select th:field="*{reservAdvanceDate}" class="form-control">
+										<option value="Dias">Día/s</option>
+										<option value="Semanas">Semana/s</option>
+										<option value="Meses">Mes/es</option>
+									</select>
+								</div>
+
+
+								<br> <br>
 
 								<button type="button" class="btn btn-previous"
 									th:utext="#{previous}">
@@ -296,9 +418,11 @@
 									<i class="fa fa-floppy-o" aria-hidden="true"></i>
 
 								</button>
+
 							</fieldset>
-						</form>
-					</div>
+					
+				 </form> 	
+
 				</div>
 			</div>
 		</div>
