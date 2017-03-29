@@ -57,12 +57,5 @@ public class CaravanaController {
 		return "caravan/gestionCaravanas";
 	}
 	
-	@GetMapping("/pruebaMarcos")
-	public String prueba(Model model) {
-
-		model.addAttribute("caravana", new Caravan());
-
-		return "caravan/trasladoCaravana";
-	}
 	
 }
