@@ -19,7 +19,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -46,8 +45,6 @@ public class User implements UserDetails, CredentialsContainer  {
 	private Integer id;
 	private boolean enabled;
 	@NotEmpty
-	@Size(min=8, max=15)
-	@Pattern(regexp="^[A-Za-z]+[0-9]+.*$")
 	private String password;
 	@NotEmpty
 	@Email

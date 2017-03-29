@@ -26,9 +26,11 @@
 						<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
 							class="error">Error</p>
 
-						<label for="surname" th:text="#{formRegister.surname>"></label>: <br />
+						<label for="surname" th:text="#{formRegister.surname}">></label>: <br />
 						<input type="text" th:field="*{surname}" class="form-control"
 							th:placeholder="#{formRegister.surname}" required>
+						<p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"
+							class="error">Error</p>
 							
 						<label for="username"
 							th:text="#{formRegister.email}"></label>: <br />

@@ -23,7 +23,7 @@
                 <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error">Error</p>
                 
                 <label for="password" th:text="#{formLogin.password}"></label>: <br />
-                <input type="password" id="password" name="password" class="form-control" th:placeholder="#{formLogin.password}" required>
+                <input type="password" id="password" name="password" class="form-control" th:placeholder="#{formLogin.password}" maxlength="15" required>
                 <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error">Error</p>
                 
                 <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{formLogin.registrar}"></button>
