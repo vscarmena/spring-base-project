@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<title>5.7</title>
+<div class="container">
+	<div class="page-header">
+		<h1 th:text="#{5.7}"></h1>
+	</div>
+</div>
+
+</head>
+<body>
+
+	<form th:action="" th:method="post" th:object="camping">
+		<div class="form-group">
+			Seleccionar Camping: <input type="text" name="seleccionarcamping">
+			<br> <select th:field="*{camping}" class="form-control">
+				<option th:each="camping:${camping}" value="camping.id"><p th:text=${camping.name}/></option>
+				</select>
+		</div>
+	</form>
+
+
+</body>
+</html>
