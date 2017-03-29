@@ -37,10 +37,14 @@ public class CaravanaController {
 		model.addAttribute("caravana", new Caravan());
 		
 		
+<<<<<<< HEAD
 		
 		model.addAttribute("campings", campingService.getCamping());
 
 		return "caravan/gestionCaravanas";
+=======
+	return "caravan/gestionCaravanas";
+>>>>>>> 3974f671298bdd2bfd4e1e99287a7f5af5bb1474
 
 		//return "5.7";
 	}
@@ -55,7 +59,11 @@ public class CaravanaController {
 
 			caravanaservice.addCaravana(caravana);			
 
+<<<<<<< HEAD
 
+=======
+			model.addAttribute("caravanList", caravanaservice.findAllCaravan());
+>>>>>>> 3974f671298bdd2bfd4e1e99287a7f5af5bb1474
 			model.addAttribute("caravana", caravana);
 
 			return "caravan/paginaDePruebas";
@@ -63,6 +71,7 @@ public class CaravanaController {
 		System.out.println("ERRORS: " + result.getFieldErrors());
 		return "caravan/gestionCaravanas";
 	}
+<<<<<<< HEAD
 
 	@GetMapping("/pruebaMarcos")
 	public String prueba(Model model) {
@@ -73,4 +82,8 @@ public class CaravanaController {
 		return "caravan/trasladoCaravana";
 	}
 
+=======
+	
+	
+>>>>>>> 3974f671298bdd2bfd4e1e99287a7f5af5bb1474
 }
