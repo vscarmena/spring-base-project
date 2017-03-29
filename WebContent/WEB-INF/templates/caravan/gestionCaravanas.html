@@ -338,14 +338,20 @@
 									<span class="step" th:text="#{step.8}"> </span>
 								</h4>
 								<div class="form-group">
-									<input id='r1' name='test' type='radio' /> th:text="#{no}<br />
-									<br> <input id='r2' name='test' type='radio' />
-									th:text="#{yes}<br /> <br>
+									<input id='r1'  type='radio' value="0"  th:field="*{insurance}" th:text="#{no}"/> <br />
+									<br> <input id='r2'  type='radio' value="1"  th:field="*{insurance}" th:text="#{yes}"/>
+									<br /> <br>
 
 								</div>
 								<div id='d1' style='display: none'>
 									<p>
-										<a class='iframe' href="http://wikipedia.com">th:text="#{offers}</a>
+										<div class="form-group">
+									<h4>quieres contratar el seguro con nosotros?</h4>	
+									<input   type='radio' value="0"  th:field="*{insuranceOffer}" th:text="#{no}"/> <br />
+									<br> <input   type='radio' value="1"  th:field="*{insuranceOffer}" th:text="#{yes}"/>
+									<br /> <br>
+
+								</div>
 									</p>
 									<br>
 								</div>
@@ -419,65 +425,7 @@
 									<i class="fa fa-angle-right"></i>
 								</button>
 							</fieldset>
-							<!--5.7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-
-							<fieldset>
-								<div class="form-group">
-									<h1>Quien llevara tu caravana?</h1>
-									<select name="whoTrans" id="whoTrans" class="form-control"
-										th:field="*{whoTrans}">
-										<option id="mySelf" value="mySelf" th:text="#{mySelf}"></option>
-										<option id="myParking" value="myParking"
-											th:text="#{myParking}"></option>
-										<option id="traveler" value="traveler" th:text="#{traveler}"></option>
-										<option id="serviceTrans" value="serviceTrans"
-											th:text="#{serviceTrans}"></option>
-									</select>
-
-
-									<div id="row_dim">
-										<!--	BORRAR <form action="#" th:action="@{/caravana/add}"
-									th:object="${caravana}" method="post">	BORRAR -->
-										<div>
-
-											<label for="infTransName" th:text="#{infTransName}">
-											</label> <input type="text" th:field="*{infTransName}" />
-										</div>
-
-
-										<div>
-											<label for="infTransAdress" th:text="#{infTransAdress}">
-											</label> <input type="text" th:field="*{infTransAdress}" />
-										</div>
-
-
-										<div>
-											<label for="infTransTelephone" th:text="#{infTransTelephone}">
-											</label> <input type="text" th:field="*{infTransTelephone}" />
-										</div>
-
-										<div>
-											<label for="infTransEmail" th:text="#{infTransEmail}">
-											</label> <input type="text" th:field="*{infTransEmail}" />
-
-										</div>
-										<div>
-											<label for="infTransContact" th:text="#{infTransContact}">
-											</label> <input type="text" th:field="*{infTransContact}" />
-										</div>
-									</div>
-
-								</div>
-								<br>
-
-								<button type="button" class="btn btn-previous"
-									th:utext="#{previous}">
-									<i class="fa fa-angle-left"></i>
-								</button>
-								<button type="button" class="btn btn-next" th:utext="#{next}">
-									<i class="fa fa-angle-right"></i>
-								</button>
-							</fieldset>
+							
 
 							<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
