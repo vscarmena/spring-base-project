@@ -424,67 +424,7 @@
 								<button type="button" class="btn btn-next" th:utext="#{next}">
 									<i class="fa fa-angle-right"></i>
 								</button>
-							</fieldset>
-
-							<!--5.7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-
-					
-					<fieldset>
-						<div class="form-group">
-							<h1>Quien llevara tu caravana?</h1>
-							<select th:field="*{whoTrans}" class="form-control">
-								<option  value="mySelf">My</option>
-								<option id="myParking" value="myParking">Parking</option>
-								<option  value="traveler">Traveler</option>
-								<option id="serviceTrans" value="serviceTrans">Service</option>
-							</select>
-
-
-							
-								<!--	BORRAR <form action="#" th:action="@{/caravana/add}"
-									th:object="${caravana}" method="post">	BORRAR -->
-									<div id="row_dim">
-									<div>
-
-											<label for="infTransName" th:text="#{infTransName}">
-											</label> <input type="text" th:field="*{infTransName}" />
-										</div>
-
-
-										<div>
-											<label for="infTransAdress" th:text="#{infTransAdress}">
-											</label> <input type="text" th:field="*{infTransAdress}" />
-										</div>
-
-
-										<div>
-											<label for="infTransTelephone" th:text="#{infTransTelephone}">
-											</label> <input type="text" th:field="*{infTransTelephone}" />
-										</div>
-
-										<div>
-											<label for="infTransEmail" th:text="#{infTransEmail}">
-											</label> <input type="text" th:field="*{infTransEmail}" />
-
-										</div>
-										<div>
-											<label for="infTransContact" th:text="#{infTransContact}">
-											</label> <input type="text" th:field="*{infTransContact}" />
-										</div>
-									</div>
-
-								</div>
-								<br>
-
-								<button type="button" class="btn btn-previous"
-									th:utext="#{previous}">
-									<i class="fa fa-angle-left"></i>
-								</button>
-								<button type="button" class="btn btn-next" th:utext="#{next}">
-									<i class="fa fa-angle-right"></i>
-								</button>
-							</fieldset>
-
+							</fieldset>	
 
 							<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
