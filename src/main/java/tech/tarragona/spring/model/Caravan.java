@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -26,7 +25,6 @@ public class Caravan implements Serializable {
 	private Integer id;
 	private String brand;
 	private String model;
-	@Digits(integer=4, fraction=0)
 	@Column(name = "construction_year")
 	private Integer constructionYear;
 	private Integer babys;
@@ -52,8 +50,8 @@ public class Caravan implements Serializable {
 	private String infTransEmail;
 	@Column(name = "inf_trans_name")
 	private String infTransName;
-	@Digits(integer=9, fraction=0)
-	@Pattern(regexp="^[6789][0-9]{8}")
+	//@Digits(integer=9, fraction=0)
+	//@Pattern(regexp="^[6789][0-9]{8}")
 	@Column(name = "inf_trans_telephone")
 	private Integer infTransTelephone;
 	private String recommendation;
