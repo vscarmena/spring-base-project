@@ -32,6 +32,7 @@ public class CaravanaController {
 
 		model.addAttribute("caravana", new Caravan());
 		
+		
 	return "caravan/gestionCaravanas";
 
 		//return "5.7";
@@ -47,7 +48,7 @@ public class CaravanaController {
 		
 			caravanaservice.addCaravana(caravana);			
 
-			
+			model.addAttribute("caravanList", caravanaservice.findAllCaravan());
 			model.addAttribute("caravana", caravana);
 
 			return "caravan/paginaDePruebas";
