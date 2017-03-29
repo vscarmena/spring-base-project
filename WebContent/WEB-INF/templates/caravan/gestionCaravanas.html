@@ -338,14 +338,20 @@
 									<span class="step" th:text="#{step.8}"> </span>
 								</h4>
 								<div class="form-group">
-									<input id='r1' name='test' type='radio' /> th:text="#{no}<br />
-									<br> <input id='r2' name='test' type='radio' />
-									th:text="#{yes}<br /> <br>
+									<input id='r1'  type='radio' value="0"  th:field="*{insurance}" th:text="#{no}"/> <br />
+									<br> <input id='r2'  type='radio' value="1"  th:field="*{insurance}" th:text="#{yes}"/>
+									<br /> <br>
 
 								</div>
 								<div id='d1' style='display: none'>
 									<p>
-										<a class='iframe' href="http://wikipedia.com">th:text="#{offers}</a>
+										<div class="form-group">
+									<h4>quieres contratar el seguro con nosotros?</h4>	
+									<input   type='radio' value="0"  th:field="*{insuranceOffer}" th:text="#{no}"/> <br />
+									<br> <input   type='radio' value="1"  th:field="*{insuranceOffer}" th:text="#{yes}"/>
+									<br /> <br>
+
+								</div>
 									</p>
 									<br>
 								</div>
@@ -418,6 +424,7 @@
 								<button type="button" class="btn btn-next" th:utext="#{next}">
 									<i class="fa fa-angle-right"></i>
 								</button>
+<<<<<<< HEAD
 							</fieldset>
 							<!--5.7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 <<<<<<< HEAD
@@ -561,6 +568,9 @@
 									<i class="fa fa-angle-right"></i>
 								</button>
 							</fieldset>
+=======
+							</fieldset>	
+>>>>>>> 3fd6bd2ac6ed11c19e42182665141c3e480df152
 
 							<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
