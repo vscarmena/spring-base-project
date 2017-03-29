@@ -324,64 +324,66 @@
 							</fieldset>
 
 							<!--5.7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-					
-					<fieldset>
-						<div class="form-group">
-							<h1>Quien llevara tu caravana?</h1>
-							<select name="whoTrans" id="whoTrans" class="form-control" th:field="*{whoTrans}">
-								<option id="mySelf" value="mySelf" th:text="#{mySelf}" ></option>
-								<option id="myParking" value="myParking" th:text="#{myParking}"></option>
-								<option id="traveler" value="traveler" th:text="#{traveler}"></option>
-								<option id="serviceTrans" value="serviceTrans"
-									th:text="#{serviceTrans}"></option>
-							</select>
+
+							<fieldset>
+								<div class="form-group">
+									<h1>Quien llevara tu caravana?</h1>
+									<select name="whoTrans" id="whoTrans" class="form-control"
+										th:field="*{whoTrans}">
+										<option id="mySelf" value="mySelf" th:text="#{mySelf}"></option>
+										<option id="myParking" value="myParking"
+											th:text="#{myParking}"></option>
+										<option id="traveler" value="traveler" th:text="#{traveler}"></option>
+										<option id="serviceTrans" value="serviceTrans"
+											th:text="#{serviceTrans}"></option>
+									</select>
 
 
-							<div id="row_dim">
-								<!--	BORRAR <form action="#" th:action="@{/caravana/add}"
+									<div id="row_dim">
+										<!--	BORRAR <form action="#" th:action="@{/caravana/add}"
 									th:object="${caravana}" method="post">	BORRAR -->
-									<div>
+										<div>
 
-										<label for="infTransName" th:text="#{infTransName}"> </label>
-										<input type="text" th:field="*{infTransName}" />
+											<label for="infTransName" th:text="#{infTransName}">
+											</label> <input type="text" th:field="*{infTransName}" />
+										</div>
+
+
+										<div>
+											<label for="infTransAdress" th:text="#{infTransAdress}">
+											</label> <input type="text" th:field="*{infTransAdress}" />
+										</div>
+
+
+										<div>
+											<label for="infTransTelephone" th:text="#{infTransTelephone}">
+											</label> <input type="text" th:field="*{infTransTelephone}" />
+										</div>
+
+										<div>
+											<label for="infTransEmail" th:text="#{infTransEmail}">
+											</label> <input type="text" th:field="*{infTransEmail}" />
+
+										</div>
+										<div>
+											<label for="infTransContact" th:text="#{infTransContact}">
+											</label> <input type="text" th:field="*{infTransContact}" />
+										</div>
 									</div>
 
+								</div>
+								<br>
 
-									<div>
-										<label for="infTransAdress" th:text="#{infTransAdress}">
-										</label> <input type="text" th:field="*{infTransAdress}" />
-									</div>
-
-
-									<div>
-										<label for="infTransTelephone" th:text="#{infTransTelephone}">
-										</label> <input type="text" th:field="*{infTransTelephone}" />
-									</div>
-
-									<div>
-										<label for="infTransEmail" th:text="#{infTransEmail}">
-										</label> <input type="text" th:field="*{infTransEmail}" />
-
-									</div>
-									<div>
-										<label for="infTransContact" th:text="#{infTransContact}">
-										</label> <input type="text" th:field="*{infTransContact}" />
-									</div>
-							</div>
-
-						</div>
-						<br>
-
-						<button type="button" class="btn btn-previous"
-							th:utext="#{previous}">
-							<i class="fa fa-angle-left"></i>
-						</button>
-						<button type="button" class="btn btn-next" th:utext="#{next}">
+								<button type="button" class="btn btn-previous"
+									th:utext="#{previous}">
+									<i class="fa fa-angle-left"></i>
+								</button>
+								<button type="button" class="btn btn-next" th:utext="#{next}">
 									<i class="fa fa-angle-right"></i>
 								</button>
-					</fieldset>
-					
-					<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+							</fieldset>
+
+							<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
 								<h4 th:text="#{6.2}">
 									<span class="step" th:text="#{step.?}"> </span>
@@ -420,13 +422,12 @@
 								</button>
 
 							</fieldset>
-					
-				 </form> 	
 
+						</form>
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
 </body>
 </html>
