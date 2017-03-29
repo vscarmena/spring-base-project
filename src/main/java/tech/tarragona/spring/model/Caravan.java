@@ -228,6 +228,9 @@ public class Caravan implements Serializable {
 	public void setWhatCamping(String whatCamping) {
 		this.whatCamping = whatCamping;
 	}
+	public void setWhoTrans(String whoTrans) {
+		this.whoTrans = whoTrans;
+	}
 	public String getWhoTrans() {
 		return this.whoTrans;
 	}
