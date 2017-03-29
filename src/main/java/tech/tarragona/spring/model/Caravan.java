@@ -50,8 +50,8 @@ public class Caravan implements Serializable {
 	@Size(max = 250)
 	private String description;
 
-	@Column(name = "what_camping")
-	private String whatCamping;
+	@Column(name = "id_camping")
+	private String idCamping;
 
 	private boolean insurance;
 	@Column(name = "insurance_offer")
@@ -301,12 +301,12 @@ public class Caravan implements Serializable {
 		this.reservAdvanceTime = reservAdvanceTime;
 	}
 
-	public String getWhatCamping() {
-		return this.whatCamping;
+	public String getIdCamping() {
+		return this.idCamping;
 	}
 
-	public void setWhatCamping(String whatCamping) {
-		this.whatCamping = whatCamping;
+	public void setIdCamping(String idCamping) {
+		this.idCamping = idCamping;
 	}
 
 	public String getWhoTrans() {
