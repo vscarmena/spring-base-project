@@ -58,5 +58,42 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getName().length() > 50) {
 			errors.rejectValue("name", "name.MaxChars");
 		}
+
+		if (Caravan.getInfTransAdress() == "") {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransAdress", "infTransAdress.NotEmptyOrWhitespace");
+		} else if (Caravan.getInfTransAdress().length() < 5) {
+			errors.rejectValue("infTransAdress", "infTransAdress.MinChars");
+		} else if (Caravan.getInfTransAdress().length() > 50) {
+			errors.rejectValue("infTransAdress", "infTransAdress.MaxChars");
+		}
+
+		if (Caravan.getInfTransContact() == "") {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransContact",
+					"infTransContact.NotEmptyOrWhitespace");
+		} else if (Caravan.getInfTransContact().length() < 5) {
+			errors.rejectValue("infTransContact", "infTransContact.MinChars");
+		} else if (Caravan.getInfTransContact().length() > 50) {
+			errors.rejectValue("infTransContact", "infTransContact.MaxChars");
+		}
+
+		if (Caravan.getInfTransEmail() == "") {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransEmail", "infTransEmail.NotEmptyOrWhitespace");
+		} else if (Caravan.getInfTransEmail().length() < 6) {
+			errors.rejectValue("infTransEmail", "infTransEmail.infTransEmail.MinChars");
+		} else if (Caravan.getInfTransEmail().length() > 30) {
+			errors.rejectValue("infTransEmail", "infTransEmail.MaxChars");
+		}
+		if (Caravan.getInfTransName() == "") {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransName", "infTransName.NotEmptyOrWhitespace");
+		} else if (Caravan.getInfTransName().length() < 5) {
+			errors.rejectValue("infTransName", "infTransName.MinChars");
+		} else if (Caravan.getInfTransName().length() > 20) {
+			errors.rejectValue("infTransName", "infTransName.MaxChars");
+		}
+		if (Caravan.getInfTransTelephone().toString() == "" || Caravan.getInfTransTelephone().toString() == null) {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransTelephone",
+					"infTransTelephone.NotEmptyOrWhitespace");
+		}
+
 	}
 }

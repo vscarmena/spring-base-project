@@ -9,7 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 
 @Entity
@@ -22,6 +26,7 @@ public class Caravan implements Serializable {
 	private Integer id;
 	private String brand;
 	private String model;
+	@Digits(integer=4, fraction=0)
 	@Column(name = "construction_year")
 	private Integer constructionYear;
 	private Integer babys;
@@ -42,10 +47,12 @@ public class Caravan implements Serializable {
 	private String infTransAdress;
 	@Column(name = "inf_trans_contact")
 	private String infTransContact;
+	@Email
 	@Column(name = "inf_trans_email")
 	private String infTransEmail;
 	@Column(name = "inf_trans_name")
 	private String infTransName;
+	@Pattern(regexp="[0-9]{9}")
 	@Column(name = "inf_trans_telephone")
 	private Integer infTransTelephone;
 	private String recommendation;
