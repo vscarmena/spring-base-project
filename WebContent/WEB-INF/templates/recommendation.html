@@ -15,7 +15,7 @@
 	<form action="#" th:action="@{/caravana/add}" th:object="${caravan}"
 		method="post" class="form-inline">
 
-		<div class="form-group" th:classappend=="${#fields.hasErrors('description')} ? has-error">
+		<div class="form-group" th:classappend=="${#fields.hasErrors('recommendation')} ? has-error">
 									<label for="recommendation" class="col-sm-3 control-label"
 										th:text="#{recommendation}"><abbr
 										class="required" title="required"> * </abbr>

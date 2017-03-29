@@ -29,7 +29,8 @@ public class Service implements Serializable {
 	private boolean microwave;
 	
 	private boolean mixer;
-	
+
+	@Column(name="pilows")
 	private boolean pillows;
 	
 	private String other;
