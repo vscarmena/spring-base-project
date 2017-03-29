@@ -93,7 +93,7 @@ public class CaravanaValidator implements Validator {
 		if (Caravan.getInfTransTelephone().toString() == "" || Caravan.getInfTransTelephone().toString() == null) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransTelephone",
 					"infTransTelephone.NotEmptyOrWhitespace");
-		}
+		} 
 
 	}
 }
