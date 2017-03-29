@@ -6,53 +6,51 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import tech.tarragona.spring.model.Camping;
 import tech.tarragona.spring.model.User;
 
 @Controller
 public class MainController {
 
-      @RequestMapping("/login")
-      public String login() {
-        return "user/login";
-      }
-      
-      @RequestMapping("/register")
-      public String register(Model model) {
-        model.addAttribute("user", new User());
-
-        return "user/register";
-      }
-      
-      @RequestMapping("/error")
-      public String error(Model model) {
-        return "user/register";
-      }
-      
-      @RequestMapping("/info")
-      public String info() {
-        return "user/info";
-      }
-      
-      @RequestMapping("/facturacion")
-      public String facturacion() {
-        return "user/facturacion";
-      }
-
-      @RequestMapping("/registration-error")
-      public String registrationError() {
-        return "user/registration-error";
-      }
-      
-      @RequestMapping("/registration-success")
-      public String registrationSuccess() {
-        return "user/registration-success";
-      }
-      
-      @RequestMapping("/activation-success")
-      public String activationSuccess() {
-        return "user/activation-success";
-      }
+	  @RequestMapping("/login")
+	  public String login() {
+	    return "user/login";
+	  }
+	  
+	  @RequestMapping("/register")
+	  public String regsiter(Model model) {
+		model.addAttribute("user", new User());
+	    return "user/register";
+	  }
+	  
+	  @RequestMapping("/error")
+	  public String error(Model model) {
+	    return "error";
+	  }
+	  
+	  @RequestMapping("/info")
+	  public String info() {
+	    return "user/info";
+	  }
+	  
+	  @RequestMapping("/facturacion")
+	  public String facturacion() {
+	    return "user/facturacion";
+	  }
+	  
+	  @RequestMapping("/registration-error")
+	  public String registrationError() {
+	    return "user/registration-error";
+	  }
+	  
+	  @RequestMapping("/registration-success")
+	  public String registrationSuccess() {
+	    return "user/registration-success";
+	  }
+	  
+	  @RequestMapping("/activation-success")
+	  public String activationSuccess() {
+	    return "user/activation-success";
+	  }
 
       @RequestMapping("/activation-error")
       public String activationError() {
@@ -62,9 +60,7 @@ public class MainController {
       @RequestMapping("/datos-fiscales")
       public String datosFiscales() {
         return "camping/datos-fiscales";
-      }
-      
-     
+      } 
       
       @RequestMapping("/login-error")
       public String loginError(Model model) {

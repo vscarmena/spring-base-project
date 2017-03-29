@@ -1,6 +1,7 @@
 package tech.tarragona.spring.controller;
 
 import java.util.Locale;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,15 +31,15 @@ public class UserDataController {
 
 	@Autowired
 	UserService userService;
-	
-	public static final String HOME_PAGE = "home";
-	public static final String REGISTER_PAGE = "register";
-	public static final String REGISTRATION_OK = "registration-success";
-	public static final String REGISTRATION_FAIL = "registration-error";
-	public static final String ACTIVATION_OK = "activation-success";
-	public static final String ACTIVATION_FAIL = "activation-error";
-	public static final String EDIT_USER = "info";
-	public static final String REDIRECT_EDIT_USER = "redirect:/" +EDIT_USER;
+
+	public static final String HOME_PAGE = "hello";
+	public static final String REGISTER_PAGE = "user/register";
+	public static final String REGISTRATION_OK = "user/registration-success";
+	public static final String REGISTRATION_FAIL = "user/registration-error";
+	public static final String ACTIVATION_OK = "user/activation-success";
+	public static final String ACTIVATION_FAIL = "user/activation-error";
+	public static final String EDIT_USER = "user/info";
+	public static final String USER_FACTURATION = "user/facturacion";
 	
 	@GetMapping("/info")
 	public String redirectToEditUser(@AuthenticationPrincipal User activeUser, Model model){
@@ -47,19 +48,33 @@ public class UserDataController {
 	}
 
 	@PostMapping("/info")
-	public String editUserInfo(@Valid @ModelAttribute("userData") UserData userData, BindingResult result, Locale locale){
+	public String editUserInfo(@Valid @ModelAttribute("userData") UserData userData, BindingResult result, @AuthenticationPrincipal User activeUser, Locale locale){
 		if (result.hasErrors()){
 			System.out.println(result.getFieldErrors());
 			return EDIT_USER;
 		}
 		else {
-			userDataService.editUserInfo(userData);
+			userDataService.editUserInfo(activeUser, userData);
 		}
-		return HOME_PAGE;
-		
+		return HOME_PAGE;		
 	}
-	
 
-	
+	@GetMapping("/facturacion")
+	public String redirectToFacturationUser(@AuthenticationPrincipal User activeUser, Model model){
+		model.addAttribute("facturation", activeUser.getUserData());
+		return USER_FACTURATION;
+	}
+
+	@PostMapping("/facturacion")
+	public String editFacturationUserInfo(@Valid @ModelAttribute("facturation") UserData userFacturationData, BindingResult result, @AuthenticationPrincipal User activeUser, Locale locale){
+		if (result.hasErrors()){
+			return USER_FACTURATION;
+		}
+		else {
+			userDataService.editFacturationUserInfo(activeUser, userFacturationData);
+		}
+		return HOME_PAGE;		
+	}
+
 
 }

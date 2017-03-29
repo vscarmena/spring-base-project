@@ -6,7 +6,9 @@ import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,8 +42,9 @@ public class UserController {
 	public static final String REGISTRATION_FAIL = "user/registration-error";
 	public static final String ACTIVATION_OK = "user/activation-success";
 	public static final String ACTIVATION_FAIL = "user/activation-error";
-	public static final String EDIT_USER = "user/edit-user-info";
+	public static final String EDIT_USER = "info";
 	public static final String REDIRECT_EDIT_USER = "redirect:/" +EDIT_USER;
+	public static final String PASS_RECOVERY = "pass-recovery";
 
 	@PostMapping("/register")
 	public String registro(@Valid @ModelAttribute("user") User user, BindingResult result, Locale locale){
@@ -54,9 +57,8 @@ public class UserController {
 			return REGISTER_PAGE;
 		}else {
 			userService.addNewUser(user);
-			userService.generateAndSaveSecurityCode(user.getId());
 			try {
-				emailService.sendConfirmationMail(user, locale);
+				emailService.sendConfirmationMail(userService.findUserByUsername(user.getUsername()), locale);
 				return REGISTRATION_OK;
 			} catch (MessagingException e) {
 				e.printStackTrace();
@@ -74,7 +76,25 @@ public class UserController {
 		}
 	}
 	
+	@GetMapping("/passwordRecovery")
+	public String passRecoveryPage(@AuthenticationPrincipal User activeUser, Model model){
+		model.addAttribute("pass1", new String());
+		return PASS_RECOVERY;
+	}
 
+	@PostMapping("/passwordRecovery")
+	public String passRecovery(@Valid @ModelAttribute("pass1") String pass1, @ModelAttribute("pass2") String pass2, BindingResult result,@AuthenticationPrincipal User activeUser, Locale locale){
+		if (pass1 != pass2){
+			return PASS_RECOVERY;
+		}else
+			activeUser.setPassword(pass1);
+			try {
+				emailService.sendChangedPassMail(activeUser.getUserData().getEmail(), locale);
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+		return "hello";
+	}
 
 
 }

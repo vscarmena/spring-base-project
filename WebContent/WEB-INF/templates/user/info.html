@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-
 <head>
 <title th:text="#{formRegister.info}"></title>
 <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" />
 <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet" />
-<link th:href="@{/resources/css/spring-base-project.css}"
-	rel="stylesheet" />
-
+<link th:href="@{/resources/css/spring-base-project.css}" rel="stylesheet" />
 </head>
 <body class="background-bg">
 	<div class="container">
@@ -19,6 +16,7 @@
 				<div class="account-wall">
 					<img class="profile-img"
 						src="https://image.flaticon.com/icons/svg/149/149071.svg" alt="">
+
 					<form th:action="@{/info}" method="post" th:object="${userData}"
 						class="form-signin">
 
@@ -30,11 +28,13 @@
 
 						<label for="surname" th:text="#{formRegister.surname>"></label>: <br />
 						<input type="text" th:field="*{surname}" class="form-control"
-							th:placeholder="#{formRegister.surname}" required> <label
-							for="email"></label>:<br /> <input type="text"
-							th:field="*{surname}" class="form-control" placeholder="Email"
-							required>
-						<p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"
+							th:placeholder="#{formRegister.surname}" required>
+							
+						<label for="username"
+							th:text="#{formRegister.email}"></label>: <br />
+						<input type="email" id="email" name="email" class="form-control"
+							th:placeholder="#{formRegister.email}">
+						<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 							class="error">Error</p>
 
 						<label for="genre" th:text="#{formRegister.sex}"></label> <select
@@ -46,10 +46,8 @@
 							class="error">Error</p>
 
 						<label for="birthDate" th:text="#{formRegister.birthday}"></label>:
-						<br /> <input type="date" th:field="*{birthDate}"
-							class="form-control" required>
-						<p th:if="${#fields.hasErrors('birthDate')}"
-							th:errors="*{birthDate}" class="error">Error</p>
+						<br /> <input type="date" th:field="*{birthDate}" class="form-control" required>
+						<p th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" class="error">Error</p>
 
 						<label for="telephone" th:text="#{formRegister.phone}"></label>: <br />
 						<select th:field="*{idTelephone}" class="form-control">
@@ -68,9 +66,8 @@
 						<p th:if="${#fields.hasErrors('idTelephone')}"
 							th:errors="*{idTelephone}" class="error">Error</p>
 
-
-						<label for="address" th:text="#{formRegister.address}"></label> <input
-							type="text" th:field="*{address}" class="form-control" required>
+						<label for="address" th:text="#{formRegister.address}"></label>
+						<input type="text" th:field="*{address}" class="form-control" th:placeholder="#{formRegister.address}" required>
 						<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
 							class="error">Error</p>
 
@@ -84,24 +81,27 @@
 							<option value="Denmark" th:text="#{formBilling.country.Denmark}"></option>
 							<option value="Russia" th:text="#{formBilling.country.Russia}"></option>
 							<option value="Germany" th:text="#{formBilling.country.Germany}"></option>
-							<option value="Portugal"
-								th:text="#{formBilling.country.Portugal}"></option>
+							<option value="Portugal" th:text="#{formBilling.country.Portugal}"></option>
 							<option value="Poland" th:text="#{formBilling.country.Poland}"></option>
-						</select> <label for="cp" th:text="#{formRegister.postalCode}"></label> <input
-							type="text" th:field="*{cp}" class="form-control" required>
+							
+							</select>
+							
+						<label for="cp" th:text="#{formRegister.postalCode}"></label>
+						<input type="text" th:field="*{cp}" class="form-control" th:placeholder="#{formRegister.postalCode}" required>
 						<p th:if="${#fields.hasErrors('cp')}" th:errors="*{cp}"
 							class="error">Error</p>
 
 						<label for="city" th:text="#{formRegister.location}"></label> <input
-							type="text" th:field="*{city}" class="form-control" required>
+							type="text" th:field="*{city}" class="form-control" th:placeholder="#{formRegister.location}" required>
 						<p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
 							class="error">Error</p>
 
-						<label for="nif">NIF</label> <input type="text" th:field="*{nif}"
-							class="form-control" required>
+						<label for="nif" th:text="#{formRegister.nif}">NIF</label>
+						<input type="text" th:field="*{nif}" class="form-control" th:placeholder="#{formRegister.nif}" required>
 						<p th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}"
 							class="error">Error</p>
 						<br>
+
 
 						<button class="btn btn-lg btn-primary btn-block" type="submit"
 							th:text="#{formRegister.save}">Guardar</button>

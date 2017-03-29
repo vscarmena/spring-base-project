@@ -3,6 +3,7 @@ package tech.tarragona.spring.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -18,6 +19,8 @@ public class UserDataService {
 	UserDataRepository userDataRepository;
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
 	
 	@Transactional
@@ -26,8 +29,20 @@ public class UserDataService {
 	}
 	
 	@Transactional
-	public void editUserInfo(UserData userData){
-		userDataRepository.save(userData);
+	public void editUserInfo(User activeUser, UserData userData){
+		User user = userRepository.findByUsername(activeUser.getUsername());
+		user.getUserData().setName(userData.getName());
+		user.getUserData().setAddress(userData.getAddress());
+		user.getUserData().setNif(userData.getNif());
+		user.getUserData().setEmail(userData.getEmail());
+		user.getUserData().setSurname(userData.getSurname());
+		user.getUserData().setBirthDate(userData.getBirthDate());
+		user.getUserData().setTelephone(userData.getTelephone());
+		user.getUserData().setCountry(userData.getCountry());
+		user.getUserData().setCity(userData.getCity());
+		user.getUserData().setCp(userData.getCp());
+		user.getUserData().setGenre(userData.getGenre());
+		userRepository.save(user);
 		
 	}
 	
@@ -45,6 +60,17 @@ public class UserDataService {
 	@Transactional
 	public User findUserById(Integer id) {
 		return userRepository.findById(id);
+		
+	}
+
+	@Transactional
+	public void editFacturationUserInfo(User activeUser, UserData userData) {
+		User user = userRepository.findByUsername(activeUser.getUsername());
+		user.getUserData().setNamef(userData.getNamef());
+		user.getUserData().setAddressf(userData.getAddressf());
+		user.getUserData().setNif(userData.getNif());
+		user.getUserData().setEmailf(userData.getEmailf());		
+		userRepository.save(user);
 		
 	}
 	
