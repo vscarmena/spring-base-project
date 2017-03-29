@@ -85,7 +85,7 @@ public class CaravanaValidator implements Validator {
 		}
 		if (Caravan.getInfTransName() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransName", "infTransName.NotEmptyOrWhitespace");
-		} else if (Caravan.getInfTransName().length() < 5) {
+		} else if (Caravan.getInfTransName().length() < 3) {
 			errors.rejectValue("infTransName", "infTransName.MinChars");
 		} else if (Caravan.getInfTransName().length() > 20) {
 			errors.rejectValue("infTransName", "infTransName.MaxChars");
@@ -93,7 +93,7 @@ public class CaravanaValidator implements Validator {
 		if (Caravan.getInfTransTelephone().toString() == "" || Caravan.getInfTransTelephone().toString() == null) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransTelephone",
 					"infTransTelephone.NotEmptyOrWhitespace");
-		} 
+		}
 
 	}
 }

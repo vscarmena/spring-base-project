@@ -52,7 +52,8 @@ public class Caravan implements Serializable {
 	private String infTransEmail;
 	@Column(name = "inf_trans_name")
 	private String infTransName;
-	@Pattern(regexp="[0-9]{9}")
+	@Digits(integer=9, fraction=0)
+	@Pattern(regexp="^[6789][0-9]{8}")
 	@Column(name = "inf_trans_telephone")
 	private Integer infTransTelephone;
 	private String recommendation;
