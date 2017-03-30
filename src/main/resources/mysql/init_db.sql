@@ -182,7 +182,7 @@ create table if not exists caravan (
             
 	id_price integer,
 			foreign key (id_price)
-            references price_caravancaravan (id)
+            references price_caravan (id)
 );
 
 create table if not exists characteristic (
