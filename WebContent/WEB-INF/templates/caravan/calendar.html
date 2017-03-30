@@ -1,38 +1,40 @@
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>datepicker demo</title>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-<script src="jquery.ui.datepicker-es.js"></script>
-   
-</head>
-<body>
-
-<script>
-$(function () {
-$("#from").datepicker({
-onClose: function (selectedDate) {
-$("#to").datepicker("option", "minDate", selectedDate);
-}
-});
-$("#to").datepicker({
-onClose: function (selectedDate) {
-$("#from").datepicker("option", "maxDate", selectedDate);
-}
-});
-});
-</script>
-
-</head>
-
-<body>
-<p>
-Desde:
-<input type="text" id="from" name="from" />
-Hasta:
-<input type="text" id="to" name="to" />
-</p>
-</body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+	<link th:href="@{/resources/css/form-elements.css}" rel="stylesheet" />
+	<link th:href="@{/resources/css/media-queries.css}" rel="stylesheet" />
+	<link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+	<link th:href="@{/resources/css/colorbox.css}" rel="stylesheet" />
+	</head>
+	<meta charset="UTF-8">
+	<title>Calendario</title>
+	</head>
+	<body>
+	<div class="container" layout:fragment="content">
+			<div class="msf-container">
+				<div class="container">
+	
+					<div class="row">
+						<div class="col-sm-6 msf-form">
+							<form th:action="@{/caravana/calendar/{id}(id=${id})}"
+								th:object="${availability}" method="post" class="form-horizontal">
+								<label for="initDate" th:text="#{initDate}"></label> 
+								<input type="date" th:field="*{initDate}" class="form-control"></input> 
+								
+								<label for="endDate" th:text="#{endDate}"></label> 
+								<input type="date" th:field="*{endDate}" class="form-control"></input>
+						
+								<button type="submit" class="btn btn-primary" th:utext="#{t.save}">
+									<i class="fa fa-floppy-o" aria-hidden="true"></i>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</body>
 </html>
