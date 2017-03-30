@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS user_data (
 	name varchar(30) NOT NULL,
 	surname varchar(30) NOT NULL,
     nif varchar (10) NOT NULL DEFAULT '',
-	genre int(1),
+	genre varchar(1),
 	birthDate date,
 	idTelephone int(3),
 	telephone varchar(15),
