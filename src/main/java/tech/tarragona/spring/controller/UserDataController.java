@@ -2,9 +2,12 @@ package tech.tarragona.spring.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +45,8 @@ public class UserDataController {
 
 	
 	@GetMapping("/info")
-	public String redirectToEditUser(@AuthenticationPrincipal User activeUser, Model model){
+	public String redirectToEditUser(@AuthenticationPrincipal User activeUser, Model model, HttpSession request){
+		request.setAttribute("id", activeUser.getId());
 		UserData userData = new UserData();
 		if (activeUser.getUserData()!=null){
 			userData = activeUser.getUserData();

@@ -103,6 +103,8 @@
 						<p th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}"
 							class="error">Error</p>
 						<br>
+						
+						<input type="hidden" th:field="*{id}"  th:value="${session.id}">
 
 
 						<button class="btn btn-lg btn-primary btn-block" type="submit"
