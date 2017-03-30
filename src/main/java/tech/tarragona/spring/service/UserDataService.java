@@ -30,18 +30,8 @@ public class UserDataService {
 	
 	@Transactional
 	public void editUserInfo(User activeUser, UserData userData){
-		User user = userRepository.findByUsername(activeUser.getUsername());
-		user.getUserData().setName(userData.getName());
-		user.getUserData().setAddress(userData.getAddress());
-		user.getUserData().setNif(userData.getNif());
-		user.getUserData().setEmail(userData.getEmail());
-		user.getUserData().setSurname(userData.getSurname());
-		user.getUserData().setBirthDate(userData.getBirthDate());
-		user.getUserData().setTelephone(userData.getTelephone());
-		user.getUserData().setCountry(userData.getCountry());
-		user.getUserData().setCity(userData.getCity());
-		user.getUserData().setCp(userData.getCp());
-		user.getUserData().setGenre(userData.getGenre());
+		User user = userRepository.findOne(activeUser.getId());
+		user.setUserData(userData);
 		userRepository.save(user);
 		
 	}
@@ -59,20 +49,11 @@ public class UserDataService {
 	}
 	@Transactional
 	public User findUserById(Integer id) {
-		return userRepository.findById(id);
+		return userRepository.findOne(id);
 		
 	}
 
-	@Transactional
-	public void editFacturationUserInfo(User activeUser, UserData userData) {
-		User user = userRepository.findByUsername(activeUser.getUsername());
-		user.getUserData().setNamef(userData.getNamef());
-		user.getUserData().setAddressf(userData.getAddressf());
-		user.getUserData().setNif(userData.getNif());
-		user.getUserData().setEmailf(userData.getEmailf());		
-		userRepository.save(user);
-		
-	}
+	
 	
 	
 	

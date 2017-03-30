@@ -8,6 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -18,26 +24,43 @@ public class UserData implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-    
+   
     private String email;
 
+    @NotEmpty
+    @Size(max=40)
     private String address;
 
-	private String name;
+	@NotEmpty
+	@Size(max=15)
+    private String name;
+	
 	
 	private User user;
 
+    @DateTimeFormat(pattern="yyyy-mm-dd")
     private Date birthDate;
 
+    @NotEmpty
+    @Size(max=15)
     private String city;
 
+    @NotEmpty
     private String country;
 
+    @NotEmpty
+    @Size(max=10)
     private String cp;
 
-    private int genre;
+    @NotNull
+    private String genre;
 
-    private int idTelephone;
+    @Max(value=999)
+    @NotNull
+    private Integer idTelephone;
+
+    @NotEmpty
+    @Size(max=15)
 
     private String nif;
     
@@ -45,10 +68,13 @@ public class UserData implements Serializable {
 
 	private float rating;
 
+    @NotEmpty
+    @Size(max=25)
     private String surname;
 
+    @NotEmpty
+    @Size(max=15)
     private String telephone;
-    
 		
 	public UserData() {
     }
@@ -132,19 +158,19 @@ public class UserData implements Serializable {
 		this.cp = cp;
 	}
 
-	public int getGenre() {
+	public String getGenre() {
 		return genre;
 	}
 
-	public void setGenre(int genre) {
+	public void setGenre(String genre) {
 		this.genre = genre;
 	}
 
-	public int getIdTelephone() {
+	public Integer getIdTelephone() {
 		return idTelephone;
 	}
 
-	public void setIdTelephone(int idTelephone) {
+	public void setIdTelephone(Integer idTelephone) {
 		this.idTelephone = idTelephone;
 	}
 
@@ -187,7 +213,5 @@ public class UserData implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-
-
 
 }

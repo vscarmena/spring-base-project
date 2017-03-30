@@ -114,6 +114,7 @@ CREATE TABLE IF NOT EXISTS campings_services (
     kindergarten boolean ,
     pub boolean ,
     minigolf boolean ,
+    wellness boolean,
     atm boolean ,
     defibrillator boolean ,
     laundry boolean ,
@@ -151,3 +152,4 @@ VALUES (1, 'CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67
 ('2', 'CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
 ('3', 'CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
 ('4', 'CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
+INSERT INTO `caravaning`.`user_facturation_data` (`id`, `user_id`, `niff`, `namef`, `addressf`, `emailf`) VALUES ('1', '1', '87665434K', 'Pepito', 'C/ Pollo', 'xavi_pollo@gmail.com');

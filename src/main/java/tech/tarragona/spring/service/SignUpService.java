@@ -68,7 +68,7 @@ public class SignUpService implements ConnectionSignUp{
     }
     
     private User saveSocialUser(UserData userData) {
-    	User user = new User(userData.getName(), randomAlphabetic(8), Arrays.asList(new SimpleGrantedAuthority(Role.USER.getValue())), userData);
+    	User user = new User(null, userData.getName(), randomAlphabetic(8), Arrays.asList(new SimpleGrantedAuthority(Role.USER.getValue())), userData, null);
         userData.setUser(user);
         UserAuthority userAuthority = new UserAuthority(getUserAuthority(), user);
         user.setUserAuthorities(new ArrayList<UserAuthority>());

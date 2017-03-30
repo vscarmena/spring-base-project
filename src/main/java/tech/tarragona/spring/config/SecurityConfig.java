@@ -48,8 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     "/registration-error",
                     "/registration-success",
                     "/activation-success",
-                    "/activation-error",
-                    "/facturacion"
+                    "/activation-error"
             		).permitAll()
             	.anyRequest().authenticated()
             	.and()

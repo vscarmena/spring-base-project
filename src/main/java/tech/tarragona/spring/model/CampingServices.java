@@ -15,7 +15,7 @@ public class CampingServices implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private byte animation;
 
@@ -58,6 +58,8 @@ public class CampingServices implements Serializable {
 	private byte supermarket;
 
 	private byte tennis;
+	
+	private byte wellness;
 
 	private byte wifi;
 
@@ -68,11 +70,11 @@ public class CampingServices implements Serializable {
 	public CampingServices() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -250,6 +252,14 @@ public class CampingServices implements Serializable {
 
 	public void setCamping(Camping camping) {
 		this.camping = camping;
+	}
+
+	public byte getWellnes() {
+		return wellness;
+	}
+
+	public void setWellnes(byte wellnes) {
+		this.wellness = wellnes;
 	}
 
 }

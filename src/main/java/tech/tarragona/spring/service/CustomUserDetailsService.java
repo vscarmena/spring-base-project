@@ -35,7 +35,7 @@ public class CustomUserDetailsService implements UserDetailsService{
         	}
         	else {
         		logger.debug("LOGIN : " + user.getUsername());
-                return new User(user.getUsername(), user.getPassword(), getGrantedAuthorities(user.getUserAuthorities()), user.getUserData());
+                return new User(user.getId(), user.getUsername(), user.getPassword(), getGrantedAuthorities(user.getUserAuthorities()), user.getUserData(), user.getUserFacturationData());
         	}
         	
         }

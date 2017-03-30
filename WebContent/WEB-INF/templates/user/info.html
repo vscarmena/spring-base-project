@@ -1,137 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<<<<<<< HEAD
-  <head>
-    <title>Informaci�n</title>
-     <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
-    <link th:href="@{/resources/css/spring-base-project.css}" rel="stylesheet"/>
-    
-    
-  </head>
-  <body class="background-bg">
-<div class="container">
-    <div class="row">	
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title" >Información</h1>
-            <div class="account-wall">
-                <img class="profile-img" src="https://image.flaticon.com/icons/svg/149/149071.svg" alt="">
-                <form th:action="@{/info}" method="post" th:object="${userData}" class="form-signin">
-                
-                <label for="username">Nombre</label>: <br />
-                <input type="text" id="name" name="name" th:field="*{name}" class="form-control" placeholder="Nombre" required autofocus>
-                
-                <label for="surname">Apellidos</label>: <br />
-                <input type="text" id="surname" name="surname" th:field="*{surname}" class="form-control" placeholder="Apellidos" required>
-                
-               <label for="nif">NIF</label>
-				<input type="text" id="nif" th:field="*{nif}" name="nif" class="form-control">
-				
-                <label for="username">Email</label>: <br />
-                <input type="email" id="email" name="email" th:field="*{email}" class="form-control" placeholder="Email" >
-                
-                <label for="gender">Sexo</label>
-                <select id="gender" name="gender" class="form-control">
-  					<option value="Hombre">Hombre</option>
-  					<option value="Mujer">Mujer</option>
-				</select>
-				
-				<label for="date">Fecha de nacimiento</label>: <br />
-				<input type="date" name="fechaNacimiento" class="form-control">
-				
-				<label for="prefix">Tel�fono</label>: <br />
-				<select id="gender" name="gender" class="form-control">
-  					<option value="34">+34 Espa�a </option>
-  					<option value="33">+33 Francia </option>
-  					<option value="39">+39 Italia</option>
-  					<option value="46">+46 Suecia</option>
-  					<option value="32">+32 B�lgica</option>
-  					<option value="45">+45 Dinamarca</option>
-  					<option value="7">+07 Rusia</option>
-  					<option value="49">+49 Alemania</option>
-  					<option value="351">+351 Portugal</option>
-  					<option value="48">+48 Polonia</option>
-				</select>
-				<input type="text" id="phone" th:field="*{telephone}" name="phone" class="form-control">
-				
-				<label for="address">Direcci�n</label>
-				<input type="text" id="address" th:field="*{address}" name="address" class="form-control">
-				
-				<label for="gender">Pa�s</label>
-                <select id="country" name="country" class="form-control">
-  					<option value="Spain">Espa�a</option>
-  					<option value="France">Francia</option>
-  					<option value="Itali">Italia</option>
-  					<option value="Sweden">Suecia</option>
-  					<option value="Belgium">B�lgica</option>
-  					<option value="Denmark">Dinamarca</option>
-  					<option value="Russia">Rusia</option>
-  					<option value="Germany">Alemania</option>
-  					<option value="Portugal">Portugal</option>
-  					<option value="Poland">Polonia</option>
-				</select>
-				
-				<label for="postalcode">C�digo Postal</label>
-				<input type="text" id="postalcode" th:field="*{cp}" name="postalcode" class="form-control">
-				
-				<label for="city">Localidad</label>
-				<input type="text" id="city" th:field="*{city}" name="city" class="form-control">
- 				<br>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Guardar</button>       	
-                </form>   
-                
-                     
-            </div>
-            <a href="passwordRecovery" class="text-center new-account">Cambiar Contrase�a </a>
-        </div>
-    </div>
-</div>
-=======
+
 <head>
 <title th:text="#{formRegister.info}"></title>
 <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" />
 <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet" />
-<link th:href="@{/resources/css/spring-base-project.css}"
-	rel="stylesheet" />
->>>>>>> addaa85b627e758ec29809aeecfc99e97a3c37da
-
-
+<link th:href="@{/resources/css/spring-base-project.css}" rel="stylesheet" />
 </head>
 <body class="background-bg">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-md-4 col-md-offset-4">
+
 				<h1 class="text-center login-title" th:text="#{formRegister.info}"></h1>
 				<div class="account-wall">
 					<img class="profile-img"
 						src="https://image.flaticon.com/icons/svg/149/149071.svg" alt="">
-					<form th:action="@{/info}" method="post" th:object="${userData}" class="form-signin">
 
-						<label for="username" th:text="#{formRegister.name}"></label>: <br />
-						<input type="text" id="name" name="name" th:field="*{name}" class="form-control"
-							th:placeholder="#{formRegister.name}" required autofocus>
+					<form th:action="@{/info}" method="post" th:object="${userData}"
+						class="form-signin">
 
-						<label for="surname" th:text="#{formRegister.surname}"></label>: <br />
-						<input type="text" id="surname" name="surname" th:field="*{surname}"
-							class="form-control" th:placeholder="#{formRegister.surname}"
-							required> <label for="username"
-							th:text="#{formRegister.email}"></label>: <br /> <input
-							type="email" id="email" name="email" class="form-control"
-							th:placeholder="#{formRegister.email}"> <label
-							for="gender" th:text="#{formRegister.sex}"></label> <select
-							id="gender" name="gender" class="form-control">
-							<option value="Hombre" th:text="#{formRegister.optionMale}"></option>
-							<option value="Mujer" th:text="#{formRegister.optionFemale}"></option>
-						</select> <label for="date" th:text="#{formRegister.birthday}"></label>: <br />
-						<input type="date" name="fechaNacimiento" class="form-control">
+						<label for="name" th:text="#{formRegister.name}"></label>: <br />
+						<input type="text" th:field="*{name}" class="form-control"
+							th:placeholder="#{formRegister.name}" required>
+						<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+							class="error">Error</p>
 
+						<label for="surname" th:text="#{formRegister.surname}">></label>: <br />
+						<input type="text" th:field="*{surname}" class="form-control"
+							th:placeholder="#{formRegister.surname}" required>
+						<p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"
+							class="error">Error</p>
+							
+						<label for="username"
+							th:text="#{formRegister.email}"></label>: <br />
+						<input type="email" id="email" name="email" class="form-control"
+							th:placeholder="#{formRegister.email}">
+						<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+							class="error">Error</p>
 
-						<label for="prefix" th:field="*{telephone}" th:text="#{formRegister.phone}"></label>: <br />
+						<label for="genre" th:text="#{formRegister.sex}"></label> <select
+							th:field="*{genre}" class="form-control">
+							<option value="0" th:text="#{formRegister.optionMale}"></option>
+							<option value="1" th:text="#{formRegister.optionFemale}"></option>
+						</select>
+						<p th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"
+							class="error">Error</p>
 
-						<select id="gender" name="gender" class="form-control">
-							<option value="34" th:text="#{formBilling.country.SpainC}">
-							</option>
+						<label for="birthDate" th:text="#{formRegister.birthday}"></label>:
+						<br /> <input type="date" th:field="*{birthDate}" class="form-control" required>
+						<p th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" class="error">Error</p>
+
+						<label for="telephone" th:text="#{formRegister.phone}"></label>: <br />
+						<select th:field="*{idTelephone}" class="form-control">
+							<option value="34" th:text="#{formBilling.country.SpainC}"></option>
 							<option value="33" th:text="#{formBilling.country.FrenchC}"></option>
 							<option value="39" th:text="#{formBilling.country.ItalyC}"></option>
 							<option value="46" th:text="#{formBilling.country.SwedenC}"></option>
@@ -141,13 +63,18 @@
 							<option value="49" th:text="#{formBilling.country.GermanyC}"></option>
 							<option value="351" th:text="#{formBilling.country.PortugalC}"></option>
 							<option value="48" th:text="#{formBilling.country.PolandC}"></option>
-						</select> <input type="text" id="phone" name="phone" class="form-control">
+						</select> <input type="text" th:field="*{telephone}" class="form-control"
+							required>
+						<p th:if="${#fields.hasErrors('idTelephone')}"
+							th:errors="*{idTelephone}" class="error">Error</p>
 
-						<label for="address" th:text="#{formRegister.address}"></label> <input
-							type="text" id="address" th:field="*{addresss}" name="address" class="form-control">
+						<label for="address" th:text="#{formRegister.address}"></label>
+						<input type="text" th:field="*{address}" class="form-control" th:placeholder="#{formRegister.address}" required>
+						<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+							class="error">Error</p>
 
-						<label for="gender" th:text="#{formRegister.country}"></label> <select
-							id="country" name="country" class="form-control">
+						<label for="country" th:text="#{formRegister.country}">País</label>
+						<select id="country" th:field="*{country}" class="form-control">
 							<option value="Spain" th:text="#{formBilling.country.Spain}"></option>
 							<option value="France" th:text="#{formBilling.country.French}"></option>
 							<option value="Italy" th:text="#{formBilling.country.Italy}"></option>
@@ -156,22 +83,37 @@
 							<option value="Denmark" th:text="#{formBilling.country.Denmark}"></option>
 							<option value="Russia" th:text="#{formBilling.country.Russia}"></option>
 							<option value="Germany" th:text="#{formBilling.country.Germany}"></option>
-							<option value="Portugal"
-								th:text="#{formBilling.country.Portugal}"></option>
+							<option value="Portugal" th:text="#{formBilling.country.Portugal}"></option>
 							<option value="Poland" th:text="#{formBilling.country.Poland}"></option>
-						</select> <label for="postalcode" th:text="#{formRegister.postalCode}"></label>
-						<input type="text" id="postalcode" th:field="*{cp}" name="postalcode"
-							class="form-control"> <label for="locality"
-							th:text="#{formRegister.location}"></label> <input type="text"
-							id="locality" name="locality" th:field="*{city}" class="form-control"> <br>
+							
+							</select>
+							
+						<label for="cp" th:text="#{formRegister.postalCode}"></label>
+						<input type="text" th:field="*{cp}" class="form-control" th:placeholder="#{formRegister.postalCode}" required>
+						<p th:if="${#fields.hasErrors('cp')}" th:errors="*{cp}"
+							class="error">Error</p>
+
+						<label for="city" th:text="#{formRegister.location}"></label> <input
+							type="text" th:field="*{city}" class="form-control" th:placeholder="#{formRegister.location}" required>
+						<p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
+							class="error">Error</p>
+
+						<label for="nif" th:text="#{formRegister.nif}">NIF</label>
+						<input type="text" th:field="*{nif}" class="form-control" th:placeholder="#{formRegister.nif}" required>
+						<p th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}"
+							class="error">Error</p>
+						<br>
+
+
 						<button class="btn btn-lg btn-primary btn-block" type="submit"
-							th:text="#{formRegister.save}"></button>
+							th:text="#{formRegister.save}">Guardar</button>
 					</form>
 
 
 				</div>
 				<a href="#" class="text-center new-account"
 					th:text="#{formRegister.changePassword}"></a>
+
 			</div>
 		</div>
 	</div>

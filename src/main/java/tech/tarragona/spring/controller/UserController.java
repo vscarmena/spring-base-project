@@ -19,6 +19,7 @@ import tech.tarragona.spring.model.User;
 import tech.tarragona.spring.service.EmailService;
 import tech.tarragona.spring.service.UserDataService;
 import tech.tarragona.spring.service.UserService;
+import tech.tarragona.spring.validator.UserValidator;
 
 @Controller
 public class UserController {
@@ -32,6 +33,9 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	UserValidator userValidator;
+
 	public static final String VIEW_PEOPLE = "persons";
 	public static final String REGISTER_PAGE = "user/register";
 	public static final String REGISTRATION_OK = "user/registration-success";
@@ -44,7 +48,8 @@ public class UserController {
 
 	@PostMapping("/register")
 	public String registro(@Valid @ModelAttribute("user") User user, BindingResult result, Locale locale){
-		//Add to BD
+		userValidator.validate(user, result);
+		
 		if (result.hasErrors()){
 			return REGISTER_PAGE;
 		}

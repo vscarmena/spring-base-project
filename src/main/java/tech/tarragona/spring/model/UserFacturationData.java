@@ -15,7 +15,7 @@ public class UserFacturationData implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private String addressf;
 
@@ -25,18 +25,16 @@ public class UserFacturationData implements Serializable {
 
 	private String niff;
 
-	//bi-directional many-to-one association to User
-	@ManyToOne
 	private User user;
 
 	public UserFacturationData() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

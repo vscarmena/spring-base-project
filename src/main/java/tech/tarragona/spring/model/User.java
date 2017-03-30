@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +18,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.persistence.CascadeType;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
@@ -41,7 +43,10 @@ public class User implements UserDetails, CredentialsContainer  {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private boolean enabled;
+	@NotEmpty
 	private String password;
+	@NotEmpty
+	@Email
 	private String username;
 	private String securityCode;
 	@Transient
@@ -59,6 +64,9 @@ public class User implements UserDetails, CredentialsContainer  {
 	@OneToOne(mappedBy="user", cascade = CascadeType.PERSIST)
 	private UserData userData;
 	
+	@OneToOne(mappedBy="user", cascade = CascadeType.PERSIST)
+	private UserFacturationData userFacturationData;
+	
 	public User(){
 		accountNonExpired = false;
 		accountNonLocked = false;
@@ -70,9 +78,9 @@ public class User implements UserDetails, CredentialsContainer  {
 		this(username, password, true, true, true, true, authorities);
 	}
 	
-	public User(String username, String password,
-			Collection<? extends GrantedAuthority> authorities, UserData userData) {
-		this(username, password, true, true, true, true, authorities, userData);
+	public User(Integer id, String username, String password,
+			Collection<? extends GrantedAuthority> authorities, UserData userData, UserFacturationData userFacturationData) {
+		this(id, username, password, true, true, true, true, authorities, userData, userFacturationData);
 	}
 	
 	public User(String username, String password, boolean enabled,
@@ -93,15 +101,16 @@ public class User implements UserDetails, CredentialsContainer  {
 		this.authorities = Collections.unmodifiableSet(sortAuthorities(authorities));
 	}
 	
-	public User(String username, String password, boolean enabled,
+	public User(Integer id, String username, String password, boolean enabled,
 			boolean accountNonExpired, boolean credentialsNonExpired,
-			boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities, UserData userData) {
+			boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities, UserData userData, UserFacturationData userFacturationData) {
 
 		if (((username == null) || "".equals(username)) || (password == null)) {
 			throw new IllegalArgumentException(
 					"Cannot pass null or empty values to constructor");
 		}
 
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
@@ -110,6 +119,7 @@ public class User implements UserDetails, CredentialsContainer  {
 		this.accountNonLocked = accountNonLocked;
 		this.authorities = Collections.unmodifiableSet(sortAuthorities(authorities));
 		this.userData = userData;
+		this.userFacturationData = userFacturationData;
 	}
 	
 	public String getSecurityCode() {
@@ -281,6 +291,14 @@ public class User implements UserDetails, CredentialsContainer  {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public UserFacturationData getUserFacturationData() {
+		return userFacturationData;
+	}
+
+	public void setUserFacturationData(UserFacturationData userFacturationData) {
+		this.userFacturationData = userFacturationData;
 	}
 	
 	

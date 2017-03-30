@@ -24,7 +24,7 @@ public class SimpleSocialUsersDetailService implements SocialUserDetailsService 
     @Override
     public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException, DataAccessException {
         User user = (User) customUserDetailsService.loadUserByUsername(userId);
-        return (SocialUserDetails) new User(user.getUsername(), user.getPassword(), getGrantedAuthorities(user.getUserAuthorities()), user.getUserData());
+        return (SocialUserDetails) new User(null, user.getUsername(), user.getPassword(), getGrantedAuthorities(user.getUserAuthorities()), user.getUserData(), user.getUserFacturationData());
     }
     
     private List<GrantedAuthority> getGrantedAuthorities(List<UserAuthority> userAuthorities) {

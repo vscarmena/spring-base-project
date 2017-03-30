@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
+
     <title th:text="#{formLogin.registrar}"></title>
      <link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
@@ -17,10 +17,15 @@
                 <img class="profile-img" src="https://image.flaticon.com/icons/svg/226/226653.svg"
                     alt="">
                 <form th:action="@{/register}" method="post" th:object="${user}" class="form-signin">
+                
                 <label for="username" th:text="#{formRegister.email}"></label>: <br />
                 <input type="text" id="username" name="username" class="form-control" th:placeholder="#{formRegister.email}" required autofocus>
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error">Error</p>
+                
                 <label for="password" th:text="#{formLogin.password}"></label>: <br />
-                <input type="password" id="password" name="password" class="form-control" th:placeholder="#{formLogin.password}" required>
+                <input type="password" id="password" name="password" class="form-control" th:placeholder="#{formLogin.password}" maxlength="15" required>
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error">Error</p>
+                
                 <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{formLogin.registrar}"></button>
         	
                 </form>
@@ -44,8 +49,8 @@
     </div>
 </div>
 
-  <script th:src="@{/resources/js/jquery.min.js}"></script>
-<script th:src="@{/resources/js/bootstrap.min.js}"></script>
-<script th:src="@{/resources/js/spring-base-project.js}"></script>
-  </body>
+	<script th:src="@{/resources/js/jquery.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script th:src="@{/resources/js/spring-base-project.js}"></script>
+</body>
 </html>

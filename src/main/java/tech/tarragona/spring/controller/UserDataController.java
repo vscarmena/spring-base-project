@@ -39,19 +39,22 @@ public class UserDataController {
 	public static final String ACTIVATION_OK = "user/activation-success";
 	public static final String ACTIVATION_FAIL = "user/activation-error";
 	public static final String EDIT_USER = "user/info";
-	public static final String USER_FACTURATION = "user/facturacion";
-	
-	
 
+	
 	@GetMapping("/info")
 	public String redirectToEditUser(@AuthenticationPrincipal User activeUser, Model model){
-		model.addAttribute("userData", activeUser.getUserData());
+		UserData userData = new UserData();
+		if (activeUser.getUserData()!=null){
+			userData = activeUser.getUserData();
+		}
+		model.addAttribute("userData", userData);
 		return EDIT_USER;
 	}
 
 	@PostMapping("/info")
 	public String editUserInfo(@Valid @ModelAttribute("userData") UserData userData, BindingResult result, @AuthenticationPrincipal User activeUser, Locale locale){
 		if (result.hasErrors()){
+			System.out.println(result.getFieldErrors());
 			return EDIT_USER;
 		}
 		else {
@@ -60,22 +63,7 @@ public class UserDataController {
 		return HOME_PAGE;		
 	}
 
-	@GetMapping("/facturacion")
-	public String redirectToFacturationUser(@AuthenticationPrincipal User activeUser, Model model){
-		model.addAttribute("facturation", activeUser.getUserData());
-		return USER_FACTURATION;
-	}
-
-	@PostMapping("/facturacion")
-	public String editFacturationUserInfo(@Valid @ModelAttribute("facturation") UserData userFacturationData, BindingResult result, @AuthenticationPrincipal User activeUser, Locale locale){
-		if (result.hasErrors()){
-			return USER_FACTURATION;
-		}
-		else {
-			userDataService.editFacturationUserInfo(activeUser, userFacturationData);
-		}
-		return HOME_PAGE;		
-	}
+	
 
 
 }

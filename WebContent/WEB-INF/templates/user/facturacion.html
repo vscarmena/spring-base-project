@@ -16,7 +16,7 @@
                 <form th:action="@{/facturacion}" method="post" th:object="${facturation}" class="form-signin">
                 
                 <label for="namef">Nombre/Razón Social</label>: <br />
-                <input type="text" id="namef" name="namef" th:field="*{namef}" class="form-control" placeholder="Nombre/Razón Social" required autofocus>
+                <input type="text" th:field="*{namef}" class="form-control" placeholder="Nombre/Razón Social" required autofocus>
                 
                 <label for="niff">NIF/CIF</label>: <br />
                 <input type="text" id="niff" name="niff" th:field="*{niff}" class="form-control" placeholder="NIF/CIF" required>
@@ -27,6 +27,7 @@
                 
                 <label for="addressf">Dirección</label>
                 <input type="text" id="address" name="address" th:field="*{addressf}" class="form-control" required>
+                 <input type="hidden" th:field="*{id}">
                 <br>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Guardar</button>          
