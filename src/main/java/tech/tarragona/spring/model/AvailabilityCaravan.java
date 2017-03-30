@@ -63,7 +63,7 @@ public class AvailabilityCaravan implements Serializable {
 	
 	//bi-directional one-to-one association to Caravan
 	@OneToOne
-	@JoinColumn(name="id")
+	@PrimaryKeyJoinColumn(name="id")
 	private Caravan caravan;
 
 	public AvailabilityCaravan() {
