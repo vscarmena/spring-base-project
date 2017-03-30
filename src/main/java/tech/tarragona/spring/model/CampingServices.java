@@ -63,8 +63,6 @@ public class CampingServices implements Serializable {
 
 	private byte wifi;
 
-	//bi-directional many-to-one association to Camping
-	@ManyToOne
 	private Camping camping;
 
 	public CampingServices() {
@@ -254,11 +252,11 @@ public class CampingServices implements Serializable {
 		this.camping = camping;
 	}
 
-	public byte getWellnes() {
+	public byte getWellness() {
 		return wellness;
 	}
 
-	public void setWellnes(byte wellnes) {
+	public void setWellness(byte wellnes) {
 		this.wellness = wellnes;
 	}
 
