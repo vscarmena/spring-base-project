@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
+import tech.tarragona.spring.model.AvailabilityCaravan;
+import tech.tarragona.spring.model.PriceCaravan;
+
+
 
 @Entity
 public class Caravan implements Serializable {
@@ -67,13 +71,25 @@ public class Caravan implements Serializable {
 	//bi-directional one-to-one association to Characteristic
 	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Characteristic characteristic;
+	
 	//bi-directional one-to-one association to Rule
 	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Rule rule;
+	
 	//bi-directional one-to-one association to Service
 	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
-	
 	private Service service;
+	
+	//bi-directional one-to-one association to AvailabilityCaravan
+	@OneToOne(mappedBy="caravan")
+	private AvailabilityCaravan availabilityCaravan;
+	
+	//bi-directional one-to-one association to PriceCaravan
+	@OneToOne(mappedBy="caravan")
+	private PriceCaravan priceCaravan;
+
+	
+	
 
 	public Caravan() {
 	}
