@@ -4,8 +4,10 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import tech.tarragona.spring.model.Caravan;
 import tech.tarragona.spring.model.User;
 
 @Controller
@@ -52,6 +54,7 @@ public class MainController {
 	    return "user/activation-success";
 	  }
 
+<<<<<<< HEAD
       @RequestMapping("/activation-error")
       public String activationError() {
         return "user/activation-error";
@@ -98,5 +101,54 @@ public class MainController {
           model.addAttribute("name", activeUser.getUsername());
           return "hello";
       }
+=======
+	  @RequestMapping("/activation-error")
+	  public String activationError() {
+	    return "user/activation-error";
+	  }
+	  
+	  @RequestMapping("/login-error")
+	  public String loginError(Model model) {
+	    model.addAttribute("loginError", true);
+	    return "user/login";
+	  }
+	  
+	  @RequestMapping("/403")
+	  public String accessDenied(Model model) {
+	    return "403";
+	  }
+	  
+	  @RequestMapping("/")
+	  public String hello(Model model) {
+	      return "hello";
+	  }
+	  
+	  @Secured("ROLE_ADMIN")
+	  @RequestMapping("/admin")
+	  public String helloAdmin(@AuthenticationPrincipal User activeUser, Model model) {
+		  model.addAttribute("name", activeUser.getUsername());
+	      return "hello";
+	  }
+	  
+	  @Secured("ROLE_USER")
+	  @RequestMapping("/user")
+	  public String helloUser(@AuthenticationPrincipal User activeUser, Model model) {
+		  model.addAttribute("name", activeUser.getUsername());
+	      return "hello";
+	  }
+	  
+	  @Secured({"ROLE_USER", "ROLE_ADMIN"})
+	  @RequestMapping("/userAdmin")
+	  public String helloUserAdmin(@AuthenticationPrincipal User activeUser, Model model) {
+		  model.addAttribute("name", activeUser.getUsername());
+	      return "hello";
+	  }
+	  
+	  @GetMapping("/caravana")
+	  public String formCaravana(Model model){
+		  model.addAttribute("caravana", new Caravan());
+		  return "calendar";
+	  }
+>>>>>>> feature/caravan-project
 
 }

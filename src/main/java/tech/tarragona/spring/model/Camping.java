@@ -1,7 +1,15 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import javax.persistence.*;
+=======
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+>>>>>>> feature/caravan-project
 
 
 /**
@@ -10,11 +18,15 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="campings")
+
 public class Camping implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+<<<<<<< HEAD
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+=======
+>>>>>>> feature/caravan-project
 	private Integer id;
 
 	private String address;
@@ -31,6 +43,7 @@ public class Camping implements Serializable {
 
 	@Lob
 	private String description;
+<<<<<<< HEAD
 	
 	private String schedule;
 
@@ -51,11 +64,30 @@ public class Camping implements Serializable {
 	private String ubication;
 
 	private String zone;
+=======
 
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumn(name="owner")
-	private User user;
+	private String emailf;
+>>>>>>> feature/caravan-project
+
+	private Integer idTelephone;
+
+	private String name;
+
+	private String namef;
+
+	private Integer owner;
+
+	private Integer rates;
+
+	private float rating;
+
+	private String schedule;
+
+	private String telephone;
+
+	private String ubication;
+
+	private String zone;
 
 	public Camping() {
 	}
@@ -115,6 +147,7 @@ public class Camping implements Serializable {
 	public void setCp(String cp) {
 		this.cp = cp;
 	}
+<<<<<<< HEAD
 	
 	public String getSchedule() {
 		return this.schedule;
@@ -123,6 +156,8 @@ public class Camping implements Serializable {
 	public void setSchedule(String schedule) {
 		this.schedule = schedule;
 	}
+=======
+>>>>>>> feature/caravan-project
 
 	public String getDescription() {
 		return this.description;
@@ -140,11 +175,19 @@ public class Camping implements Serializable {
 		this.emailf = emailf;
 	}
 
+<<<<<<< HEAD
 	public int getIdTelephone() {
 		return this.idTelephone;
 	}
 
 	public void setIdTelephone(int idTelephone) {
+=======
+	public Integer getIdTelephone() {
+		return this.idTelephone;
+	}
+
+	public void setIdTelephone(Integer idTelephone) {
+>>>>>>> feature/caravan-project
 		this.idTelephone = idTelephone;
 	}
 
@@ -164,11 +207,27 @@ public class Camping implements Serializable {
 		this.namef = namef;
 	}
 
+<<<<<<< HEAD
 	public int getRates() {
 		return this.rates;
 	}
 
 	public void setRates(int rates) {
+=======
+	public Integer getOwner() {
+		return this.owner;
+	}
+
+	public void setOwner(Integer owner) {
+		this.owner = owner;
+	}
+
+	public Integer getRates() {
+		return this.rates;
+	}
+
+	public void setRates(Integer rates) {
+>>>>>>> feature/caravan-project
 		this.rates = rates;
 	}
 
@@ -180,6 +239,17 @@ public class Camping implements Serializable {
 		this.rating = rating;
 	}
 
+<<<<<<< HEAD
+=======
+	public String getSchedule() {
+		return this.schedule;
+	}
+
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
+	}
+
+>>>>>>> feature/caravan-project
 	public String getTelephone() {
 		return this.telephone;
 	}
@@ -198,6 +268,7 @@ public class Camping implements Serializable {
 
 	public String getZone() {
 		return this.zone;
+<<<<<<< HEAD
 	}
 
 	public void setZone(String zone) {
@@ -206,10 +277,12 @@ public class Camping implements Serializable {
 
 	public User getUser() {
 		return this.user;
+=======
+>>>>>>> feature/caravan-project
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setZone(String zone) {
+		this.zone = zone;
 	}
 
 }

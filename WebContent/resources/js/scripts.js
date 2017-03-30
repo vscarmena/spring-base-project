@@ -37,5 +37,25 @@ jQuery(document).ready(function() {
 		});
 	});
 	
+	$('#row_dim').hide(); 
+    $('#whoTrans').change(function(){
+        if(($('#whoTrans').val() == 'myParking') || ($('#whoTrans').val() == 'serviceTrans')){
+            $('#row_dim').show(); 
+        } else {
+            $('#row_dim').hide(); 
+        } 
+    });
+    //animacion 5.8 hide/show
+    $("#r1").click(function() {
+		$("#d1").show();
+
+	});
+	$("#r2").click(function() {
+
+		$("#d1").hide();
+	});
+	//efectos del colorbox
+	$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+	$(".inline").colorbox({inline:true, width:"50%"});
 	
 });

@@ -3,22 +3,16 @@ package tech.tarragona.spring.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
-/**
- * The persistent class for the norma database table.
- * 
- */
 @Entity
-@NamedQuery(name="Norma.findAll", query="SELECT n FROM Norma n")
-public class Norma implements Serializable {
+public class Rule implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String plate;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 
 	private boolean kids;
 
-	//@Size(max=100)
 	private String other;
 
 	private boolean party;
@@ -27,20 +21,20 @@ public class Norma implements Serializable {
 
 	private boolean smoke;
 
-	//bi-directional one-to-one association to Caravana
+
 	@OneToOne
-	@PrimaryKeyJoinColumn(name="plate")
-	private Caravana caravana;
+	@PrimaryKeyJoinColumn(name="id")
+	private Caravan caravan;
 
-	public Norma() {
+	public Rule() {
 	}
 
-	public String getPlate() {
-		return this.plate;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setPlate(String plate) {
-		this.plate = plate;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public boolean getKids() {
@@ -83,12 +77,12 @@ public class Norma implements Serializable {
 		this.smoke = smoke;
 	}
 
-	public Caravana getCaravana() {
-		return this.caravana;
+	public Caravan getCaravan() {
+		return this.caravan;
 	}
 
-	public void setCaravana(Caravana caravana) {
-		this.caravana = caravana;
+	public void setCaravan(Caravan caravan) {
+		this.caravan = caravan;
 	}
 
 }
