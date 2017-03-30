@@ -78,27 +78,26 @@ CREATE UNIQUE INDEX UserConnectionRank on UserConnection(userId, providerId, ran
 /* ------------- CAMPING ------------- */
 
 CREATE TABLE IF NOT EXISTS campings (
-	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	owner int(11),
-	name varchar(30) NOT NULL DEFAULT '',
-	idTelephone int(2),
-	telephone varchar(15),
-	address varchar (30),
-	country varchar (25),
-	CP varchar (10),
-	city varchar (25),
-	cif varchar (10),
-	namef varchar(30),
-	idTelephonef int(2),
-	telephonef varchar(15),
-	addressf varchar (30),
-	countryf varchar (25),
-	CPf varchar (10),
-	cityf varchar (25),
-	description varchar(1000),
-	ubicacion varchar (250),
-	KEY fk_camping_idowner (owner),
-  	CONSTRAINT fk_camping_idowner FOREIGN KEY (owner) REFERENCES users (id)
+    id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    owner int(11),
+    name varchar(30) NOT NULL DEFAULT '',
+    idTelephone int(3),
+    telephone varchar(15),
+    address varchar (30),
+    country varchar (25),
+    cp varchar (10),
+    city varchar (25),
+    rating float (2),
+    rates int (8),
+    schedule varchar (20),
+    cif varchar (10) NOT NULL DEFAULT '',
+    namef varchar(30) NOT NULL DEFAULT '',
+    addressf varchar (30) NOT NULL DEFAULT '',
+    emailf varchar (30) NOT NULL DEFAULT '',
+    description text,
+    ubication varchar (250) NOT NULL DEFAULT '',
+    zone varchar (30),
+    CONSTRAINT fk_camping_idowner FOREIGN KEY (owner) REFERENCES users (id)
 ) ENGINE=InnoDB;
 
 /* -------------  CARAVANA ------------- */
@@ -116,7 +115,11 @@ create table if not exists caravan (
     insurance boolean,
 	insurance_offer varchar (20),
  
-	what_camping varchar(40),
+	id_camping int (11),
+    constraint relation_caravan_campings
+    foreign key (id_camping)
+    references campings (id),
+    
 	who_trans varchar (15),
 	inf_trans_name varchar(20),
 	inf_trans_adress varchar (50),
