@@ -13,19 +13,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import tech.tarragona.spring.model.Caravan;
+import tech.tarragona.spring.service.CampingService;
 import tech.tarragona.spring.service.Caravanaservice;
 import tech.tarragona.spring.validator.CaravanaValidator;
 
 @Controller
 @RequestMapping(value = "/caravana")
 public class CaravanaController {
-	
+
 	@Autowired
 	Caravanaservice caravanaservice;
-	
+
 
 	@Autowired
 	CaravanaValidator caravanaValidator;
+	
+	@Autowired
+	CampingService campingService;
 
 	@GetMapping("/add")
 	public String addCaravana(Model model) {
@@ -33,7 +37,13 @@ public class CaravanaController {
 		model.addAttribute("caravana", new Caravan());
 		
 		
-	return "caravan/gestionCaravanas";
+
+		
+		model.addAttribute("campings", campingService.getCamping());
+
+		return "caravan/gestionCaravanas";
+
+
 
 		//return "5.7";
 	}
@@ -41,14 +51,16 @@ public class CaravanaController {
 
 	@PostMapping("/add")
 	public String addCaravana(@Valid @ModelAttribute("caravana") Caravan caravana, Errors errors, BindingResult result, Model model){
-	caravanaValidator.validate(caravana, errors);
+		caravanaValidator.validate(caravana, errors);
 
 
 		if (!result.hasErrors()){	
-		
+
 			caravanaservice.addCaravana(caravana);			
 
+
 			model.addAttribute("caravanList", caravanaservice.findAllCaravan());
+
 			model.addAttribute("caravana", caravana);
 
 			return "caravan/paginaDePruebas";
@@ -56,6 +68,18 @@ public class CaravanaController {
 		System.out.println("ERRORS: " + result.getFieldErrors());
 		return "caravan/gestionCaravanas";
 	}
+
+
+	@GetMapping("/pruebaMarcos")
+	public String prueba(Model model) {
+
+		model.addAttribute("caravana", new Caravan());
+		
+
+		return "caravan/trasladoCaravana";
+	}
+
+
 	
-	
+
 }
