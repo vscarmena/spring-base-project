@@ -65,7 +65,7 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getInfTransAdress().length() > 50) {
 			errors.rejectValue("infTransAdress", "infTransAdress.MaxChars");
 		}
-		/*
+		
 		if (Caravan.getInfTransContact() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransContact",
 					"infTransContact.NotEmptyOrWhitespace");
@@ -74,6 +74,7 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getInfTransContact().length() > 50) {
 			errors.rejectValue("infTransContact", "infTransContact.MaxChars");
 		}
+		
 		if (Caravan.getInfTransEmail() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransEmail", "infTransEmail.NotEmptyOrWhitespace");
 		} else if (Caravan.getInfTransEmail().length() < 6) {
@@ -88,6 +89,7 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getInfTransName().length() > 20) {
 			errors.rejectValue("infTransName", "infTransName.MaxChars");
 		}
+		/*
 		if (Caravan.getInfTransTelephone().toString() == "" || Caravan.getInfTransTelephone().toString() == null) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransTelephone",
 					"infTransTelephone.NotEmptyOrWhitespace");

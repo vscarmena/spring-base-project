@@ -383,34 +383,50 @@
 									</select>
 
 
-									<div id="row_dim">
+									<div id="row_dim" class="form-group" th:classappend=="${#fields.hasErrors('infTransName')} ? has-error">
 
 										<div>
 
 											<label for="infTransName" th:text="#{infTransName}">
 											</label> <input type="text" th:field="*{infTransName}" />
+											<p th:if="${#fields.hasErrors('infTransName')}"
+												th:errors="*{infTransName}" class="error">infTransName
+												error</p>
 										</div>
 
 
 										<div>
 											<label for="infTransAdress" th:text="#{infTransAdress}">
 											</label> <input type="text" th:field="*{infTransAdress}" />
+											<p th:if="${#fields.hasErrors('infTransAdress')}"
+												th:errors="*{infTransAdress}" class="error">infTransAdress
+												error</p>
+
 										</div>
 
 
 										<div>
 											<label for="infTransTelephone" th:text="#{infTransTelephone}">
 											</label> <input type="text" th:field="*{infTransTelephone}" />
+											<p th:if="${#fields.hasErrors('infTransTelephone')}"
+												th:errors="*{infTransTelephone}" class="error">infTransTelephone
+												error</p>
 										</div>
 
 										<div>
 											<label for="infTransEmail" th:text="#{infTransEmail}">
 											</label> <input type="text" th:field="*{infTransEmail}" />
-
+											<p th:if="${#fields.hasErrors('infTransEmail')}"
+												th:errors="*{infTransEmail}" class="error">infTransEmail
+												error</p>
 										</div>
 										<div>
 											<label for="infTransContact" th:text="#{infTransContact}">
 											</label> <input type="text" th:field="*{infTransContact}" />
+											<p th:if="${#fields.hasErrors('infTransContact')}"
+												th:errors="*{infTransContact}" class="error">infTransContact
+												error</p>
+
 										</div>
 
 									</div>
@@ -429,7 +445,7 @@
 							</fieldset>
 							<!--5.7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 
-<fieldset>
+							<fieldset>
 								<div class="form-group">
 									Seleccionar camping <br> <select class="form-control"
 										th:field="*{idCamping}">
@@ -446,7 +462,7 @@
 									<i class="fa fa-angle-right"></i>
 								</button>
 							</fieldset>
-							
+
 
 							<!--5.9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 

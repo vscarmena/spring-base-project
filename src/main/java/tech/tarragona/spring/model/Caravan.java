@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -34,8 +33,8 @@ public class Caravan implements Serializable {
 	@Size(max = 250)
 	private String description;
 	
-	@Column(name = "what_camping")
-	private String whatCamping;
+	@Column(name = "id_camping")
+	private String idCamping;
 	private boolean insurance;
 	@Column(name = "insurance_offer")
 	private String insuranceOffer;
@@ -220,11 +219,11 @@ public class Caravan implements Serializable {
 	public void setReservAdvanceTime(Integer reservAdvanceTime) {
 		this.reservAdvanceTime = reservAdvanceTime;
 	}
-	public String getWhatCamping() {
-		return this.whatCamping;
+	public String getIdCamping() {
+		return this.idCamping;
 	}
-	public void setWhatCamping(String whatCamping) {
-		this.whatCamping = whatCamping;
+	public void setIdCamping(String idCamping) {
+		this.idCamping = idCamping;
 	}
 	public void setWhoTrans(String whoTrans) {
 		this.whoTrans = whoTrans;
