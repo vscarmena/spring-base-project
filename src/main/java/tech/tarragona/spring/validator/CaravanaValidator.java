@@ -44,6 +44,8 @@ public class CaravanaValidator implements Validator {
 		// Model: @NotNull@NotEmpty@Length(min = 5)@Size(max = 15)@NotBlank
 		if (Caravan.getModel() == null || Caravan.getModel() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "model", "model.NotEmptyOrWhitespace");
+		} else if (Caravan.getModel().contains("  ")) {
+			errors.rejectValue("model", "model.notWithSpace");
 		} else if (Caravan.getModel().length() < 5) {
 			errors.rejectValue("model", "model.MinChars");
 		} else if (Caravan.getModel().length() > 15) {
@@ -56,6 +58,8 @@ public class CaravanaValidator implements Validator {
 		if (Caravan.getBrand() == null || Caravan.getBrand() == "") {
 			// errors.rejectValue("brand", "brand.NotEmptyOrWhitespace");
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "brand", "brand.NotEmptyOrWhitespace");
+		} else if (Caravan.getBrand().contains("  ")) {
+			errors.rejectValue("brand", "brand.notWithSpace");
 		} else if (Caravan.getBrand().length() < 5) {
 			errors.rejectValue("brand", "brand.MinChars");
 		} else if (Caravan.getBrand().length() > 15) {
@@ -65,6 +69,8 @@ public class CaravanaValidator implements Validator {
 		if (Caravan.getName() == "") {
 			// errors.rejectValue("name", "name.NotEmptyOrWhitespace");
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name.NotEmptyOrWhitespace");
+		} else if (Caravan.getName().contains("  ")) {
+			errors.rejectValue("name", "name.notWithSpace");
 		} else if (Caravan.getName().length() < 5) {
 			errors.rejectValue("name", "name.MinChars");
 		} else if (Caravan.getName().length() > 50) {
@@ -72,6 +78,8 @@ public class CaravanaValidator implements Validator {
 		}
 		if (Caravan.getInfTransAdress() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransAdress", "infTransAdress.NotEmptyOrWhitespace");
+		} else if (Caravan.getInfTransAdress().contains("  ")) {
+			errors.rejectValue("infTransAdress", "infTransAdress.notWithSpace");
 		} else if (Caravan.getInfTransAdress().length() < 5) {
 			errors.rejectValue("infTransAdress", "infTransAdress.MinChars");
 		} else if (Caravan.getInfTransAdress().length() > 50) {
@@ -81,6 +89,8 @@ public class CaravanaValidator implements Validator {
 		if (Caravan.getInfTransContact() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransContact",
 					"infTransContact.NotEmptyOrWhitespace");
+		} else if (Caravan.getInfTransContact().contains("  ")) {
+			errors.rejectValue("infTransContact", "infTransContact.notWithSpace");
 		} else if (Caravan.getInfTransContact().length() < 5) {
 			errors.rejectValue("infTransContact", "infTransContact.MinChars");
 		} else if (Caravan.getInfTransContact().length() > 50) {
@@ -96,6 +106,8 @@ public class CaravanaValidator implements Validator {
 		}
 		if (Caravan.getInfTransName() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransName", "infTransName.NotEmptyOrWhitespace");
+		} else if (Caravan.getInfTransName().contains("  ")) {
+			errors.rejectValue("infTransName", "infTransName.notWithSpace");
 		} else if (Caravan.getInfTransName().length() < 3) {
 			errors.rejectValue("infTransName", "infTransName.MinChars");
 		} else if (Caravan.getInfTransName().length() > 20) {

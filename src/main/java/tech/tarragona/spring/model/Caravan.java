@@ -9,16 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
 import org.hibernate.validator.constraints.Email;
-
-import tech.tarragona.spring.model.AvailabilityCaravan;
-import tech.tarragona.spring.model.PriceCaravan;
 
 
 
