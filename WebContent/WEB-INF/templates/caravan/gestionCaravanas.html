@@ -9,7 +9,7 @@
 <link th:href="@{/resources/css/colorbox.css}" rel="stylesheet" />
 </head>
 <meta charset="UTF-8">
-<title th:text="#{5}"></title>
+<title th:text="#{caravan.management}"></title>
 </head>
 <body>
 	<div class="container" layout:fragment="content">
@@ -21,7 +21,7 @@
 						<form action="#" th:action="@{/caravana/add}"
 							th:object="${caravana}" method="post" class="form-horizontal">
 							<fieldset>
-								<h4 th:text="#{5.1}">
+								<h4 th:text="#{register.caravan}">
 									<span class="step" th:text="#{step.1}"> </span>
 								</h4>
 								<div class="form-group" th:classappend=="${#fields.hasErrors('brand')} ? has-error">
@@ -66,7 +66,7 @@
 
 							<!--5.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
-								<h4 th:text="#{5.2}">
+								<h4 th:text="#{select.guests}">
 									<span class="step" th:text="#{step.2}"> </span>
 								</h4>
 
@@ -131,7 +131,7 @@
 							</fieldset>
 							<!--5.3++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
-								<h4 th:text="#{5.3}">
+								<h4 th:text="#{select.charact.caravan}">
 									<span class="step" th:text="#{step.3}"> </span>
 								</h4>
 
@@ -222,7 +222,7 @@
 
 							<!--5.4++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
-								<h4 th:text="#{5.4}">
+								<h4 th:text="#{select.extras}">
 									<span class="step" th:text="#{step.4}"> </span>
 								</h4>
 
@@ -250,7 +250,7 @@
 									<input type="checkbox" th:field="*{service.mixer}">
 								</label><a th:text="#{pillows}"></a> <label class="checkbox-inline">
 									<input type="checkbox" th:field="*{service.pillows}">
-								</label><a th:text="#{other}"></a> <label class="checkbox-inline">
+								</label><a th:text="#{other.extras}"></a> <label class="checkbox-inline">
 									<input type="text" th:field="*{service.other}">
 
 								</label> <br>
@@ -266,7 +266,7 @@
 
 							<!--5.5++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
-								<h4 th:text="#{5.5}">
+								<h4 th:text="#{caravan.rules}">
 									<span class="step" th:text="#{step.5}"> </span>
 								</h4>
 
@@ -282,7 +282,7 @@
 								</label> <a th:text="#{party}"></a> <label class="checkbox-inline">
 									<input type="checkbox" th:field="*{rule.party}">
 
-								</label> <a th:text="#{other}"></a> <label class="checkbox-inline">
+								</label> <a th:text="#{other.rules}"></a> <label class="checkbox-inline">
 									<input type="text" th:field="*{rule.other}">
 
 
@@ -299,7 +299,7 @@
 
 							<!--5.6++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
-								<h4 th:text="#{5.6}">
+								<h4 th:text="#{describe.caravan}">
 									<span class="step" th:text="#{step.6}"> </span>
 								</h4>
 
@@ -334,7 +334,7 @@
 
 							<!-- 5.8&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
 							<fieldset>
-								<h4 th:text="#{5.8.1}">
+								<h4 th:text="#{insurance.title1}">
 									<span class="step" th:text="#{step.8}"> </span>
 								</h4>
 								<div class="form-group">
@@ -347,7 +347,7 @@
 								<div id='d1' style='display: none'>
 									<p>
 									<div class="form-group">
-										<h4 th:text="#{5.8.2}"></h4>
+										<h4 th:text="#{insurance.title2}"></h4>
 										<input type='radio' value="0" th:field="*{insuranceOffer}"
 											th:text="#{no}" /> <br /> <br> <input type='radio'
 											value="1" th:field="*{insuranceOffer}" th:text="#{yes}" /> <br />
@@ -372,7 +372,7 @@
 							<!-- 5.9&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
 							<fieldset>
 								<div class="form-group">
-									<h4 th:text="#{5.9}"></h4>
+									<h4 th:text="#{move.caravan}"></h4>
 									<select name="whoTrans" id="whoTrans" class="form-control">
 										<option id="mySelf" value="mySelf" th:text="#{mySelf}"></option>
 										<option id="myParking" value="myParking"
@@ -432,7 +432,7 @@
 
 							<fieldset>
 								<div class="form-group">
-									<h4 th:text="#{5.7}"></h4> <br> <select class="form-control"
+									<h4 th:text="#{select.destination.camping}"></h4> <br> <select class="form-control"
 										th:field="*{idCamping}">
 										<option th:each="camping:${campings}" th:value="${camping.id}">
 											<p th:text=${camping.name}></p>
@@ -455,7 +455,7 @@
 
 							<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 							<fieldset>
-								<h4 th:text="#{6.2}">
+								<h4 th:text="#{select.booking}">
 									<span class="step" th:text="#{step.8}"> </span>
 								</h4>
 
@@ -475,13 +475,19 @@
 										<option value="Semanas">Semana/s</option>
 										<option value="Meses">Mes/es</option>
 									</select>
+									
+									<h4 th:text="#{tip}"></h4>
+									<h4 th:text="#{tip.select.booking}"></h4>
+				
 								</div>
 
 
 								<br> <br>
 							<!--6.1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-                            <h4 th:text="#{6.1}"></h4>
+                            <h4 th:text="#{show.recommendation}"></h4>
                            
+                            <h4 th:text="#{tip}"></h4>
+							<h4 th:text="#{tip.recommendation}"></h4>
                              <!--Button ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 								<button type="button" class="btn btn-previous"
 									th:utext="#{previous}">
