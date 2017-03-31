@@ -21,21 +21,7 @@ import org.hibernate.validator.constraints.Email;
 
 @Entity
 public class Caravan implements Serializable {
-	public ArrayList<Availability> getAvailabilities() {
-		return availabilities;
-	}
-
-	public void setAvailabilities(ArrayList<Availability> availabilities) {
-		this.availabilities = availabilities;
-	}
-
-	public List<Price> getPrices() {
-		return prices;
-	}
-
-	public void setPrices(List<Price> prices) {
-		this.prices = prices;
-	}
+	
 
 	private static final long serialVersionUID = 1L;
 
@@ -84,6 +70,10 @@ public class Caravan implements Serializable {
 	private Integer availabilityDate;
 	@Column(name = "availability_time")
 	private Integer availabilityTime;
+	@Column(name = "stay_length_min")
+	private String stayLengthMin;
+	@Column(name = "stay_length_max")
+	private String stayLengthMax;
 
 	// bi-directional one-to-one association to Characteristic
 	@OneToOne(mappedBy = "caravan", cascade = CascadeType.PERSIST)
@@ -332,6 +322,37 @@ public class Caravan implements Serializable {
 
 	public void setService(Service service) {
 		this.service = service;
+	}
+	public String getStayLengthMin() {
+		return stayLengthMin;
+	}
+
+	public void setStayLengthMin(String stayLengthMin) {
+		this.stayLengthMin = stayLengthMin;
+	}
+
+	public String getStayLengthMax() {
+		return stayLengthMax;
+	}
+
+	public void setStayLengthMax(String stayLengthMax) {
+		this.stayLengthMax = stayLengthMax;
+	}
+
+	public ArrayList<Availability> getAvailabilities() {
+		return availabilities;
+	}
+
+	public void setAvailabilities(ArrayList<Availability> availabilities) {
+		this.availabilities = availabilities;
+	}
+
+	public List<Price> getPrices() {
+		return prices;
+	}
+
+	public void setPrices(List<Price> prices) {
+		this.prices = prices;
 	}
 	
 	
