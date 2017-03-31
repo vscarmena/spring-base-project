@@ -1,7 +1,13 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 /**
@@ -17,51 +23,51 @@ public class CampingServices implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
-	private byte animation;
+	private boolean animation;
 
-	private byte atm;
+	private boolean atm;
 
-	private byte beach;
+	private boolean beach;
 
-	private byte defibrillator;
+	private boolean defibrillator;
 
-	private byte disco;
+	private boolean disco;
 
-	private byte doctor;
+	private boolean doctor;
 
-	private byte dogs;
+	private boolean dogs;
 
-	private byte football;
+	private boolean football;
 
-	private byte gym;
+	private boolean gym;
 
 	@Column(name="heated_pool")
-	private byte heatedPool;
+	private boolean heatedPool;
 
-	private byte kindergarten;
+	private boolean kindergarten;
 
-	private byte laundry;
+	private boolean laundry;
 
-	private byte minigolf;
+	private boolean minigolf;
 
-	private byte paddel;
+	private boolean paddel;
 
-	private byte pool;
+	private boolean pool;
 
-	private byte pub;
+	private boolean pub;
 
-	private byte restaurant;
+	private boolean restaurant;
 
 	@Column(name="snack_bar")
-	private byte snackBar;
+	private boolean snackBar;
 
-	private byte supermarket;
+	private boolean supermarket;
 
-	private byte tennis;
+	private boolean tennis;
 	
-	private byte wellness;
+	private boolean wellness;
 
-	private byte wifi;
+	private boolean wifi;
 
 	private Camping camping;
 
@@ -76,171 +82,171 @@ public class CampingServices implements Serializable {
 		this.id = id;
 	}
 
-	public byte getAnimation() {
+	public boolean getAnimation() {
 		return this.animation;
 	}
 
-	public void setAnimation(byte animation) {
+	public void setAnimation(boolean animation) {
 		this.animation = animation;
 	}
 
-	public byte getAtm() {
+	public boolean getAtm() {
 		return this.atm;
 	}
 
-	public void setAtm(byte atm) {
+	public void setAtm(boolean atm) {
 		this.atm = atm;
 	}
 
-	public byte getBeach() {
+	public boolean getBeach() {
 		return this.beach;
 	}
 
-	public void setBeach(byte beach) {
+	public void setBeach(boolean beach) {
 		this.beach = beach;
 	}
 
-	public byte getDefibrillator() {
+	public boolean getDefibrillator() {
 		return this.defibrillator;
 	}
 
-	public void setDefibrillator(byte defibrillator) {
+	public void setDefibrillator(boolean defibrillator) {
 		this.defibrillator = defibrillator;
 	}
 
-	public byte getDisco() {
+	public boolean getDisco() {
 		return this.disco;
 	}
 
-	public void setDisco(byte disco) {
+	public void setDisco(boolean disco) {
 		this.disco = disco;
 	}
 
-	public byte getDoctor() {
+	public boolean getDoctor() {
 		return this.doctor;
 	}
 
-	public void setDoctor(byte doctor) {
+	public void setDoctor(boolean doctor) {
 		this.doctor = doctor;
 	}
 
-	public byte getDogs() {
+	public boolean getDogs() {
 		return this.dogs;
 	}
 
-	public void setDogs(byte dogs) {
+	public void setDogs(boolean dogs) {
 		this.dogs = dogs;
 	}
 
-	public byte getFootball() {
+	public boolean getFootball() {
 		return this.football;
 	}
 
-	public void setFootball(byte football) {
+	public void setFootball(boolean football) {
 		this.football = football;
 	}
 
-	public byte getGym() {
+	public boolean getGym() {
 		return this.gym;
 	}
 
-	public void setGym(byte gym) {
+	public void setGym(boolean gym) {
 		this.gym = gym;
 	}
 
-	public byte getHeatedPool() {
+	public boolean getHeatedPool() {
 		return this.heatedPool;
 	}
 
-	public void setHeatedPool(byte heatedPool) {
+	public void setHeatedPool(boolean heatedPool) {
 		this.heatedPool = heatedPool;
 	}
 
-	public byte getKindergarten() {
+	public boolean getKindergarten() {
 		return this.kindergarten;
 	}
 
-	public void setKindergarten(byte kindergarten) {
+	public void setKindergarten(boolean kindergarten) {
 		this.kindergarten = kindergarten;
 	}
 
-	public byte getLaundry() {
+	public boolean getLaundry() {
 		return this.laundry;
 	}
 
-	public void setLaundry(byte laundry) {
+	public void setLaundry(boolean laundry) {
 		this.laundry = laundry;
 	}
 
-	public byte getMinigolf() {
+	public boolean getMinigolf() {
 		return this.minigolf;
 	}
 
-	public void setMinigolf(byte minigolf) {
+	public void setMinigolf(boolean minigolf) {
 		this.minigolf = minigolf;
 	}
 
-	public byte getPaddel() {
+	public boolean getPaddel() {
 		return this.paddel;
 	}
 
-	public void setPaddel(byte paddel) {
+	public void setPaddel(boolean paddel) {
 		this.paddel = paddel;
 	}
 
-	public byte getPool() {
+	public boolean getPool() {
 		return this.pool;
 	}
 
-	public void setPool(byte pool) {
+	public void setPool(boolean pool) {
 		this.pool = pool;
 	}
 
-	public byte getPub() {
+	public boolean getPub() {
 		return this.pub;
 	}
 
-	public void setPub(byte pub) {
+	public void setPub(boolean pub) {
 		this.pub = pub;
 	}
 
-	public byte getRestaurant() {
+	public boolean getRestaurant() {
 		return this.restaurant;
 	}
 
-	public void setRestaurant(byte restaurant) {
+	public void setRestaurant(boolean restaurant) {
 		this.restaurant = restaurant;
 	}
 
-	public byte getSnackBar() {
+	public boolean getSnackBar() {
 		return this.snackBar;
 	}
 
-	public void setSnackBar(byte snackBar) {
+	public void setSnackBar(boolean snackBar) {
 		this.snackBar = snackBar;
 	}
 
-	public byte getSupermarket() {
+	public boolean getSupermarket() {
 		return this.supermarket;
 	}
 
-	public void setSupermarket(byte supermarket) {
+	public void setSupermarket(boolean supermarket) {
 		this.supermarket = supermarket;
 	}
 
-	public byte getTennis() {
+	public boolean getTennis() {
 		return this.tennis;
 	}
 
-	public void setTennis(byte tennis) {
+	public void setTennis(boolean tennis) {
 		this.tennis = tennis;
 	}
 
-	public byte getWifi() {
+	public boolean getWifi() {
 		return this.wifi;
 	}
 
-	public void setWifi(byte wifi) {
+	public void setWifi(boolean wifi) {
 		this.wifi = wifi;
 	}
 
@@ -252,11 +258,11 @@ public class CampingServices implements Serializable {
 		this.camping = camping;
 	}
 
-	public byte getWellness() {
+	public boolean getWellness() {
 		return wellness;
 	}
 
-	public void setWellness(byte wellnes) {
+	public void setWellness(boolean wellnes) {
 		this.wellness = wellnes;
 	}
 
