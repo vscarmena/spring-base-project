@@ -19,7 +19,11 @@ public class CampingController {
 	@Autowired
 	CampingService campingService;
 	
-
+	@GetMapping("/listCampings")
+	public String getCampings(Model model) {
+		model.addAttribute("campingList", campingService.getAllCampings());
+	    return "camping/campingList";
+	  }
 	  
 	@GetMapping("/addCamping")
 	public String Camping(Model model) {
