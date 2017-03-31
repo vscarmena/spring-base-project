@@ -516,18 +516,23 @@
 
 							</fieldset>
 							<!--                                             6.3                                             -->
+											
+											
 							<fieldset>
-
+	                              <h4 th:text="#{select.availability}">
+									<span class="step" th:text="#{step.9}"> </span>
+								</h4>
 								<div class="form-group">
 
-									<label for="stay_lenght_min" th:text="#{stay_lenght_min}"><abbr
-										class="required" title="required"> * </abbr></label> <input
-										type="text" th:field="*{stay_lenght_min}" class="form-control" />
+									<label for="stayLengthMin" th:text="#{stayLengthMin}"><abbr
+										class="required" title="required"> * </abbr></label>
+									<input type="text" th:field="*{stayLengthMin}" class="form-control" />				
 								</div>
+																	
 								<div class="form-group">
-									<label for="stay_lenght_max" th:text="#{stay_lenght_max}"><abbr
-										class="required" title="required"> * </abbr></label> <input
-										type="text" th:field="*{stay_lenght_max}" class="form-control" />
+									<label for="stayLengthMax" th:text="#{stayLengthMax}"><abbr
+										class="required" title="required"> * </abbr></label>
+									<input type="text" th:field="*{stayLengthMax}" class="form-control" />					
 								</div>
 
 								<h4 th:text="#{tip}"></h4>
@@ -544,8 +549,6 @@
 
 								</button>
 
-
-							</fieldset>
 
 						</form>
 					</div>
