@@ -102,50 +102,6 @@ CREATE TABLE IF NOT EXISTS campings (
 
 /* -------------  CARAVANA ------------- */
 
-create table if not exists availability_caravan(
-	id integer primary key auto_increment,
-	time_disp_start1 date,
-    time_disp_end1 date,
-    time_disp_start2 date,
-    time_disp_end2 date,
-    time_disp_start3 date,
-    time_disp_end3 date,
-    time_disp_start4 date,
-    time_disp_end4 date,
-    time_disp_start5 date,
-    time_disp_end5 date,
-    time_disp_start6 date,
-    time_disp_end6 date			
-);
-
-create table if not exists price_caravan(
-	id integer not null primary key auto_increment,
-	time_price_start1 date,
-    time_price_end1 date,
-    price_caravan1 integer (4),
-    time_price_start2 date,
-    time_price_end2 date,
-    price_caravan2 integer (4),
-    time_price_start3 date,
-    time_price_end3 date,
-    price_caravan3 integer (4),
-    time_price_start4 date,
-    time_price_end4 date,
-    price_caravan4 integer (4),
-    time_price_start5 date,
-    time_price_end5 date,
-    price_caravan5 integer (4),
-    time_price_start6 date,
-    time_price_end6 date,
-    price_caravan6 integer (4),
-    time_price_start7 date,
-    time_price_end7 date,
-    price_caravan7 integer (4),
-    time_price_start8 date,
-    time_price_end8 date,
-    price_caravan8 integer (4)			
-);
-
 create table if not exists caravan (
     id integer (10) not null primary key auto_increment,
     brand varchar (15) not null,
@@ -158,10 +114,12 @@ create table if not exists caravan (
     description varchar (250),
     insurance boolean,
 	insurance_offer varchar (20),
+    
  	id_camping int (11),
     constraint relation_caravan_campings
     foreign key (id_camping)
     references campings (id),
+    
  	who_trans varchar (15),
 	inf_trans_name varchar(20),
 	inf_trans_adress varchar (50),
@@ -174,15 +132,7 @@ create table if not exists caravan (
     reserv_advance_time integer (3),
     reserv_advance_date varchar (15),
     availability_time integer (3),
-    availability_date integer (15),
-    
-    id_availability integer ,
-			foreign key (id_availability)
-            references availability_caravan (id),
-            
-	id_price integer,
-			foreign key (id_price)
-            references price_caravan (id)
+    availability_date integer (15)
 );
 
 create table if not exists characteristic (
@@ -237,6 +187,15 @@ create table if not exists rule (
 	smoke boolean,
 	party boolean,
 	other varchar (100)
+);
+
+create table if not exists availability (
+	id integer (10) primary key auto_increment,
+    id_caravan integer (10),
+		foreign key (id_caravan)
+		references caravan (id),
+    init_date varchar (20),
+    end_date varchar (20)
 );
 
 /* ------------- INSERT MOCK DATA ------------- */

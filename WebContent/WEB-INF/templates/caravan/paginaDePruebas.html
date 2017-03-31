@@ -12,38 +12,11 @@
 </head>
 <body>
 	<div class="container" layout:fragment="content">
-		<h1>Si estas aqui se deberia haber añadido una caravana</h1>
-		<div class="msf-container">
-			<table class="table">
-				<tr>
-					<th>ID</th>
-					<th>MARCA</th>
-					<th>MODELO</th>
-					<th>AÑO DE CONSTRUCCIÓN</th>
-					<th>ADULTOS</th>
-					<th>NIÑOS</th>
-					<th>BEBÉS</th>
-					<th>NOMBRE</th>
-					<th>DESCRIPCIÓN</th>
-				</tr>
-				<tr th:each="caravan:${caravanList}">
-					<td th:text="${caravan.id}"></td>
-					<td th:text="${caravan.brand}"></td>
-					<td th:text="${caravan.model}"></td>
-					<td th:text="${caravan.constructionYear}"></td>
-					<td th:text="${caravan.adults}"></td>
-					<td th:text="${caravan.kids}"></td>
-					<td th:text="${caravan.babys}"></td>
-					<td th:text="${caravan.name}"></td>
-					<td th:text="${caravan.description}"></td>
-					
-				</tr>
-
-			</table>
-
-
-
-		</div>
+		<h1>TU CARAVANA SE HA AÑADIDO CORRECTAMENTE</h1>
+		
+		<form th:action="@{lista}" method="get">
+			<button type="submit" class="btn btn-primary">Lista de caravanas</button>
+		</form>
 
 
 
