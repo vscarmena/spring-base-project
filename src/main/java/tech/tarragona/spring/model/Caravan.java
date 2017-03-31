@@ -1,6 +1,8 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
@@ -18,6 +21,8 @@ import org.hibernate.validator.constraints.Email;
 
 @Entity
 public class Caravan implements Serializable {
+	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -65,6 +70,10 @@ public class Caravan implements Serializable {
 	private Integer availabilityDate;
 	@Column(name = "availability_time")
 	private Integer availabilityTime;
+	@Column(name = "stay_length_min")
+	private String stayLengthMin;
+	@Column(name = "stay_length_max")
+	private String stayLengthMax;
 
 	// bi-directional one-to-one association to Characteristic
 	@OneToOne(mappedBy = "caravan", cascade = CascadeType.PERSIST)
@@ -79,13 +88,11 @@ public class Caravan implements Serializable {
 	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Service service;
 	
-	//bi-directional one-to-one association to AvailabilityCaravan
-	@OneToOne(mappedBy="caravan")
-	private AvailabilityCaravan availabilityCaravan;
-	
-	//bi-directional one-to-one association to PriceCaravan
-	@OneToOne(mappedBy="caravan")
-	private PriceCaravan priceCaravan;
+	@OneToMany(mappedBy="caravan", cascade = CascadeType.PERSIST)
+    private ArrayList<Availability> availabilities;
+    
+    @OneToMany(mappedBy="caravan", cascade = CascadeType.PERSIST)
+    private List<Price> prices;
 
 	
 	
@@ -316,4 +323,37 @@ public class Caravan implements Serializable {
 	public void setService(Service service) {
 		this.service = service;
 	}
+	public String getStayLengthMin() {
+		return stayLengthMin;
+	}
+
+	public void setStayLengthMin(String stayLengthMin) {
+		this.stayLengthMin = stayLengthMin;
+	}
+
+	public String getStayLengthMax() {
+		return stayLengthMax;
+	}
+
+	public void setStayLengthMax(String stayLengthMax) {
+		this.stayLengthMax = stayLengthMax;
+	}
+
+	public ArrayList<Availability> getAvailabilities() {
+		return availabilities;
+	}
+
+	public void setAvailabilities(ArrayList<Availability> availabilities) {
+		this.availabilities = availabilities;
+	}
+
+	public List<Price> getPrices() {
+		return prices;
+	}
+
+	public void setPrices(List<Price> prices) {
+		this.prices = prices;
+	}
+	
+	
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<link th:href="@{/resources/css/form-elements.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/media-queries.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+</head>
+<meta charset="UTF-8">
+<title>Correcto</title>
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+		<div class="msf-container">
+			<table class="table">
+				<tr>
+					<th>ID</th>
+					<th>MARCA</th>
+					<th>MODELO</th>
+					<th>AÑO DE CONSTRUCCIÓN</th>
+					<th>ADULTOS</th>
+					<th>NIÑOS</th>
+					<th>BEBÉS</th>
+					<th>NOMBRE</th>
+					<th>DESCRIPCIÓN</th>
+					<th>FECHAS DE DISPONIBILIDAD</th>
+					<th>PRECIOS POR FECHA</th>
+				</tr>
+				<tr th:each="caravan:${caravanList}">
+					<td th:text="${caravan.id}"></td>
+					<td th:text="${caravan.brand}"></td>
+					<td th:text="${caravan.model}"></td>
+					<td th:text="${caravan.constructionYear}"></td>
+					<td th:text="${caravan.adults}"></td>
+					<td th:text="${caravan.kids}"></td>
+					<td th:text="${caravan.babys}"></td>
+					<td th:text="${caravan.name}"></td>
+					<td th:text="${caravan.description}"></td>
+					<td><a th:href="@{calendar/{id}(id=${caravan.id})}">CALENDARIO</a></td>
+					<td><a th:href="@{price/{id}(id=${caravan.id})}">PRECIOS</a></td>
+					
+				</tr>
+
+			</table>
+
+
+
+		</div>
+
+
+
+	</div>
+
+
+
+
+</body>
+</html>
