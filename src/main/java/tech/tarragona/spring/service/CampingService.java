@@ -1,10 +1,9 @@
 package tech.tarragona.spring.service;
 
-<<<<<<< HEAD
-=======
+
 import java.util.List;
 
->>>>>>> feature/caravan-project
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +15,6 @@ import tech.tarragona.spring.repository.CampingRepository;
 public class CampingService {
 	
 	@Autowired
-<<<<<<< HEAD
 	CampingRepository campingRepository;
 	
 	@Transactional
@@ -24,13 +22,11 @@ public class CampingService {
 		campingRepository.save(camping);	
 	}
 
-}
-=======
-	CampingRepository campingRepository; 
+
 	
 	@Transactional
 	public List <Camping> getCamping(){
 	return campingRepository.findAll();
 	}
 }
->>>>>>> feature/caravan-project
+

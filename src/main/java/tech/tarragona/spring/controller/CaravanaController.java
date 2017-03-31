@@ -1,6 +1,7 @@
 package tech.tarragona.spring.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -90,19 +91,18 @@ public class CaravanaController {
 	@GetMapping("/calendar/{id}")
 	public String calendar(@PathVariable("id") Integer id, Model model) {
 		
-		model.addAttribute("availabilities", caravanaservice.findById(id).getAvailabilities());
+		model.addAttribute("caravan", caravanaservice.findCaravanById(id));
+		model.addAttribute("availabilities", new ArrayList<Availability>());
 		model.addAttribute("availability", new Availability());
-		model.addAttribute("caravan", caravanaservice.findById(id));
 		model.addAttribute("id", id);
 		
 		return CALENDAR;
 	}
 	
 	@PostMapping("/calendar/{id}")
-	public String calendar(@PathVariable("id") Integer id, @ModelAttribute("availability") Availability availability){
+	public String calendar(@PathVariable("id") Integer id, @ModelAttribute("availability") Availability availability, @ModelAttribute("availabilities") ArrayList<Availability> availabilities, @ModelAttribute("caravan") Caravan caravan){
 		
-		ArrayList<Availability> availabilities = caravanaservice.findById(id).getAvailabilities();
-		availability.setCaravan(caravanaservice.findById(id));
+		availability.setCaravan(caravan);
 		
 		availabilities.add(availability);
 		caravanaservice.saveAllAvailabilities(availabilities);

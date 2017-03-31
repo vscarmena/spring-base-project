@@ -37,7 +37,7 @@ public class Caravanaservice {
 		 return caravanaRepository.save(caravana);
 	}
 	@Transactional
-	public Caravan findById(Integer id){
+	public Caravan findCaravanById(Integer id){
 		Caravan caravan = caravanaRepository.findById(id);
 		
 		return caravan;
@@ -54,6 +54,6 @@ public class Caravanaservice {
 	public void saveAllAvailabilities(ArrayList<Availability> availabilities){
 		availabilityRepository.save(availabilities);
 	}
-
+	
 		
 }

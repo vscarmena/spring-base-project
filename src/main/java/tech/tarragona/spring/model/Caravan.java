@@ -1,7 +1,7 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
+
+import tech.tarragona.spring.model.Availability;
 
 
 
@@ -88,7 +90,7 @@ public class Caravan implements Serializable {
 	private PriceCaravan priceCaravan;*/
 	
 	@OneToMany(mappedBy="caravan", cascade = CascadeType.PERSIST)
-	private ArrayList<Availability> availabilities;
+	private List<Availability> availabilities;
 
 	public Caravan() {
 	}
@@ -263,11 +265,11 @@ public class Caravan implements Serializable {
 	public void setService(Service service) {
 		this.service = service;
 	}
-	public ArrayList<Availability> getAvailabilities() {
+	public List<Availability> getAvailabilities() {
 		return this.availabilities;
 	}
 
-	public void setAvailabilities(ArrayList<Availability> availabilities) {
+	public void setAvailabilities(List<Availability> availabilities) {
 		this.availabilities = availabilities;
 	}
 

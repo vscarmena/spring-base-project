@@ -58,4 +58,9 @@ jQuery(document).ready(function() {
 	$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
 	$(".inline").colorbox({inline:true, width:"50%"});
 	
+	 $("button[name='addDom']").click(function() {
+	        var domElement = $('<br><div class="module_holder"><label>fecha inicio</label><input type="date"><label>fecha final</label><input type="date"></div><br>');
+	        $(this).before(domElement);
+	    });
+	
 });

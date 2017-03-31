@@ -54,7 +54,7 @@ public class MainController {
 	    return "user/activation-success";
 	  }
 
-<<<<<<< HEAD
+
       @RequestMapping("/activation-error")
       public String activationError() {
         return "user/activation-error";
@@ -100,55 +100,12 @@ public class MainController {
       public String helloUserAdmin(@AuthenticationPrincipal User activeUser, Model model) {
           model.addAttribute("name", activeUser.getUsername());
           return "hello";
-      }
-=======
-	  @RequestMapping("/activation-error")
-	  public String activationError() {
-	    return "user/activation-error";
-	  }
-	  
-	  @RequestMapping("/login-error")
-	  public String loginError(Model model) {
-	    model.addAttribute("loginError", true);
-	    return "user/login";
-	  }
-	  
-	  @RequestMapping("/403")
-	  public String accessDenied(Model model) {
-	    return "403";
-	  }
-	  
-	  @RequestMapping("/")
-	  public String hello(Model model) {
-	      return "hello";
-	  }
-	  
-	  @Secured("ROLE_ADMIN")
-	  @RequestMapping("/admin")
-	  public String helloAdmin(@AuthenticationPrincipal User activeUser, Model model) {
-		  model.addAttribute("name", activeUser.getUsername());
-	      return "hello";
-	  }
-	  
-	  @Secured("ROLE_USER")
-	  @RequestMapping("/user")
-	  public String helloUser(@AuthenticationPrincipal User activeUser, Model model) {
-		  model.addAttribute("name", activeUser.getUsername());
-	      return "hello";
-	  }
-	  
-	  @Secured({"ROLE_USER", "ROLE_ADMIN"})
-	  @RequestMapping("/userAdmin")
-	  public String helloUserAdmin(@AuthenticationPrincipal User activeUser, Model model) {
-		  model.addAttribute("name", activeUser.getUsername());
-	      return "hello";
-	  }
+      }	  
 	  
 	  @GetMapping("/caravana")
 	  public String formCaravana(Model model){
 		  model.addAttribute("caravana", new Caravan());
 		  return "calendar";
 	  }
->>>>>>> feature/caravan-project
 
 }
