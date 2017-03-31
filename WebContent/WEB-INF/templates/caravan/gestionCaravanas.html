@@ -515,11 +515,14 @@
 							</fieldset>
 							<!--                                             6.3                                             -->
 											<fieldset>
-
+	                              <h4 th:text="#{select.availability}">
+									<span class="step" th:text="#{step.9}"> </span>
+								</h4>
 								<div class="form-group">
+
 									<label for="stayLengthMin" th:text="#{stayLengthMin}"><abbr
 										class="required" title="required"> * </abbr></label>
-									<input type="text" th:field="*{stayLengthMin}" class="form-control" />					
+									<input type="text" th:field="*{stayLengthMin}" class="form-control" />				
 								</div>
 								
 									
@@ -542,7 +545,6 @@
 									<i class="fa fa-floppy-o" aria-hidden="true"></i>
 
 								</button>
-								
 				
 								</fieldset>
 
