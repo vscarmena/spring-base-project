@@ -1,6 +1,8 @@
 package tech.tarragona.spring.validator;
 
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -31,15 +33,25 @@ public class CaravanaValidator implements Validator {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "constructionYear",
 					"constructionYear.NotEmptyOrWhitespace");
 		}
+
+		// Pattern p = Pattern.compile("1");
+		// Matcher m = p.matcher(Caravan.getModel());
+		// boolean specialChar = m.matches();
+
+		// boolean b = Pattern.matches("~@#\\$%\\^&\\*:;<>\\.,/}\\{\\+",
+		// Caravan.getModel());
+
 		// Model: @NotNull@NotEmpty@Length(min = 5)@Size(max = 15)@NotBlank
 		if (Caravan.getModel() == null || Caravan.getModel() == "") {
-			// errors.rejectValue("model", "model.NotEmptyOrWhitespace");
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "model", "model.NotEmptyOrWhitespace");
 		} else if (Caravan.getModel().length() < 5) {
 			errors.rejectValue("model", "model.MinChars");
 		} else if (Caravan.getModel().length() > 15) {
 			errors.rejectValue("model", "model.MaxChars");
 		}
+		// else if (specialChar == true) {
+		// errors.rejectValue("model", "model.invalidChars");
+
 		// Brand: @NotNull@NotEmpty@Length(min = 5)@Size(max = 15)
 		if (Caravan.getBrand() == null || Caravan.getBrand() == "") {
 			// errors.rejectValue("brand", "brand.NotEmptyOrWhitespace");
@@ -65,7 +77,7 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getInfTransAdress().length() > 50) {
 			errors.rejectValue("infTransAdress", "infTransAdress.MaxChars");
 		}
-		
+
 		if (Caravan.getInfTransContact() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransContact",
 					"infTransContact.NotEmptyOrWhitespace");
@@ -74,7 +86,7 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getInfTransContact().length() > 50) {
 			errors.rejectValue("infTransContact", "infTransContact.MaxChars");
 		}
-		
+
 		if (Caravan.getInfTransEmail() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransEmail", "infTransEmail.NotEmptyOrWhitespace");
 		} else if (Caravan.getInfTransEmail().length() < 6) {
@@ -89,11 +101,16 @@ public class CaravanaValidator implements Validator {
 		} else if (Caravan.getInfTransName().length() > 20) {
 			errors.rejectValue("infTransName", "infTransName.MaxChars");
 		}
-		/*
-		if (Caravan.getInfTransTelephone().toString() == "" || Caravan.getInfTransTelephone().toString() == null) {
+		if (Caravan.getInfTransTelephone() == null) {
+			errors.rejectValue("infTransTelephone", "infTransTelephone.NotEmptyOrWhitespace");
+		} else if (Caravan.getInfTransTelephone().toString().length() < 9) {
+			errors.rejectValue("infTransTelephone", "infTransTelephone.MinChars");
+		} else if (Caravan.getInfTransTelephone().toString().length() > 12) {
+			errors.rejectValue("infTransTelephone", "infTransTelephone.MaxChars");
+		} else if (Caravan.getInfTransTelephone().toString() == "") {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "infTransTelephone",
 					"infTransTelephone.NotEmptyOrWhitespace");
 		}
-		*/
 	}
+
 }
