@@ -1,5 +1,6 @@
 package tech.tarragona.spring.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +8,24 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 
+import tech.tarragona.spring.model.Availability;
 import tech.tarragona.spring.model.Caravan;
+import tech.tarragona.spring.model.Price;
+import tech.tarragona.spring.repository.AvailabilityRepository;
 import tech.tarragona.spring.repository.CaravanaRepository;
+import tech.tarragona.spring.repository.PriceRepository;
 
 @Service
 public class Caravanaservice {
 
 	@Autowired
 	CaravanaRepository caravanaRepository;
+	
+	@Autowired
+	AvailabilityRepository availabilityRepository;
+	
+	@Autowired
+	PriceRepository priceRepository;
 	
 	@Transactional
 	public boolean caravanaAlreadyExists(Caravan caravana,BindingResult result){
@@ -37,6 +48,23 @@ public class Caravanaservice {
 		
 		return caravanList;
 	}
+	
+	@Transactional
+    public Caravan findCaravanById(Integer id){
+        Caravan caravan = caravanaRepository.findById(id);
+        
+        return caravan;
+    }
+    
+    @Transactional
+    public void saveAllAvailabilities(ArrayList<Availability> availabilities){
+        availabilityRepository.save(availabilities);
+    }
+    
+    @Transactional
+    public void saveAllPrices(ArrayList<Price> prices){
+        priceRepository.save(prices);
+    }
 
 		
 	}
