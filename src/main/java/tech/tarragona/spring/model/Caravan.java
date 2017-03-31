@@ -1,6 +1,7 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,12 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
-import tech.tarragona.spring.model.Availability;
-
 
 
 @Entity
 public class Caravan implements Serializable {
+	
+
 	private static final long serialVersionUID = 1L;
 
 
@@ -81,16 +82,11 @@ public class Caravan implements Serializable {
 	@OneToOne(mappedBy="caravan", cascade = CascadeType.PERSIST)
 	private Service service;
 	
-	//bi-directional one-to-one association to AvailabilityCaravan
-	/*@OneToOne(mappedBy="caravan")
-	private AvailabilityCaravan availabilityCaravan;
-	
-	//bi-directional one-to-one association to PriceCaravan
-	@OneToOne(mappedBy="caravan")
-	private PriceCaravan priceCaravan;*/
+	@OneToMany(mappedBy="caravan", cascade = CascadeType.PERSIST)
+	private ArrayList<Availability> availabilities;
 	
 	@OneToMany(mappedBy="caravan", cascade = CascadeType.PERSIST)
-	private List<Availability> availabilities;
+	private List<Price> prices;
 
 	public Caravan() {
 	}
@@ -265,11 +261,11 @@ public class Caravan implements Serializable {
 	public void setService(Service service) {
 		this.service = service;
 	}
-	public List<Availability> getAvailabilities() {
+	public ArrayList<Availability> getAvailabilities() {
 		return this.availabilities;
 	}
 
-	public void setAvailabilities(List<Availability> availabilities) {
+	public void setAvailabilities(ArrayList<Availability> availabilities) {
 		this.availabilities = availabilities;
 	}
 
@@ -285,5 +281,11 @@ public class Caravan implements Serializable {
 		availability.setCaravan(null);
 
 		return availability;
+	}
+	public List<Price> getPrices() {
+		return prices;
+	}
+	public void setPrices(List<Price> prices) {
+		this.prices = prices;
 	}
 }

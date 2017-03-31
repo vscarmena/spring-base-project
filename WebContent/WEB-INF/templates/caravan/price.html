@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+	<link th:href="@{/resources/css/form-elements.css}" rel="stylesheet" />
+	<link th:href="@{/resources/css/media-queries.css}" rel="stylesheet" />
+	<link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+	<link th:href="@{/resources/css/colorbox.css}" rel="stylesheet" />
+	</head>
+	<meta charset="UTF-8">
+	<title>Precios</title>
+	</head>
+	<body>
+	<div class="container" layout:fragment="content">
+			<div class="msf-container">
+				<div class="container">
+	
+					<div class="row">
+						<div class="col-sm-6 msf-form">
+							<form th:action="@{/caravana/price/{id}(id=${id})}"
+								th:object="${price}" method="post" class="form-horizontal">
+								<label for="initDate" th:text="#{initDate}"></label> 
+								<input type="date" th:field="*{initDate}" class="form-control"></input> 
+								
+								<label for="endDate" th:text="#{endDate}"></label> 
+								<input type="date" th:field="*{endDate}" class="form-control"></input>
+								
+								<label for="price" th:text="#{price}"></label> 
+								<input type="number" th:field="*{price}" class="form-control"></input>
+						
+								<button type="submit" class="btn btn-primary" th:utext="#{t.save}">
+									<i class="fa fa-floppy-o" aria-hidden="true"></i>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<table class="table">
+				<tr>
+					<th>FECHA DE INICIO</th>
+					<th>FECHA DE FIN</th>
+					<th>PRECIO</th>
+				</tr>
+				<tr th:each="price:${prices}">
+					<td th:text="${price.initDate}"></td>
+					<td th:text="${price.endDate}"></td>					
+					<td th:text="${price.price}"></td>					
+				</tr>
+			</table>
+			</div>
+		</div>	
+	</body>
+</html>

@@ -10,14 +10,19 @@ import org.springframework.validation.BindingResult;
 
 import tech.tarragona.spring.model.Availability;
 import tech.tarragona.spring.model.Caravan;
+import tech.tarragona.spring.model.Price;
 import tech.tarragona.spring.repository.AvailabilityRepository;
 import tech.tarragona.spring.repository.CaravanaRepository;
+import tech.tarragona.spring.repository.PriceRepository;
 
 @Service
 public class Caravanaservice {
 
 	@Autowired
 	CaravanaRepository caravanaRepository;
+	
+	@Autowired
+	PriceRepository priceRepository;
 	
 	@Autowired
 	AvailabilityRepository availabilityRepository;
@@ -54,6 +59,12 @@ public class Caravanaservice {
 	public void saveAllAvailabilities(ArrayList<Availability> availabilities){
 		availabilityRepository.save(availabilities);
 	}
+	
+	@Transactional
+	public void saveAllPrices(ArrayList<Price> prices){
+		priceRepository.save(prices);
+	}
+	
 	
 		
 }

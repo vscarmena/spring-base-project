@@ -1,7 +1,6 @@
 package tech.tarragona.spring.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import tech.tarragona.spring.model.Availability;
 import tech.tarragona.spring.model.Caravan;
+import tech.tarragona.spring.model.Price;
 import tech.tarragona.spring.service.CampingService;
 import tech.tarragona.spring.service.Caravanaservice;
 import tech.tarragona.spring.validator.CaravanaValidator;
@@ -29,6 +29,7 @@ public class CaravanaController {
 	private final static String PREFIX = "caravan/";
 	private final static String CARAVAN = PREFIX + "gestionCaravanas";
 	private final static String CALENDAR = PREFIX + "calendar";
+	private final static String PRICE = PREFIX + "price";
 	
 	
 	@Autowired
@@ -87,26 +88,50 @@ public class CaravanaController {
 
 		return "caravan/trasladoCaravana";
 	}
+	
+	@GetMapping("/lista")
+	public String lista(Model model){
+		model.addAttribute("caravanList", caravanaservice.findAllCaravan());
+		return "caravan/caravanList";
+	}
 
 	@GetMapping("/calendar/{id}")
 	public String calendar(@PathVariable("id") Integer id, Model model) {
 		
-		model.addAttribute("caravan", caravanaservice.findCaravanById(id));
-		model.addAttribute("availabilities", new ArrayList<Availability>());
+		model.addAttribute("availabilities", caravanaservice.findCaravanById(id).getAvailabilities());
 		model.addAttribute("availability", new Availability());
-		model.addAttribute("id", id);
 		
 		return CALENDAR;
 	}
 	
 	@PostMapping("/calendar/{id}")
-	public String calendar(@PathVariable("id") Integer id, @ModelAttribute("availability") Availability availability, @ModelAttribute("availabilities") ArrayList<Availability> availabilities, @ModelAttribute("caravan") Caravan caravan){
+	public String calendar(@PathVariable("id") Integer id, @ModelAttribute("availability") Availability availability, @ModelAttribute("availabilities") ArrayList<Availability> availabilities){
 		
-		availability.setCaravan(caravan);
-		
+		availability.setCaravan(caravanaservice.findCaravanById(id));
+		availability.setId(0);
 		availabilities.add(availability);
 		caravanaservice.saveAllAvailabilities(availabilities);
 		
 		return CALENDAR;
+	}
+	
+	@GetMapping("/price/{id}")
+	public String price(@PathVariable("id") Integer id, Model model) {
+		
+		model.addAttribute("prices", caravanaservice.findCaravanById(id).getPrices());
+		model.addAttribute("price", new Price());
+		
+		return PRICE;
+	}
+	
+	@PostMapping("/price/{id}")
+	public String price(@PathVariable("id") Integer id, @ModelAttribute("price") Price price, @ModelAttribute("prices") ArrayList<Price> prices){
+		
+		price.setCaravan(caravanaservice.findCaravanById(id));
+		price.setId(0);
+		prices.add(price);
+		caravanaservice.saveAllPrices(prices);
+		
+		return PRICE;
 	}
 }
