@@ -207,7 +207,7 @@
 										th:field="*{characteristic.closer}">
 
 									</label> <label class="checkbox-inline" th:text="#{others}"> <input
-										type="text" th:field="*{characteristic.others}">
+										type="text" th:field="*{characteristic.others}"></label>
 								</div>
 
 								<br>
@@ -339,6 +339,12 @@
 									<span class="step" th:text="#{step.8}"> </span>
 								</h4>
 
+								<div class="form-group">
+									<input id='r1' type='radio' value="1" th:field="*{insurance}"
+										th:text="#{no}" /> <br /> <br> <input id='r2'
+										type='radio' value="0" th:field="*{insurance}"
+										th:text="#{yes}" /> <br /> <br> <br>
+								</div>
 
 								<div id='d1' style='display: none'>
 									<p>
@@ -350,14 +356,9 @@
 										<br>
 
 									</div>
-									<br>
 								</div>
-								<div class="form-group">
-									<input id='r1' type='radio' value="0" th:field="*{insurance}"
-										th:text="#{no}" /> <br /> <br> <input id='r2'
-										type='radio' value="1" th:field="*{insurance}"
-										th:text="#{yes}" /> <br /> <br> <br>
-								</div>
+								<br>
+
 
 								<button type="button" class="btn btn-previous"
 									th:utext="#{previous}">
@@ -496,9 +497,9 @@
 									<p th:if="${#fields.hasErrors('reservAdvanceTime')}"
 										th:errors="*{reservAdvanceTime}" class="error">Name error</p>
 								</div>
-								
+
 								<br> <br>
-								
+
 								<!--6.1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 								<h4 th:text="#{show.recommendation}"></h4>
 
@@ -516,23 +517,23 @@
 
 							</fieldset>
 							<!--                                             6.3                                             -->
-											
-											
+
+
 							<fieldset>
-	                              <h4 th:text="#{select.availability}">
+								<h4 th:text="#{select.availability}">
 									<span class="step" th:text="#{step.9}"> </span>
 								</h4>
 								<div class="form-group">
 
 									<label for="stayLengthMin" th:text="#{stayLengthMin}"><abbr
-										class="required" title="required"> * </abbr></label>
-									<input type="text" th:field="*{stayLengthMin}" class="form-control" />				
+										class="required" title="required"> * </abbr></label> <input
+										type="text" th:field="*{stayLengthMin}" class="form-control" />
 								</div>
-																	
+
 								<div class="form-group">
 									<label for="stayLengthMax" th:text="#{stayLengthMax}"><abbr
-										class="required" title="required"> * </abbr></label>
-									<input type="text" th:field="*{stayLengthMax}" class="form-control" />					
+										class="required" title="required"> * </abbr></label> <input
+										type="text" th:field="*{stayLengthMax}" class="form-control" />
 								</div>
 
 								<h4 th:text="#{tip}"></h4>
@@ -548,12 +549,13 @@
 									<i class="fa fa-floppy-o" aria-hidden="true"></i>
 
 								</button>
-
+							</fieldset>
 
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
