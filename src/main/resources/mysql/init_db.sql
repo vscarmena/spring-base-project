@@ -78,7 +78,6 @@ CREATE UNIQUE INDEX UserConnectionRank on UserConnection(userId, providerId, ran
 
 CREATE TABLE IF NOT EXISTS campings (
 	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	owner int(11),
 	name varchar(30) NOT NULL DEFAULT '',
 	idTelephone int(3),
 	telephone varchar(15),
@@ -95,8 +94,7 @@ CREATE TABLE IF NOT EXISTS campings (
 	emailf varchar (30) NOT NULL DEFAULT '',
 	description text,
 	ubication varchar (250) NOT NULL DEFAULT '',
-	zone varchar (30),
-  	CONSTRAINT fk_camping_idowner FOREIGN KEY (owner) REFERENCES users (id)
+	zone varchar (30)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS campings_services (
@@ -147,9 +145,12 @@ VALUES (1,'silentxavi@yahoo.es', 'Xavier', 'shurmano', '1', '1999-02-09', '34', 
 (2,'cesarAsturianu@gmail.com', 'Cesare', 'Augusto', '1', '1912-09-17', '34', '654321789', 'c/de la Sidra', 'Russiano', '09876'),
 (3,'victor_tgn_69@hotmail.com', 'Victor', 'Condemor Praderar', '1', '1992-09-25', '33', '654123989', 'c/de los Sueños 14 7oC', 'Vietnam', '08081'),
 (4,'sevillana_69@yahoo.es', 'Beatrix', 'Lestrange', '0', '1990-08-16', '45', '666777885', 'a/De la Grasia n89 6o2a', 'Andalucia', '98798');
-INSERT INTO campings (owner, name, idTelephone, telephone, address, country, CP, city)
-VALUES (1, 'CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
-('2', 'CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
-('3', 'CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
-('4', 'CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
+INSERT INTO campings ( name, idTelephone, telephone, address, country, CP, city)
+VALUES ('CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
+('CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
+('CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
+('CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
 INSERT INTO `caravaning`.`user_facturation_data` (`id`, `user_id`, `niff`, `namef`, `addressf`, `emailf`) VALUES ('1', '1', '87665434K', 'Pepito', 'C/ Pollo', 'xavi_pollo@gmail.com');
+INSERT INTO `caravaning`.`campings_services` (`id`, `camping_id`, `animation`, `pool`, `heated_pool`, `gym`, `wifi`, `supermarket`, `beach`, `disco`, `doctor`, `kindergarten`, `pub`, `minigolf`, `wellness`, `atm`, `defibrillator`, `laundry`, `dogs`, `snack_bar`, `restaurant`, `tennis`, `paddel`, `football`) 
+VALUES ('1', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0'),
+ ('2', '2', '1', '1', '1', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '1');
