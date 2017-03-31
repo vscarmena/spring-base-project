@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS campings (
 	addressf varchar (30) NOT NULL DEFAULT '',
 	emailf varchar (30) NOT NULL DEFAULT '',
 	description text,
-	ubication varchar (250) NOT NULL DEFAULT '',
+	location varchar (250) NOT NULL DEFAULT '',
 	zone varchar (30)
 ) ENGINE=InnoDB;
 

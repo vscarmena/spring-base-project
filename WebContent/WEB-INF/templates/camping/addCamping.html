@@ -14,58 +14,100 @@
 			<!-- <div class="col-sm-6 col-md-4 col-md-offset-4"> -->
 			<div class="col-sm-3"></div>
 			 <div class="col-sm-7" style="background-color:#ffff99;">
-				<h1 class="text-center login-title">Registrar Camping</h1>
+				<h1 class="text-center login-title" th:text="#{formAddCamping.registrar}"></h1>
 				<div class="account-wall">
 					<img class="profile-img" src="http://campingmarmenor.com/wp-content/uploads/2014/11/icono-camping.png" alt="">
 
-					<form th:action="@{/addCamping}" method="post" class="form-signin">
+					<form th:action="@{/addCamping}" method="post" th:object="${camping}" class="form-signin">
 						<fieldset class="fieldset-auto-width">
-							<legend>DATOS DEL CAMPING</legend>
-							<label for="name">Nombre:</label>
-							<input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required autofocus/>
-							<br/> <b>Prefijo:</b> <select id="idTelephone" name="idTelephone">
-								<option value="34">Espa�a: +34</option>
-								<option value="376">Andorra: +376</option>
-								<option value="35">Portugal: +351</option>
-								<option value="33">Francia: +33</option>
+							<legend th:text="#{formAddCamping.legendCampingData}"></legend>
+							
+							<label for="name" th:text="#{formAddCamping.name}"></label>
+							<input type="text" th:field="*{name}" class="form-control" th:placeholder="#{formAddCamping.name}" required autofocus/>
+							<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error">Error</p>
+							<br/>
+							
+							<label for="idTelephone" th:text="#{formAddCamping.idTelephone}"></label>:
+							<select id="idTelephone" th:field="*{idTelephone}">
+								<option value="34" th:text="#{formAddCamping.idTelSpain}"></option>
+								<option value="376" th:text="#{formAddCamping.idTelAndorra}"></option>
+								<option value="35" th:text="#{formAddCamping.idTelPortugal}"></option>
+								<option value="33" th:text="#{formAddCamping.idTelFrance}"></option>
 								</select> 
 								
-							<br><label for="telephone">Telefono:</label> 
-							<input type="text" id="telephone" name="telephone"class="form-control" placeholder="telephone" required/>	
-							<br><label for="country">Pa�s:</label>
-							<input type="text" id="country" name="country" class="form-control" placeholder="País" required/>
-							<br/> <label for="address">Direcci�n:</label>
-							<input type="text" id="address" name="address" class="form-control" placeholder="Direcci�n" required/> 
-							<br/> <label for="city">Ciudad:</label>
-							<input type="text" id="city"  name="city" class="form-control" placeholder="Ciudad" required/>
-							<br/> <label for="cp">CP:</label>
-							<input type="text" id="cp"  name="cp" class="form-control" placeholder="C�digo Postal" required/>	
-							<br/> <label for="schedule">Horario:</label>
-							<input type="text" id="schedule"  name="schedule" class="form-control" placeholder="Introduzca el horario" required/>					
-							<br/> <label for="description">Descripci�n:</label>
-							<textarea id="description" name="description" rows="5" cols="30" placeholder="Breve descripci�n de las virtudes del Camping"></textarea>
-							<br/> <label for="ubication">Ubicaci�n:</label>
-							<input type="text" id="ubication" name="ubication" class="form-control" placeholder="Ubicaci�n del Camping" required/>
-							<br/> <label for="zone">Zona:</label>
-							<input type="text" id="zone" name="zone" class="form-control" placeholder="Indicaci�n de la zona" required/>					
+							<br><label for="telephone" th:text="#{formAddCamping.telephone}"></label> 
+							<input type="text" th:field="*{telephone}" class="form-control" th:placeholder="#{formAddCamping.telephone}" required/>	
+							<p th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}" class="error">Error</p>
+							<br>
+							
+							<label for="country" th:text="#{formAddCamping.country}"></label>
+							<input type="text" th:field="*{country}" class="form-control" th:placeholder="#{formAddCamping.country}" required/>
+							<p th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="error">Error</p>
+							<br/>
+							
+							<label for="address" th:text="#{formAddCamping.address}"></label>
+							<input type="text" th:field="*{address}" class="form-control" th:placeholder="#{formAddCamping.address}" required/> 
+							<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="error">Error</p>
+							<br/>
+							
+							<label for="city" th:text="#{formAddCamping.city}"></label>
+							<input type="text" th:field="*{city}" class="form-control" th:placeholder="#{formAddCamping.city}" required/>
+							<p th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="error">Error</p>
+							<br/>
+							
+							<label for="cp" th:text="#{formAddCamping.cp}"></label>
+							<input type="text" th:field="*{cp}" class="form-control" th:placeholder="#{formAddCamping.cp}" required/>	
+							<p th:if="${#fields.hasErrors('cp')}" th:errors="*{cp}" class="error">Error</p>
+							<br/>
+							
+							<label for="schedule" th:text="#{formAddCamping.schedule}"></label>
+							<input type="text" th:field="*{schedule}" class="form-control" th:placeholder="#{formAddCamping.schedule}" required/>					
+							<p th:if="${#fields.hasErrors('schedule')}" th:errors="*{schedule}" class="error">Error</p>
+							<br/>
+							
+							<label for="description" th:text="#{formAddCamping.description}"></label>
+							<textarea th:field="*{description}" rows="5" cols="30" th:placeholder="#{formAddCamping.description}"></textarea>
+							<p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="error">Error</p>
+							<br/>
+							
+							<label for="ubication" th:text="#{formAddCamping.location}"></label>
+							<input type="text" th:field="*{location}" class="form-control" th:placeholder="#{formAddCamping.location}" required/>
+							<p th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="error">Error</p>
+							<br/>
+							
+							<label for="zone" th:text="#{formAddCamping.zone}"></label>
+							<input type="text" th:field="*{zone}" class="form-control" th:placeholder="#{formAddCamping.zone}" required/>					
+							<p th:if="${#fields.hasErrors('zone')}" th:errors="*{zone}" class="error">Error</p>
 							</fieldset><br/><br/>
 							
 							
 							
 							<fieldset class="fieldset-auto-width">
-							<legend>DATOS DE FACTURACI�N DEL CAMPING</legend>
-							<label for="namef">Nombre/ Raz�n Social:</label>
-							<input type="text" id="namef" name="namef" class="form-control" placeholder="Nombre" required autofocus>
-							<br/> <label for="cif">NIF/ CIF</label>
-							<input type="text" id="cif"  name="cif" class="form-control" placeholder="CIF" required/>
-							<br/> <label for="addressf">Direcci�n:</label>
-							<input type="text" id="addressf" name="addressf" class="form-control" placeholder="Direcci�n" required> 
-							<br/> <label for="emailf">Email:</label>
-							<input type="text" id="emailf" name="emailf" class="form-control" placeholder="Correo electr�nico" required>							
+							<legend th:text="#{formAddCamping.legendCampingBillingData}"></legend>
+							
+							<label for="namef" th:text="#{formAddCamping.namef}"></label>
+							<input type="text" th:field="*{namef}" class="form-control" th:placeholder="#{formAddCamping.namef}" required autofocus>
+							<p th:if="${#fields.hasErrors('namef')}" th:errors="*{namef}" class="error">Error</p>
+							<br/>
+							
+							<label for="cif" th:text="#{formAddCamping.cif}"></label>
+							<input type="text" th:field="*{cif}" class="form-control" th:placeholder="#{formAddCamping.cif}" required/>
+							<p th:if="${#fields.hasErrors('cif')}" th:errors="*{cif}" class="error">Error</p>
+							<br/>
+							
+							<label for="addressf" th:text="#{formAddCamping.addressf}"></label>
+							<input type="text" th:field="*{addressf}" class="form-control" th:placeholder="#{formAddCamping.addressf}" required> 
+							<p th:if="${#fields.hasErrors('addressf')}" th:errors="*{addressf}" class="error">Error</p>
+							<br/>
+							
+							<label for="emailf" th:text="#{formAddCamping.emailf}">Email:</label>
+							<input type="text" th:field="*{emailf}" class="form-control" th:placeholder="#{formAddCamping.emailf}" required>							
+							<p th:if="${#fields.hasErrors('emailf')}" th:errors="*{emailf}" class="error">Error</p>
+							
 							</fieldset>
 
 						
-				<a href="hello.html"><button	class="btn btn-lg btn-primary btn-block" type="submit">LogIn</button></a>		
+				<a href="hello.html"><button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{formAddCamping.submitbtn}"></button></a>		
 					</form>
 
 					<div class="g-signin2" data-onsuccess="onSignIn">
@@ -81,7 +123,7 @@
 						</div>
 					</div>
 				</div>
-				<a href="hello.html" class="text-center new-account">Volver a home </a>
+				<a href="hello.html" class="text-center new-account" th:text="#{formAddCamping.returnHomepage}"></a>
 				<div class="col-sm-3"></div>
 				</div>
 			</div>

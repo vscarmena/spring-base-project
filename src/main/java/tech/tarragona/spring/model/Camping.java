@@ -1,7 +1,20 @@
 package tech.tarragona.spring.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -13,39 +26,68 @@ public class Camping implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotEmpty
+	@Size(max=30)
 	private String address;
 
+	@NotEmpty
+	@Size(max=30)
 	private String addressf;
 
+	@NotEmpty
+	@Size(max=10)
 	private String cif;
 
+	@NotEmpty
+	@Size(max=25)
 	private String city;
 
+	@NotEmpty
+	@Size(max=25)
 	private String country;
 
+	@NotEmpty
+	@Size(max=10)
 	private String cp;
 
 	@Lob
+	@NotEmpty
 	private String description;
 	
+	@NotEmpty
+	@Size(max=20)
 	private String schedule;
 
+	@NotEmpty
+	@Email
+	@Size(max=30)
 	private String emailf;
 
+	@NotNull
 	private int idTelephone;
 
+	@NotEmpty
+	@Size(max=30)
 	private String name;
 
+	@NotEmpty
+	@Size(max=30)
 	private String namef;
 
 	private int rates;
 
 	private float rating;
 
+	@NotEmpty
+	@Size(max=15)
 	private String telephone;
 
-	private String ubication;
+	@NotEmpty
+	@Size(max=250)
+	private String location;
 
+	@NotEmpty
+	@Size(max=30)
 	private String zone;
 	
 	@OneToOne(mappedBy="camping", cascade = CascadeType.PERSIST)
@@ -183,12 +225,12 @@ public class Camping implements Serializable {
 		this.telephone = telephone;
 	}
 
-	public String getUbication() {
-		return this.ubication;
+	public String getlocation() {
+		return this.location;
 	}
 
-	public void setUbication(String ubication) {
-		this.ubication = ubication;
+	public void setlocation(String location) {
+		this.location = location;
 	}
 
 	public String getZone() {
