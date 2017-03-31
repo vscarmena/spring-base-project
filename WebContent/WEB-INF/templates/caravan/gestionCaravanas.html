@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/default}"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
@@ -334,7 +334,7 @@
 
 							<!-- 5.8&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
 							<fieldset>
-								<h4 th:text="#{5.8}">
+								<h4 th:text="#{5.8.1}">
 									<span class="step" th:text="#{step.8}"> </span>
 								</h4>
 								<div class="form-group">
@@ -347,7 +347,7 @@
 								<div id='d1' style='display: none'>
 									<p>
 									<div class="form-group">
-										<h4>quieres contratar el seguro con nosotros?</h4>
+										<h4 th:text="#{5.8.2}"></h4>
 										<input type='radio' value="0" th:field="*{insuranceOffer}"
 											th:text="#{no}" /> <br /> <br> <input type='radio'
 											value="1" th:field="*{insuranceOffer}" th:text="#{yes}" /> <br />
@@ -372,7 +372,7 @@
 							<!-- 5.9&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
 							<fieldset>
 								<div class="form-group">
-									<h1>Quien llevara tu caravana?</h1>
+									<h4 th:text="#{5.9}"></h4>
 									<select name="whoTrans" id="whoTrans" class="form-control">
 										<option id="mySelf" value="mySelf" th:text="#{mySelf}"></option>
 										<option id="myParking" value="myParking"
@@ -447,7 +447,7 @@
 
 							<fieldset>
 								<div class="form-group">
-									Seleccionar camping <br> <select class="form-control"
+									<h4 th:text="#{5.7}"></h4> <br> <select class="form-control"
 										th:field="*{idCamping}">
 										<option th:each="camping:${campings}" th:value="${camping.id}">
 											<p th:text=${camping.name}></p>
@@ -495,8 +495,10 @@
 
 
 								<br> <br>
-
-
+							<!--6.1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+                            <h4 th:text="#{6.1}"></h4>
+                           
+                             <!--Button ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 								<button type="button" class="btn btn-previous"
 									th:utext="#{previous}">
 									<i class="fa fa-angle-left"></i>
