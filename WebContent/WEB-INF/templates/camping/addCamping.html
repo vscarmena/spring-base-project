@@ -112,7 +112,30 @@
 							<p th:if="${#fields.hasErrors('emailf')}" th:errors="*{emailf}" class="error">Error</p>
 							
 							</fieldset>
-
+							<fieldset class="fieldset-auto-width">
+							<input type="checkbox" id="animation" name="animation" value="1">Animación<br>
+							<input type="checkbox" id="atm" name="atm" value="1">Cajero Automático<br> 
+							<input type="checkbox" id="beach" name="beach" value="1">Playa<br>						
+							<input type="checkbox" name="defibrillator" value="1">Desfibrilador<br> 
+							<input type="checkbox" name="disco" value="1">Discoteca<br> 
+							<input type="checkbox" name="doctor" value="1">Asisténcia médica<br> 
+							<input type="checkbox" name="dogs" value="1">Perros permitidos<br> 
+							<input type="checkbox" name="football" value="1">Fútbol<br> 
+							<input type="checkbox" name="gym" value="1">Gimnasio<br> 
+							<input type="checkbox" name="heatedPool" value="1">Piscina cubierta<br> 
+							<input type="checkbox" name="kindergarten" value="1">Guarderia<br> 
+							<input type="checkbox" name="laundry" value="1">Lavandería<br> 
+							<input type="checkbox" name="minigolf" value="1">MiniGolf<br> 
+							<input type="checkbox" name="paddel" value="1">Paddel<br> 
+							<input type="checkbox" name="pool" value="1">Piscina<br> 
+							<input type="checkbox" name="pub" value="1">Pub<br> 
+							<input type="checkbox" name="restaurant" value="1">Restaurante<br> 
+							<input type="checkbox" name="snackBar" value="1">Bar<br> 
+							<input type="checkbox" name="supermarket" value="1">supermarket<br> 
+							<input type="checkbox" name="tennis" value="1">Tennis<br> 
+							<input type="checkbox" name="wifi" value="1">Wi-fi<br>
+							<input type="checkbox" name="wellness" value="1">Bienestar<br>							
+							</fieldset>
 						
 				<a href="hello.html"><button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{formAddCamping.submitbtn}"></button></a>		
 					</form>
